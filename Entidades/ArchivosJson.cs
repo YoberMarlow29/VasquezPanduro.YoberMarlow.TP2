@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,11 +12,45 @@ namespace Entidades
     {
         public bool Serializar(T obj, string path)
         {
-            throw new NotImplementedException();
+            string json = JsonConvert.SerializeObject(obj, Formatting.Indented);
+            bool retorno;
+            try
+            {
+                File.WriteAllText(path, json);
+                retorno = true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al serializar el archivo '" + path + "': " + ex.Message, ex);
+                retorno= false;
+            }
+            return retorno;
         }
         public T Deserializar(string path)
         {
-            throw new NotImplementedException();
+            T aux = new T();
+            try
+            {
+                if (File.Exists(path))
+                {
+                    string json = File.ReadAllText(path);
+                     aux = JsonConvert.DeserializeObject<T>(json);
+                    return aux;
+                }
+                else
+                {
+                    File.WriteAllText(path, string.Empty);
+                    return new T();
+                }
+            }
+            catch (JsonSerializationException ex)
+            {
+                throw new JsonSerializationException("Error de deserialización en el archivo '" + path + "': " + ex.Message, ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al deserializar el archivo '" + path + "': " + ex.Message, ex);
+            }
         }
 
 
