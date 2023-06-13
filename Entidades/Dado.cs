@@ -15,38 +15,43 @@
         {
             this.numeroDeDado = R.Next(1, 7);
         }
-        public static bool Generala(int[] numeroDeDado) 
+        public static bool Generala(Dado[] dados)
         {
             bool esGenerala = false;
-
-            for (int i = 0; i < 6; i++)
+            int contador = 1;
+            for (int i = 1; i < 5; i++)
             {
-                if (numeroDeDado[i] == 5)
+                if ((dados[i]).NumeroDeDado == (dados[0]).NumeroDeDado)
                 {
-                    esGenerala = true;
-                    break;
+                    contador++;
                 }
+            }
+            if (contador == 5)
+            {
+                esGenerala = true;
             }
             return esGenerala;
         }
-        public static bool Escalera(List<int> dados)
+        public static bool Escalera(Dado[] dados)
         {
             bool esEscalera = false;
-            if (dados[0] != dados[1] &&
-                 dados[0] != dados[2] &&
-                 dados[0] != dados[3] &&
-                 dados[0] != dados[4])
+            if (dados[0].NumeroDeDado != dados[1].NumeroDeDado &&
+                 dados[0].NumeroDeDado != dados[2].NumeroDeDado &&
+                 dados[0].NumeroDeDado != dados[3].NumeroDeDado &&
+                 dados[0].NumeroDeDado != dados[4].NumeroDeDado )
             {
-                if (dados[1] != dados[2] &&
-                    dados[1] != dados[3] &&
-                    dados[1] != dados[4])
+                if (dados[1].NumeroDeDado != dados[2].NumeroDeDado &&
+                    dados[1].NumeroDeDado != dados[3].NumeroDeDado &&
+                    dados[1].NumeroDeDado != dados[4].NumeroDeDado )
                 {
-                    if (dados[2] != dados[3] &&
-                        dados[2] != dados[4])
+                    if (dados[2].NumeroDeDado != dados[3].NumeroDeDado &&
+                        dados[2].NumeroDeDado != dados[4].NumeroDeDado )
                     {
-                        if (dados[3] != dados[4])
+                        if (dados[3].NumeroDeDado != dados[4].NumeroDeDado )
                         {
-                            esEscalera = true;
+                            
+                                esEscalera = true;
+                            
                         }
                     }
                 }
@@ -54,67 +59,125 @@
             }
             return esEscalera;
         }
-        public static bool Poker(int[] numeroDeDado)
+        public static bool Poker(Dado[] dados)
         {
             bool esPoker = false;
-
-            for (int i = 0; i < 6; i++)
+            int[] numeros = new int[7];
+            int i = 0;
+            int poker = 0;
+            int numero4 = 0;
+            int posicion = 0;
+            for (i = 0; i < dados.Length; i++)
             {
-                if (numeroDeDado[i] == 4)
+                if (dados[i].NumeroDeDado == 1)
                 {
-                    esPoker = true;
-                    break;
+                    numeros[1]++;
+                }
+                if (dados[i].NumeroDeDado == 2)
+                {
+                    numeros[2]++;
+                }
+                if (dados[i].NumeroDeDado == 3)
+                {
+                    numeros[3]++;
+                }
+                if (dados[i].NumeroDeDado == 4)
+                {
+                    numeros[4]++;
+                }
+                if (dados[i].NumeroDeDado == 5)
+                {
+                    numeros[5]++;
+                }
+                if (dados[i].NumeroDeDado == 6)
+                {
+                    numeros[6]++;
                 }
             }
-
+            for (i = 0; i < numeros.Length; i++)
+            {
+                if (numeros[i] == 4)
+                {
+                    poker++;
+                    numero4 = i;
+                }
+            }
+            for (i = 0; i < dados.Length; i++)
+            {
+                if (dados[i].NumeroDeDado != numero4)
+                {
+                    posicion = i;
+                }
+            }
+            if (poker == 1)
+            {
+                esPoker = true;
+            }
             return esPoker;
         }
-
-        public static int[] MapearJugada(List<int> dados)
-        {
-            int[] contadorDeLados = new int[6];
-            for (int i = 0; i < 5; i++)
-            {
-                contadorDeLados[dados[i] - 1]++;
-            }
-
-            return contadorDeLados;
-        }
-
-        public static bool Full(int[] numeroDeDado)
+        public static bool Full(Dado[] dados)
         {
             bool esFull = false;
-            bool flag1 = false;
-            bool flag2 = false;
-
-            for (int i = 0; i < 6; i++)
+            int[] numeros = new int[7];
+            int i = 0;
+            int numerocon3 = 0;
+            int numerocon2 = 0;
+            for (i = 0; i < dados.Length; i++)
             {
-                if (numeroDeDado[i] == 3)
+                if (dados[i].NumeroDeDado == 1)
                 {
-                    flag1 = true;
+                    numeros[1]++;
                 }
-                else
+                if (dados[i].NumeroDeDado == 2)
                 {
-                    if (numeroDeDado[i] == 2)
+                    numeros[2]++;
+                }
+                if (dados[i].NumeroDeDado == 3)
+                {
+                    numeros[3]++;
+                }
+                if (dados[i].NumeroDeDado == 4)
+                {
+                    numeros[4]++;
+                }
+                if (dados[i].NumeroDeDado == 5)
+                {
+                    numeros[5]++;
+                }
+                if (dados[i].NumeroDeDado == 6)
+                {
+                    numeros[6]++;
+                }
+            }
+            for (i = 0; i < numeros.Length; i++)
+            {
+                if (numeros[i] == 3)
+                {
+                    numerocon3 = i;
+                }
+            }
+            if (numerocon3 > 0)
+            {
+                for (i = 0; i < numeros.Length; i++)
+                {
+                    if (numeros[i] == 2)
                     {
-                        flag2 = true;
+                        numerocon2 = i;
                     }
                 }
             }
-
-            if (flag1 == true && flag2 == true)
+            if (numerocon3 > 0 && numerocon2 > 0)
             {
                 esFull = true;
             }
-
             return esFull;
         }
-        public static int VerificarPuntuacionNumero(List<int> dados, int numero)
+        public static int VerificarPuntuacionNumero(Dado[] dados, int numero)
         {
             int contador = 0;
-            for (int i = 0; i < dados.Count; i++)
+            for (int i = 0; i < dados.Length; i++)
             {
-                if (dados[i] == numero)
+                if (dados[i].NumeroDeDado == numero)
                 {
                     contador++;
                 }

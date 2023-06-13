@@ -52,7 +52,7 @@ namespace Entidades
 
             return rta;
         }
-        public List<Usuario> ObtenerListaDato()
+        public List<Usuario> ObtenerListaDatoUsuarios()
         {
             List<Usuario> lista = new List<Usuario>();
 
@@ -99,7 +99,7 @@ namespace Entidades
 
             return lista;
         }
-        public bool AgregarDato(Usuario param)
+        public bool AgregarDatoUsuarios(Usuario param)
         {
             bool rta = true;
 
@@ -139,7 +139,89 @@ namespace Entidades
             return rta;
         }
 
-        public bool ModificarDato(Usuario param)
+        public List<Usuario> ObtenerListaDeJugadores()
+        {
+            List<Usuario> lista = new List<Usuario>();
+
+            try
+            {
+                this.comando = new SqlCommand();
+
+                this.comando.CommandType = CommandType.Text;
+                this.comando.CommandText = "SELECT * FROM Jugadores";
+                this.comando.Connection = this.conexion;
+
+                this.conexion.Open();
+
+                this.lector = comando.ExecuteReader();
+
+                while (lector.Read())
+                {
+                    Usuario item = new Usuario();
+
+                    // ACCEDO POR NOMBRE, POR INDICE O POR GETTER (SEGUN TIPO DE DATO)
+                    item.Id = (int)lector["Id"];
+                    item.Nombre = lector["Nombre"].ToString();
+
+                    lista.Add(item);
+                }
+
+                lector.Close();
+
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                if (this.conexion.State == ConnectionState.Open)
+                {
+                    this.conexion.Close();
+                }
+            }
+
+            return lista;
+        }
+        public bool AgregarJugador(Usuario param)
+        {
+            bool rta = true;
+
+            try
+            {
+                string sql = "INSERT INTO Jugadores (Nombre) VALUES ('" + param.Nombre + "')";
+
+
+                this.comando = new SqlCommand();
+
+                this.comando.CommandType = CommandType.Text;
+                this.comando.CommandText = sql;
+                this.comando.Connection = this.conexion;
+
+                this.conexion.Open();
+
+                int filasAfectadas = this.comando.ExecuteNonQuery();
+
+                if (filasAfectadas == 0)
+                {
+                    rta = false;
+                }
+            }
+            catch (Exception)
+            {
+                rta = false;
+            }
+            finally
+            {
+                if (this.conexion.State == ConnectionState.Open)
+                {
+                    this.conexion.Close();
+                }
+            }
+
+            return rta;
+        }
+        public bool ModificarJugador(Usuario param)
         {
             bool rta = true;
 
@@ -149,12 +231,9 @@ namespace Entidades
 
                 this.comando.Parameters.AddWithValue("@Id", param.Id);
                 this.comando.Parameters.AddWithValue("@Nombre", param.Nombre);
-                this.comando.Parameters.AddWithValue("@Apellido", param.Apellido);
-                this.comando.Parameters.AddWithValue("@Correo", param.Correo);
-                this.comando.Parameters.AddWithValue("@Clave", param.Clave);
 
-                string sql = "UPDATE Usuario ";
-                sql += "SET Nombre = @Nombre, Apellido = @Apellido, Correo = @Correo, Clave = @Clave";
+                string sql = "UPDATE Jugadores ";
+                sql += "SET Nombre = @Nombre";
                 sql += "WHERE id = @id";
 
                 this.comando.CommandType = CommandType.Text;
@@ -184,7 +263,7 @@ namespace Entidades
             }
             return rta;
         }
-        public bool EliminarDato(int id)
+        public bool EliminarJuagador(int id)
         {
             bool rta = true;
 
@@ -194,7 +273,7 @@ namespace Entidades
 
                 this.comando.Parameters.AddWithValue("@Id", id);
 
-                string sql = "DELETE FROM Usuario ";
+                string sql = "DELETE FROM Jugadores ";
                 sql += "WHERE Id = @Id";
 
                 this.comando.CommandType = CommandType.Text;
@@ -225,5 +304,6 @@ namespace Entidades
 
             return rta;
         }
+
     }
 }
