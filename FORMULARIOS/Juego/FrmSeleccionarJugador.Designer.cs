@@ -1,6 +1,6 @@
 ﻿namespace FORMULARIOS
 {
-    partial class SalaDeJuego
+    partial class FrmSeleccionarJugador
     {
         /// <summary>
         /// Required designer variable.

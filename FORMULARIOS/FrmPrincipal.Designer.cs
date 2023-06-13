@@ -31,6 +31,7 @@
             btnCrearPartida = new Button();
             btnEstadisticas = new Button();
             btnHistorial = new Button();
+            btnCrearJugador = new Button();
             SuspendLayout();
             // 
             // btnCrearPartida
@@ -60,11 +61,21 @@
             btnHistorial.Text = "Historial Partida";
             btnHistorial.UseVisualStyleBackColor = true;
             // 
+            // btnCrearJugador
+            // 
+            btnCrearJugador.Location = new Point(158, 258);
+            btnCrearJugador.Name = "btnCrearJugador";
+            btnCrearJugador.Size = new Size(105, 23);
+            btnCrearJugador.TabIndex = 3;
+            btnCrearJugador.Text = "Crear jugador";
+            btnCrearJugador.UseVisualStyleBackColor = true;
+            // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1088, 584);
+            Controls.Add(btnCrearJugador);
             Controls.Add(btnHistorial);
             Controls.Add(btnEstadisticas);
             Controls.Add(btnCrearPartida);
@@ -78,5 +89,6 @@
         private Button btnCrearPartida;
         private Button btnEstadisticas;
         private Button btnHistorial;
+        private Button btnCrearJugador;
     }
 }
