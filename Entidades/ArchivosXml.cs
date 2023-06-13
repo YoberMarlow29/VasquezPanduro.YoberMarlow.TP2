@@ -15,7 +15,7 @@ namespace Entidades
             bool retorno=false;
             try
             {
-                XmlSerializer serializer = new XmlSerializer(typeof(List<T>));
+                XmlSerializer serializer = new XmlSerializer(typeof(T));
 
                 using (FileStream fileStream = new FileStream(path, FileMode.Create))
                 {
@@ -38,11 +38,11 @@ namespace Entidades
             {
                 if (File.Exists(path))
                 {
-                    XmlSerializer serializer = new XmlSerializer(typeof(List<T>));
+                    XmlSerializer serializer = new XmlSerializer(typeof(T));
 
                     using (FileStream fileStream = new FileStream(path, FileMode.Open))
                     {
-                        List<T> lista = (List<T>)serializer.Deserialize(fileStream);
+                        T lista = (T)serializer.Deserialize(fileStream);
                         return aux;
                     }
                 }

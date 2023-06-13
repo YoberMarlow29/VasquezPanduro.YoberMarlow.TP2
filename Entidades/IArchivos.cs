@@ -9,7 +9,6 @@ namespace Entidades
     public interface IArchivos<T> where T : class, new()
     {
         public bool Serializar(T obj,string path);
-        public T Deserializar(string path);
-    
+        public T Deserializar(string path);   
     }
 }

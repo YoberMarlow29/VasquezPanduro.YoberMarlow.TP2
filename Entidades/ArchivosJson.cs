@@ -24,6 +24,8 @@ namespace Entidades
                 throw new Exception("Error al serializar el archivo '" + path + "': " + ex.Message, ex);
                 retorno= false;
             }
+
+            
             return retorno;
         }
         public T Deserializar(string path)
