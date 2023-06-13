@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    internal class SalaDeJuegos
+    public class SalaDeJuegos
     {
+
     }
 }

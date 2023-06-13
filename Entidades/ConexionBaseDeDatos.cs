@@ -78,9 +78,6 @@ namespace Entidades
                     item.Apellido = lector["Apellido"].ToString();
                     item.Correo = lector["Correo"].ToString();
                     item.Clave = lector["Clave"].ToString();
-                    item.PartidasJugadas = int.Parse(lector["PartidasJugadas"].ToString());
-                    item.PartidasGanadas = int.Parse(lector["PartidasGanadas"].ToString());
-                    item.PartidasPerdidas = int.Parse(lector["PartidasPerdidas"].ToString());
 
                     lista.Add(item);
                 }
@@ -108,7 +105,7 @@ namespace Entidades
 
             try
             {
-                string sql = "INSERT INTO dbo.tabla_jugadores (Nombre, Apellido, Correo, Clave, PartidasJugadas, PartidasGanadas, PartidasPerdidas) VALUES(";
+                string sql = "INSERT INTO dbo.tabla_jugadores (Nombre, Apellido, Correo, Clave) VALUES(";
                 sql = sql + "'" + param.Nombre + "','" + param.Apellido + "','" + param.Correo + "','" + param.Clave + "'," +
                 param.PartidasJugadas.ToString() + "," + param.PartidasGanadas.ToString() + "," + param.PartidasPerdidas.ToString() + ")";
 
@@ -155,12 +152,9 @@ namespace Entidades
                 this.comando.Parameters.AddWithValue("@Apellido", param.Apellido);
                 this.comando.Parameters.AddWithValue("@Correo", param.Correo);
                 this.comando.Parameters.AddWithValue("@Clave", param.Clave);
-                this.comando.Parameters.AddWithValue("@PartidasJugadas", param.PartidasJugadas);
-                this.comando.Parameters.AddWithValue("@PartidasGanadas", param.PartidasGanadas);
-                this.comando.Parameters.AddWithValue("@PartidasPerdidas", param.PartidasPerdidas);
 
                 string sql = "UPDATE Usuario ";
-                sql += "SET Nombre = @Nombre, Apellido = @Apellido, Correo = @Correo, Clave = @Clave, PartidasJugadas = @PartidasJugadas, PartidasGanadas = @PartidasGanadas,  PartidasPerdidas = @PartidasPerdidas ";
+                sql += "SET Nombre = @Nombre, Apellido = @Apellido, Correo = @Correo, Clave = @Clave";
                 sql += "WHERE id = @id";
 
                 this.comando.CommandType = CommandType.Text;
