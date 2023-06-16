@@ -36,7 +36,7 @@
             // btnAceptar
             // 
             btnAceptar.Anchor = AnchorStyles.None;
-            btnAceptar.Location = new Point(173, 85);
+            btnAceptar.Location = new Point(174, 205);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(120, 29);
             btnAceptar.TabIndex = 61;

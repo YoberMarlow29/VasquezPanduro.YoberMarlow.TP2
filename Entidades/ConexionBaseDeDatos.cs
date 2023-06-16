@@ -105,9 +105,8 @@ namespace Entidades
 
             try
             {
-                string sql = "INSERT INTO dbo.tabla_jugadores (Nombre, Apellido, Correo, Clave) VALUES(";
-                sql = sql + "'" + param.Nombre + "','" + param.Apellido + "','" + param.Correo + "','" + param.Clave + "'," +
-                param.PartidasJugadas.ToString() + "," + param.PartidasGanadas.ToString() + "," + param.PartidasPerdidas.ToString() + ")";
+                string sql = "INSERT INTO Usuario (Nombre, Apellido, Correo, Clave) VALUES(";
+                sql = sql + "'" + param.Nombre + "','" + param.Apellido + "','" + param.Correo + "','" + param.Clave + "')";
 
                 this.comando = new SqlCommand();
 
@@ -139,9 +138,9 @@ namespace Entidades
             return rta;
         }
 
-        public List<Usuario> ObtenerListaDeJugadores()
+        public List<Jugador> ObtenerListaDeJugadores()
         {
-            List<Usuario> lista = new List<Usuario>();
+            List<Jugador> lista = new List<Jugador>();
 
             try
             {
@@ -157,11 +156,15 @@ namespace Entidades
 
                 while (lector.Read())
                 {
-                    Usuario item = new Usuario();
+                    Jugador item = new Jugador();
 
                     // ACCEDO POR NOMBRE, POR INDICE O POR GETTER (SEGUN TIPO DE DATO)
                     item.Id = (int)lector["Id"];
                     item.Nombre = lector["Nombre"].ToString();
+                    item.PartidasJugadas = int.Parse(lector["PartidasJugadas"].ToString());
+                    item.PartidasGanadas = int.Parse(lector["PartidasGanadas"].ToString());
+                    item.PartidasPerdidas = int.Parse(lector["PartidasPerdidas"].ToString());
+
 
                     lista.Add(item);
                 }
@@ -183,13 +186,14 @@ namespace Entidades
 
             return lista;
         }
-        public bool AgregarJugador(Usuario param)
+        public bool AgregarJugador(Jugador param)
         {
             bool rta = true;
 
             try
             {
-                string sql = "INSERT INTO Jugadores (Nombre) VALUES ('" + param.Nombre + "')";
+                string sql = "INSERT INTO Jugadores (Nombre, PartidasJugadas, PartidasGanadas, PartidasPerdidas) VALUES(";
+                sql = sql + "'" + param.Nombre + "'," +param.PartidasJugadas.ToString() + "," + param.PartidasGanadas.ToString() + "," + param.PartidasPerdidas.ToString() + ")";
 
 
                 this.comando = new SqlCommand();
@@ -221,7 +225,7 @@ namespace Entidades
 
             return rta;
         }
-        public bool ModificarJugador(Usuario param)
+        public bool ModificarJugador(Jugador param)
         {
             bool rta = true;
 
@@ -231,9 +235,12 @@ namespace Entidades
 
                 this.comando.Parameters.AddWithValue("@Id", param.Id);
                 this.comando.Parameters.AddWithValue("@Nombre", param.Nombre);
+                this.comando.Parameters.AddWithValue("@PartidasJugadas", param.PartidasJugadas);
+                this.comando.Parameters.AddWithValue("@PartidasGanadas", param.PartidasGanadas);
+                this.comando.Parameters.AddWithValue("@PartidasPerdidas", param.PartidasPerdidas);
 
                 string sql = "UPDATE Jugadores ";
-                sql += "SET Nombre = @Nombre";
+                sql += "SET Nombre = @Nombre,PartidasJugadas=@PartidasJugadas,PartidasGanadas=@PartidasGanadas,PartidasPerdidas=@PartidasPerdidas ";
                 sql += "WHERE id = @id";
 
                 this.comando.CommandType = CommandType.Text;
@@ -263,7 +270,7 @@ namespace Entidades
             }
             return rta;
         }
-        public bool EliminarJuagador(int id)
+        public bool EliminarJugador(int id)
         {
             bool rta = true;
 
