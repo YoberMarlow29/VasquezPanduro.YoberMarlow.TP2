@@ -44,15 +44,12 @@ namespace Entidades
             }
             finally
             {
-                if (this.conexion.State == ConnectionState.Open)
-                {
-                    this.conexion.Close();
-                }
+                CerrarConexion();
             }
 
             return rta;
         }
-        public List<Usuario> ObtenerListaDatoUsuarios()
+        public List<Usuario> ObtenerListaDeUsuarios()
         {
             List<Usuario> lista = new List<Usuario>();
 
@@ -91,15 +88,12 @@ namespace Entidades
             }
             finally
             {
-                if (this.conexion.State == ConnectionState.Open)
-                {
-                    this.conexion.Close();
-                }
+                CerrarConexion();
             }
 
             return lista;
         }
-        public bool AgregarDatoUsuarios(Usuario param)
+        public bool Agregarsuarios(Usuario param)
         {
             bool rta = true;
 
@@ -129,10 +123,7 @@ namespace Entidades
             }
             finally
             {
-                if (this.conexion.State == ConnectionState.Open)
-                {
-                    this.conexion.Close();
-                }
+                CerrarConexion();
             }
 
             return rta;
@@ -178,10 +169,7 @@ namespace Entidades
             }
             finally
             {
-                if (this.conexion.State == ConnectionState.Open)
-                {
-                    this.conexion.Close();
-                }
+                CerrarConexion();
             }
 
             return lista;
@@ -217,10 +205,7 @@ namespace Entidades
             }
             finally
             {
-                if (this.conexion.State == ConnectionState.Open)
-                {
-                    this.conexion.Close();
-                }
+                CerrarConexion();
             }
 
             return rta;
@@ -263,10 +248,7 @@ namespace Entidades
             }
             finally
             {
-                if (this.conexion.State == ConnectionState.Open)
-                {
-                    this.conexion.Close();
-                }
+                CerrarConexion();
             }
             return rta;
         }
@@ -303,13 +285,17 @@ namespace Entidades
             }
             finally
             {
-                if (this.conexion.State == ConnectionState.Open)
-                {
-                    this.conexion.Close();
-                }
+                CerrarConexion();
             }
 
             return rta;
+        }
+        public void CerrarConexion() 
+        {
+            if (this.conexion.State == ConnectionState.Open)
+            {
+                this.conexion.Close();
+            }
         }
 
     }
