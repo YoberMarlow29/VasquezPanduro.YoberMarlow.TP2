@@ -42,6 +42,7 @@
             btnCrearPartida.TabIndex = 0;
             btnCrearPartida.Text = "Crear Partida";
             btnCrearPartida.UseVisualStyleBackColor = true;
+            btnCrearPartida.Click += btnCrearPartida_Click;
             // 
             // btnEstadisticas
             // 
@@ -51,6 +52,7 @@
             btnEstadisticas.TabIndex = 1;
             btnEstadisticas.Text = "Estadisticas";
             btnEstadisticas.UseVisualStyleBackColor = true;
+            btnEstadisticas.Click += btnEstadisticas_Click;
             // 
             // btnHistorial
             // 
@@ -60,6 +62,7 @@
             btnHistorial.TabIndex = 2;
             btnHistorial.Text = "Historial Partida";
             btnHistorial.UseVisualStyleBackColor = true;
+            btnHistorial.Click += btnHistorial_Click;
             // 
             // btnCrearJugador
             // 
@@ -69,6 +72,7 @@
             btnCrearJugador.TabIndex = 3;
             btnCrearJugador.Text = "Crear jugador";
             btnCrearJugador.UseVisualStyleBackColor = true;
+            btnCrearJugador.Click += btnCrearJugador_Click;
             // 
             // FrmPrincipal
             // 

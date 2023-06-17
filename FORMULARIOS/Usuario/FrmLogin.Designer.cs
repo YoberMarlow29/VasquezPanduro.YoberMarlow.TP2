@@ -49,9 +49,9 @@
             lblClave.AutoSize = true;
             lblClave.Location = new Point(83, 103);
             lblClave.Name = "lblClave";
-            lblClave.Size = new Size(34, 15);
+            lblClave.Size = new Size(36, 15);
             lblClave.TabIndex = 1;
-            lblClave.Text = "clave";
+            lblClave.Text = "Clave";
             // 
             // txtCorreo
             // 

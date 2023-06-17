@@ -29,7 +29,7 @@ namespace Entidades
         }
         public Jugador(string nombre,int partidasJugadas,int partidasGanadas,int partidasPerdidas) : this()
         {
-            this.nombre = nombre;
+            ValidarCampoString(nombre, out this.nombre);
             this.partidasJugadas = partidasJugadas;
             this.partidasGanadas= partidasGanadas;
             this.partidasPerdidas = partidasPerdidas;
@@ -37,6 +37,14 @@ namespace Entidades
         public Jugador(int id,string nombre, int partidasJugadas, int partidasGanadas, int partidasPerdidas) : this(nombre,partidasJugadas,partidasGanadas,partidasPerdidas)
         {
             this.id = 0;
+        }
+        private void ValidarCampoString(string campo, out string campoValidado)
+        {
+            if (string.IsNullOrEmpty(campo))
+            {
+                throw new Exception("Ingresar un valor válido.");
+            }
+            campoValidado = campo;
         }
 
     }

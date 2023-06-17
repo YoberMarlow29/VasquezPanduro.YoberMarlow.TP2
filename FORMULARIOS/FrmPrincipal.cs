@@ -16,5 +16,26 @@ namespace FORMULARIOS
         {
             InitializeComponent();
         }
+
+        private void btnCrearPartida_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCrearJugador_Click(object sender, EventArgs e)
+        {
+            FrmCrearJugador frmCrearJugador = new FrmCrearJugador();
+            frmCrearJugador.ShowDialog();
+        }
+
+        private void btnHistorial_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEstadisticas_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

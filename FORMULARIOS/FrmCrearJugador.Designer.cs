@@ -29,27 +29,29 @@
         private void InitializeComponent()
         {
             btnAceptar = new Button();
-            txtApellido = new TextBox();
+            txtNombre = new TextBox();
             label2 = new Label();
+            labelError = new Label();
             SuspendLayout();
             // 
             // btnAceptar
             // 
             btnAceptar.Anchor = AnchorStyles.None;
-            btnAceptar.Location = new Point(174, 205);
+            btnAceptar.Location = new Point(160, 95);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(120, 29);
             btnAceptar.TabIndex = 61;
             btnAceptar.Text = "ACEPTAR";
             btnAceptar.UseVisualStyleBackColor = true;
+            btnAceptar.Click += btnAceptar_Click;
             // 
-            // txtApellido
+            // txtNombre
             // 
-            txtApellido.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtApellido.Location = new Point(110, 37);
-            txtApellido.Name = "txtApellido";
-            txtApellido.Size = new Size(302, 23);
-            txtApellido.TabIndex = 57;
+            txtNombre.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtNombre.Location = new Point(110, 37);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(302, 23);
+            txtNombre.TabIndex = 57;
             // 
             // label2
             // 
@@ -62,23 +64,36 @@
             label2.TabIndex = 54;
             label2.Text = "NOMBRE:";
             // 
+            // labelError
+            // 
+            labelError.AutoSize = true;
+            labelError.ForeColor = Color.Red;
+            labelError.Location = new Point(44, 154);
+            labelError.Name = "labelError";
+            labelError.Size = new Size(38, 15);
+            labelError.TabIndex = 62;
+            labelError.Text = "label1";
+            // 
             // FrmCrearJugador
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(487, 344);
+            Controls.Add(labelError);
             Controls.Add(btnAceptar);
-            Controls.Add(txtApellido);
+            Controls.Add(txtNombre);
             Controls.Add(label2);
             Name = "FrmCrearJugador";
             Text = "FrmLogin";
+            Load += FrmCrearJugador_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
         private Button btnAceptar;
-        private TextBox txtApellido;
+        private TextBox txtNombre;
         private Label label2;
+        private Label labelError;
     }
 }
