@@ -30,9 +30,10 @@
         {
             lblJugadorUno = new Label();
             lblJugadorDos = new Label();
-            cbJugador1 = new ComboBox();
-            cbJugador2 = new ComboBox();
+            cboJugador1 = new ComboBox();
+            cboJugador2 = new ComboBox();
             btnCrearPartida = new Button();
+            labelError = new Label();
             SuspendLayout();
             // 
             // lblJugadorUno
@@ -47,49 +48,61 @@
             // lblJugadorDos
             // 
             lblJugadorDos.AutoSize = true;
-            lblJugadorDos.Location = new Point(12, 100);
+            lblJugadorDos.Location = new Point(208, 24);
             lblJugadorDos.Name = "lblJugadorDos";
             lblJugadorDos.Size = new Size(55, 15);
             lblJugadorDos.TabIndex = 1;
             lblJugadorDos.Text = "Jugador2";
             // 
-            // cbJugador1
+            // cboJugador1
             // 
-            cbJugador1.FormattingEnabled = true;
-            cbJugador1.Location = new Point(12, 52);
-            cbJugador1.Name = "cbJugador1";
-            cbJugador1.Size = new Size(121, 23);
-            cbJugador1.TabIndex = 2;
+            cboJugador1.FormattingEnabled = true;
+            cboJugador1.Location = new Point(12, 52);
+            cboJugador1.Name = "cboJugador1";
+            cboJugador1.Size = new Size(173, 23);
+            cboJugador1.TabIndex = 2;
             // 
-            // cbJugador2
+            // cboJugador2
             // 
-            cbJugador2.FormattingEnabled = true;
-            cbJugador2.Location = new Point(12, 136);
-            cbJugador2.Name = "cbJugador2";
-            cbJugador2.Size = new Size(121, 23);
-            cbJugador2.TabIndex = 3;
+            cboJugador2.FormattingEnabled = true;
+            cboJugador2.Location = new Point(208, 52);
+            cboJugador2.Name = "cboJugador2";
+            cboJugador2.Size = new Size(173, 23);
+            cboJugador2.TabIndex = 3;
             // 
             // btnCrearPartida
             // 
-            btnCrearPartida.Location = new Point(12, 187);
+            btnCrearPartida.Location = new Point(144, 98);
             btnCrearPartida.Name = "btnCrearPartida";
             btnCrearPartida.Size = new Size(104, 23);
             btnCrearPartida.TabIndex = 4;
             btnCrearPartida.Text = "Crear Partida";
             btnCrearPartida.UseVisualStyleBackColor = true;
             // 
-            // SalaDeJuego
+            // labelError
+            // 
+            labelError.AutoSize = true;
+            labelError.ForeColor = Color.Red;
+            labelError.Location = new Point(29, 141);
+            labelError.Name = "labelError";
+            labelError.Size = new Size(38, 15);
+            labelError.TabIndex = 63;
+            labelError.Text = "label1";
+            // 
+            // FrmSeleccionarJugador
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(415, 236);
+            Controls.Add(labelError);
             Controls.Add(btnCrearPartida);
-            Controls.Add(cbJugador2);
-            Controls.Add(cbJugador1);
+            Controls.Add(cboJugador2);
+            Controls.Add(cboJugador1);
             Controls.Add(lblJugadorDos);
             Controls.Add(lblJugadorUno);
-            Name = "SalaDeJuego";
+            Name = "FrmSeleccionarJugador";
             Text = "SalaDeJuego";
+            Load += FrmSeleccionarJugador_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -98,8 +111,9 @@
 
         private Label lblJugadorUno;
         private Label lblJugadorDos;
-        private ComboBox cbJugador1;
-        private ComboBox cbJugador2;
+        private ComboBox cboJugador1;
+        private ComboBox cboJugador2;
         private Button btnCrearPartida;
+        private Label labelError;
     }
 }

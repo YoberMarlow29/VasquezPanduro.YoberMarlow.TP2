@@ -3,23 +3,21 @@
     public class Dado
     {
         private int numero;
-
+        private Random random;
         public Dado()
         {
             this.numero = 0;
+            this.random = new Random();
         }
-
         public int Numero
         {
             get { return this.numero; }
             set { this.numero = value; }
         }
-
-        public void Lanzar(Random R)
+        public void Lanzar()
         {
-            this.numero = R.Next(1, 7);
+            this.numero = random.Next(1, 7);
         }
-
         public static bool Generala(int[] mapeoDados)
         {
             bool esGenerala = false;
@@ -35,7 +33,6 @@
 
             return esGenerala;
         }
-
         public static bool Escalera(List<int> dados)
         {
             bool esEscalera = false;
@@ -61,7 +58,6 @@
             }
             return esEscalera;
         }
-
         public static bool Poker(int[] mapeoDados)
         {
             bool esPoker = false;
@@ -77,18 +73,6 @@
 
             return esPoker;
         }
-
-        public static int[] MapearJugada(List<int> dados)
-        {
-            int[] contadorDeLados = new int[6];
-            for (int i = 0; i < 5; i++)
-            {
-                contadorDeLados[dados[i] - 1]++;
-            }
-
-            return contadorDeLados;
-        }
-
 
         public static bool Full(int[] mapeoDados)
         {
@@ -130,6 +114,5 @@
             }
             return contador;
         }
-
     }
 }

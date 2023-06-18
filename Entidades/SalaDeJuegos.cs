@@ -8,201 +8,162 @@ namespace Entidades
 {
     public class SalaDeJuegos
     {
-        private int ronda;
+        private bool juegoEnCurso;
         private string ganador;
         private Jugador jugadorUno;
         private Jugador jugadorDos;
-        private Random random;
-        Task tarea;
-        CancellationTokenSource cancelarTask = new CancellationTokenSource();
-        ConexionBaseDeDatos ado = new ConexionBaseDeDatos();
-        int flag;
+        private int puntajeUno;
+        private int puntajeDos;
+        private int ronda;
+        private CancellationTokenSource cancellationTokenSource;
+        private CancellationToken cancellationToken;
+
+        public event Action<string> MensajeEnviado;
 
         public int Ronda { get => ronda; set => ronda = value; }
         public string Ganador { get => ganador; set => ganador = value; }
         public Jugador JugadorUno { get => jugadorUno; set => jugadorUno = value; }
         public Jugador JugadorDos { get => jugadorDos; set => jugadorDos = value; }
-        public int Puntaje1 { get; set; }
-        public int Puntaje2 { get; set; }
+        public int PuntajeUno { get => puntajeUno; set => puntajeUno = value; }
+        public int PuntajeDos { get => puntajeDos; set => puntajeDos = value; }
 
-        public event Action<List<int>> SeTiraronDados;
-        public event Action<string> MandarMensaje;
-        public event EventHandler TerminoPartida;
-        public event Action<SalaDeJuegos> GuardarPartida;
-
-        public SalaDeJuegos(Jugador jugadorUno, Jugador jugadorDos) 
+        public SalaDeJuegos(Jugador jugadorUno, Jugador jugadorDos)
         {
+            this.juegoEnCurso = false;
+            this.ganador = string.Empty;
             this.jugadorUno = jugadorUno;
             this.jugadorDos = jugadorDos;
-            ronda = 1;
-            random = new Random();
-            tarea = new Task(() =>
-            {
-                Jugar(cancelarTask.Token);
-                GuardarPartida?.Invoke(this);
-            }, cancelarTask.Token);
-            flag = 0;
+            this.puntajeUno = 0;
+            this.puntajeDos = 0;
+            this.ronda = 1;
+            this.cancellationTokenSource = new CancellationTokenSource();
+            this.cancellationToken = cancellationTokenSource.Token;
         }
 
-        public int ComenzarPartida()
+        public void IniciarJuego()
         {
-            tarea.Start();
-            this.flag = 1;
-            return flag;
+            juegoEnCurso = true;
+            MensajeEnviado?.Invoke("¡Comienza la partida!");
 
-        }
-        public int CancelarPartida()
-        {
-            cancelarTask.Cancel();
-            this.flag = -1;
-            return flag;
-        }
-        private void Jugar(CancellationToken cancelarToken)
-        {
-            while (true)
+            while (juegoEnCurso)
             {
-                MandarMensaje?.Invoke($"Se esta jugando la ronda {ronda}\n");
-                Thread.Sleep(1000);
-                JugarUnaRonda(jugadorUno, jugadorDos);
-                string nombre1 = jugadorUno.Nombre;
-                string nombre2 = jugadorDos.Nombre;
+                JugarRonda();
 
-                if (ronda == 4 || cancelarToken.IsCancellationRequested)
-                {
-                    flag = -1;
-                    break;
-                }
-                ronda++;
-            }
-
-            if (TerminoPartida is not null)
-            {
-                if (Puntaje1 > Puntaje2)
-                {
-                    Ganador = jugadorUno.Nombre;
-                    jugadorUno.PartidasGanadas++;
-                    MandarMensaje?.Invoke($"{jugadorUno.Nombre} gana la partida!\n");
-                    ado.ModificarJugador(jugadorUno);
-                }
+                if (ronda >= 4)
+                    FinalizarJuego();
                 else
-                {
-                    if (Puntaje2 > Puntaje1)
-                    {
-                        Ganador = jugadorDos.Nombre;
-                        jugadorUno.PartidasPerdidas++;
-                        MandarMensaje?.Invoke($"{jugadorDos.Nombre} gana la partida!\n");
-                        ado.ModificarJugador(JugadorUno);
-                    }
-                    else
-                    {
-                        Ganador = "Empate";
-                        MandarMensaje?.Invoke("No hubo ganador...\n");
-                    }
-                }
-                TerminoPartida(this, EventArgs.Empty);
+                    SiguienteRonda();
             }
         }
 
-        private int CalcularSumaDeLosDados(List<int> dados, out string nombreJugada)
+        private void JugarRonda()
+        {
+            MensajeEnviado?.Invoke($"Ronda {ronda}: Turno de {JugadorUno.Nombre}");
+            int[] mapeoDados = new int[6];
+            List<int> dados = new List<int>();
+
+            // Lanzar los 5 dados
+            for (int i = 0; i < 5; i++)
+            {
+                Dado dado = new Dado();
+                dado.Lanzar();
+                int numero = dado.Numero;
+                dados.Add(numero);
+                mapeoDados[numero - 1]++;
+            }
+
+            MensajeEnviado?.Invoke($"Dados: {string.Join(", ", dados)}");
+
+            // Calcular puntaje
+            int puntaje = CalcularPuntaje(mapeoDados, dados);
+            MensajeEnviado?.Invoke($"Puntaje: {puntaje}");
+
+            // Actualizar puntajes de los jugadores
+            if (puntaje > 0)
+            {
+                if (ronda % 2 == 1)
+                    PuntajeUno += puntaje;
+                else
+                    PuntajeDos += puntaje;
+            }
+        }
+
+        private int CalcularPuntaje(int[] mapeoDados, List<int> dados)
         {
             int puntaje = 0;
-            int[] mapeadoDados = Dado.MapearJugada(dados);
-            nombreJugada = "Ninguna";
 
-
-            if (Dado.Poker(mapeadoDados))
+            if (Dado.Generala(mapeoDados))
+            {
+                puntaje = 50;
+                MensajeEnviado?.Invoke("¡Generala!");
+            }
+            else if (Dado.Poker(mapeoDados))
             {
                 puntaje = 40;
-                nombreJugada = "Poker";
+                MensajeEnviado?.Invoke("¡Poker!");
+            }
+            else if (Dado.Full(mapeoDados))
+            {
+                puntaje = 30;
+                MensajeEnviado?.Invoke("¡Full!");
+            }
+            else if (Dado.Escalera(dados))
+            {
+                puntaje = 20;
+                MensajeEnviado?.Invoke("¡Escalera!");
             }
             else
             {
-                if (Dado.Full(mapeadoDados))
+                int numeroMasRepetido = 0;
+                int cantidadMasRepetido = 0;
+
+                for (int i = 0; i < mapeoDados.Length; i++)
                 {
-                    puntaje = 30;
-                    nombreJugada = "Full";
-                }
-                else
-                {
-                    if (Dado.Escalera(dados))
+                    if (mapeoDados[i] > cantidadMasRepetido)
                     {
-                        puntaje = 20;
-                        nombreJugada = "Escalera";
-                    }
-                    else
-                    {
-                        if (Dado.Generala(mapeadoDados))
-                        {
-                            puntaje = 50;
-                            nombreJugada = "Generala";
-                        }
-                        else
-                        {
-                            puntaje = 5;
-                        }
+                        cantidadMasRepetido = mapeoDados[i];
+                        numeroMasRepetido = i + 1;
                     }
                 }
+
+                puntaje = numeroMasRepetido * cantidadMasRepetido;
+                MensajeEnviado?.Invoke($"Números más repetidos: {numeroMasRepetido} ({cantidadMasRepetido} veces)");
             }
+
             return puntaje;
         }
 
-        private void AsignarDados(List<int> listaDeDados)
+        private void SiguienteRonda()
         {
-            for (int i = 0; i < 5; i++)
-            {
-                listaDeDados.Add(random.Next(1, 7));
-            }
-            if (SeTiraronDados is not null)
-            {
-                SeTiraronDados(listaDeDados);
-            }
+            ronda++;
+            MensajeEnviado?.Invoke("Siguiente ronda...");
+            Thread.Sleep(2000); // Esperar un poco antes de la siguiente ronda
         }
-        private void Mensaje(string mensaje) { }
 
-        private void JugarUnaRonda(Jugador unJugador, Jugador otroJugador)
+        private void FinalizarJuego()
         {
-            Action<string> miDelegado = Mensaje;
-            miDelegado += Mensaje;
-            miDelegado += Mensaje;
+            juegoEnCurso = false;
+            MensajeEnviado?.Invoke("¡Fin del juego!");
 
-            var miVariable = miDelegado.GetInvocationList();
-
-            List<int> dadosJugadorUno = new List<int>();
-            List<int> dadosJugadorDos = new List<int>();
-
-            AsignarDados(dadosJugadorUno);
-            Thread.Sleep(1000);
-            AsignarDados(dadosJugadorDos);
-            Thread.Sleep(1000);
-
-            string nombreJugada = "";
-            int puntosJugadorUno = CalcularSumaDeLosDados(dadosJugadorUno, out nombreJugada);
-            Puntaje1 += puntosJugadorUno;
-            MandarMensaje?.Invoke($"{unJugador.Nombre} hizo la jugada: {nombreJugada} y sumo en total {puntosJugadorUno}\n");
-
-            int puntosJugadorDos = CalcularSumaDeLosDados(dadosJugadorDos, out nombreJugada);
-            Puntaje2 += puntosJugadorDos;
-            MandarMensaje?.Invoke($"{otroJugador.Nombre} hizo la jugada: {nombreJugada} y sumo en total {puntosJugadorDos}\n");
-
-            Thread.Sleep(1000);
-            if (puntosJugadorUno == puntosJugadorDos)
+            // Calcular ganador
+            if (PuntajeUno > PuntajeDos)
             {
-                MandarMensaje?.Invoke($"Empate!\n");
+                ganador = JugadorUno.Nombre;
+                JugadorUno.PartidasGanadas++;
+            }
+            else if (PuntajeDos > PuntajeUno)
+            {
+                ganador = JugadorDos.Nombre;
+                JugadorDos.PartidasGanadas++;
             }
             else
             {
-                if (puntosJugadorUno > puntosJugadorDos)
-                {
-                    ganador = $"{unJugador.Nombre} gano la ronda con {puntosJugadorUno}!\n";
-                }
-                else
-                {
-                    ganador = $"{otroJugador.Nombre} gano la ronda con {puntosJugadorDos}!\n";
-                }
+                ganador = "Empate";
             }
-            Thread.Sleep(1000);
-            MandarMensaje?.Invoke($"\nTermino la ronda...\n");
-            Thread.Sleep(1000);
+
+            MensajeEnviado?.Invoke($"El ganador es: {ganador}");
+
         }
+
     }
 }

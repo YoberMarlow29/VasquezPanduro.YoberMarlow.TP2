@@ -29,109 +29,129 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSalaDeJuegos));
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
-            pictureBox4 = new PictureBox();
-            pictureBox5 = new PictureBox();
-            pictureBox6 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            dado1 = new PictureBox();
+            dado2 = new PictureBox();
+            dado3 = new PictureBox();
+            dado4 = new PictureBox();
+            dado5 = new PictureBox();
+            richTextBox1 = new RichTextBox();
+            btnLanzar = new Button();
+            btnCancelar = new Button();
+            ((System.ComponentModel.ISupportInitialize)dado1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dado2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dado3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dado4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dado5).BeginInit();
             SuspendLayout();
             // 
-            // pictureBox1
+            // dado1
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(36, 32);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(100, 100);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            dado1.Image = (Image)resources.GetObject("dado1.Image");
+            dado1.Location = new Point(38, 29);
+            dado1.Name = "dado1";
+            dado1.Size = new Size(100, 100);
+            dado1.SizeMode = PictureBoxSizeMode.StretchImage;
+            dado1.TabIndex = 0;
+            dado1.TabStop = false;
             // 
-            // pictureBox2
+            // dado2
             // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(168, 32);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(100, 100);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 1;
-            pictureBox2.TabStop = false;
+            dado2.Image = (Image)resources.GetObject("dado2.Image");
+            dado2.Location = new Point(144, 29);
+            dado2.Name = "dado2";
+            dado2.Size = new Size(100, 100);
+            dado2.SizeMode = PictureBoxSizeMode.StretchImage;
+            dado2.TabIndex = 1;
+            dado2.TabStop = false;
             // 
-            // pictureBox3
+            // dado3
             // 
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(300, 32);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(100, 100);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 2;
-            pictureBox3.TabStop = false;
+            dado3.Image = (Image)resources.GetObject("dado3.Image");
+            dado3.Location = new Point(250, 29);
+            dado3.Name = "dado3";
+            dado3.Size = new Size(100, 100);
+            dado3.SizeMode = PictureBoxSizeMode.StretchImage;
+            dado3.TabIndex = 2;
+            dado3.TabStop = false;
             // 
-            // pictureBox4
+            // dado4
             // 
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(425, 32);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(100, 100);
-            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox4.TabIndex = 3;
-            pictureBox4.TabStop = false;
+            dado4.Image = (Image)resources.GetObject("dado4.Image");
+            dado4.Location = new Point(356, 29);
+            dado4.Name = "dado4";
+            dado4.Size = new Size(100, 100);
+            dado4.SizeMode = PictureBoxSizeMode.StretchImage;
+            dado4.TabIndex = 3;
+            dado4.TabStop = false;
             // 
-            // pictureBox5
+            // dado5
             // 
-            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(550, 32);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(100, 100);
-            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox5.TabIndex = 4;
-            pictureBox5.TabStop = false;
+            dado5.Image = (Image)resources.GetObject("dado5.Image");
+            dado5.Location = new Point(462, 29);
+            dado5.Name = "dado5";
+            dado5.Size = new Size(100, 100);
+            dado5.SizeMode = PictureBoxSizeMode.StretchImage;
+            dado5.TabIndex = 4;
+            dado5.TabStop = false;
             // 
-            // pictureBox6
+            // richTextBox1
             // 
-            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new Point(671, 32);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(100, 100);
-            pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox6.TabIndex = 5;
-            pictureBox6.TabStop = false;
+            richTextBox1.Location = new Point(38, 151);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(524, 281);
+            richTextBox1.TabIndex = 5;
+            richTextBox1.Text = "";
+            // 
+            // btnLanzar
+            // 
+            btnLanzar.Location = new Point(568, 104);
+            btnLanzar.Name = "btnLanzar";
+            btnLanzar.Size = new Size(75, 76);
+            btnLanzar.TabIndex = 6;
+            btnLanzar.Text = "Lanzar";
+            btnLanzar.UseVisualStyleBackColor = true;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.Location = new Point(568, 186);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(75, 76);
+            btnCancelar.TabIndex = 7;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
             // 
             // FrmSalaDeJuegos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 519);
-            Controls.Add(pictureBox6);
-            Controls.Add(pictureBox5);
-            Controls.Add(pictureBox4);
-            Controls.Add(pictureBox3);
-            Controls.Add(pictureBox2);
-            Controls.Add(pictureBox1);
+            ClientSize = new Size(659, 454);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnLanzar);
+            Controls.Add(richTextBox1);
+            Controls.Add(dado5);
+            Controls.Add(dado4);
+            Controls.Add(dado3);
+            Controls.Add(dado2);
+            Controls.Add(dado1);
             Name = "FrmSalaDeJuegos";
             Text = "FrmSalaDeJuegos";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dado1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dado2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dado3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dado4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dado5).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox3;
-        private PictureBox pictureBox4;
-        private PictureBox pictureBox5;
-        private PictureBox pictureBox6;
+        private PictureBox dado1;
+        private PictureBox dado2;
+        private PictureBox dado3;
+        private PictureBox dado4;
+        private PictureBox dado5;
+        private RichTextBox richTextBox1;
+        private Button btnLanzar;
+        private Button btnCancelar;
     }
 }

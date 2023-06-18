@@ -22,6 +22,7 @@ namespace Entidades
 
         public Jugador()
         {
+            
             this.nombre = "";
             this.partidasGanadas = 0;
             this.partidasJugadas = 0;
@@ -36,7 +37,7 @@ namespace Entidades
         }
         public Jugador(int id,string nombre, int partidasJugadas, int partidasGanadas, int partidasPerdidas) : this(nombre,partidasJugadas,partidasGanadas,partidasPerdidas)
         {
-            this.id = 0;
+            this.id = id;
         }
         private void ValidarCampoString(string campo, out string campoValidado)
         {
@@ -46,6 +47,9 @@ namespace Entidades
             }
             campoValidado = campo;
         }
-
+        public override string ToString()
+        {
+            return this.Nombre;
+        }
     }
 }
