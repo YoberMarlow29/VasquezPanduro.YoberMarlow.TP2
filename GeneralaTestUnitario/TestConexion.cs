@@ -39,14 +39,25 @@ namespace GeneralaTestUnitario
         {
             //arrange
             ConexionBaseDeDatos baseDeDatos = new ConexionBaseDeDatos();
-            Jugador jugador = new Jugador(6, "Rodrigo", 1, 1, 2);
+            Jugador jugador = new Jugador("Rodrigo", 0, 0, 0);
             bool resultado;
             //act
             resultado = baseDeDatos.ModificarJugador(jugador);
             //assert
             Assert.IsTrue(resultado);
         }
-        
+        [TestMethod]
+        public void ObtenerListaJugadoresDeBaseDeDatos() 
+        {
+            //arrange
+            ConexionBaseDeDatos baseDeDatos = new ConexionBaseDeDatos();
+            List<Jugador> lista = new List<Jugador>();
+            //act
+            lista = baseDeDatos.ObtenerListaDeJugadores();
+            //assert
+            Assert.IsNotNull(lista);
+        }
+
 
 
     }

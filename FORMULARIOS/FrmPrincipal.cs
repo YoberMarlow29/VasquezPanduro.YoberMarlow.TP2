@@ -28,7 +28,7 @@ namespace FORMULARIOS
         private void btnCrearPartida_Click(object sender, EventArgs e)
         {
             FrmSeleccionarJugador frmJuegos = new FrmSeleccionarJugador();
-            frmJuegos.Show();
+            frmJuegos.ShowDialog();
         }
 
         private void btnCrearJugador_Click(object sender, EventArgs e)
@@ -53,8 +53,6 @@ namespace FORMULARIOS
                 MessageBox.Show("Conexion con exito");
             else
                 MessageBox.Show("hubo un error");
-
-
         }
     }
 }

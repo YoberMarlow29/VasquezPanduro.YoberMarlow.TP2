@@ -21,8 +21,7 @@ namespace Entidades
         public int PartidasPerdidas { get => partidasPerdidas; set => partidasPerdidas = value; }
 
         public Jugador()
-        {
-            
+        {            
             this.nombre = "";
             this.partidasGanadas = 0;
             this.partidasJugadas = 0;
@@ -34,10 +33,6 @@ namespace Entidades
             this.partidasJugadas = partidasJugadas;
             this.partidasGanadas= partidasGanadas;
             this.partidasPerdidas = partidasPerdidas;
-        }
-        public Jugador(int id,string nombre, int partidasJugadas, int partidasGanadas, int partidasPerdidas) : this(nombre,partidasJugadas,partidasGanadas,partidasPerdidas)
-        {
-            this.id = id;
         }
         private void ValidarCampoString(string campo, out string campoValidado)
         {

@@ -37,7 +37,7 @@ namespace FORMULARIOS
         {
             salaDeJuegos?.CancelarPartida();
 
-            btnIniciarPartida.Enabled = true;
+            btnIniciarPartida.Enabled = false;
             btnCancelarPartida.Enabled = false;
         }
         private void MensajeEnviado(string mensaje)

@@ -196,30 +196,34 @@ namespace Entidades
             cancellationTokenSource.Cancel();
             juegoEnCurso = false;
 
-            if (juegoTask != null)
-                juegoTask.Wait();
-
-            if (PuntajeUno > PuntajeDos)
+            Task.Run(() =>
             {
-                ganador = JugadorUno.Nombre;
-                JugadorUno.PartidasGanadas++;
-            }
-            else if (PuntajeDos > PuntajeUno)
-            {
-                ganador = JugadorDos.Nombre;
-                JugadorDos.PartidasGanadas++;
-            }
-            else
-            {
-                ganador = "Empate";
-            }
-            MensajeEnviado?.Invoke($"El ganador es: {ganador}");
+                if (juegoTask != null)
+                    juegoTask.Wait();
 
-            FinalizarPartida();
-            ModificarJugador(JugadorUno);
-            ModificarJugador(JugadorDos);
+                if (PuntajeUno > PuntajeDos)
+                {
+                    ganador = JugadorUno.Nombre;
+                    JugadorUno.PartidasGanadas++;
+                }
+                else if (PuntajeDos > PuntajeUno)
+                {
+                    ganador = JugadorDos.Nombre;
+                    JugadorDos.PartidasGanadas++;
+                }
+                else
+                {
+                    ganador = "Empate";
+                }
 
-            MensajeEnviado?.Invoke("Partida cancelada.");
+                MensajeEnviado?.Invoke($"El ganador es: {ganador}");
+
+                FinalizarPartida();
+                ModificarJugador(JugadorUno);
+                ModificarJugador(JugadorDos);
+
+                MensajeEnviado?.Invoke("Partida cancelada.");
+            });
         }
         private void FinalizarPartida()
         {
