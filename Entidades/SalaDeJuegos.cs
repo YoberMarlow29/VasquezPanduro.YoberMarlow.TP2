@@ -76,7 +76,7 @@ namespace Entidades
             MensajeEnviado?.Invoke($"Turno de {JugadorUno.Nombre}");
             RealizarLanzamiento(JugadorUno);
 
-            Thread.Sleep(2000); // Esperar 2 segundos
+            Thread.Sleep(2000);
 
             MensajeEnviado?.Invoke($"Turno de {JugadorDos.Nombre}");
             RealizarLanzamiento(JugadorDos);
@@ -216,6 +216,8 @@ namespace Entidades
             MensajeEnviado?.Invoke($"El ganador es: {ganador}");
 
             FinalizarPartida();
+            ModificarJugador(JugadorUno);
+            ModificarJugador(JugadorDos);
 
             MensajeEnviado?.Invoke("Partida cancelada.");
         }

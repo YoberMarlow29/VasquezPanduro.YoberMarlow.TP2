@@ -42,16 +42,16 @@ namespace FORMULARIOS
         }
         private void MensajeEnviado(string mensaje)
         {
-            if (richTextBox1.InvokeRequired)
+            if (richTabla.InvokeRequired)
             {
-                richTextBox1.Invoke((MethodInvoker)delegate
+                richTabla.Invoke((MethodInvoker)delegate
                 {
-                    richTextBox1.AppendText(mensaje + Environment.NewLine);
+                    richTabla.AppendText(mensaje + Environment.NewLine);
                 });
             }
             else
             {
-                richTextBox1.AppendText(mensaje + Environment.NewLine);
+                richTabla.AppendText(mensaje + Environment.NewLine);
             }
         }
     }

@@ -32,6 +32,7 @@
             btnEstadisticas = new Button();
             btnHistorial = new Button();
             btnCrearJugador = new Button();
+            btnProbarConexion = new Button();
             SuspendLayout();
             // 
             // btnCrearPartida
@@ -74,11 +75,22 @@
             btnCrearJugador.UseVisualStyleBackColor = true;
             btnCrearJugador.Click += btnCrearJugador_Click;
             // 
+            // btnProbarConexion
+            // 
+            btnProbarConexion.Location = new Point(158, 287);
+            btnProbarConexion.Name = "btnProbarConexion";
+            btnProbarConexion.Size = new Size(105, 23);
+            btnProbarConexion.TabIndex = 4;
+            btnProbarConexion.Text = "Probar Conexion";
+            btnProbarConexion.UseVisualStyleBackColor = true;
+            btnProbarConexion.Click += btnProbarConexion_Click;
+            // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1088, 584);
+            Controls.Add(btnProbarConexion);
             Controls.Add(btnCrearJugador);
             Controls.Add(btnHistorial);
             Controls.Add(btnEstadisticas);
@@ -95,5 +107,6 @@
         private Button btnEstadisticas;
         private Button btnHistorial;
         private Button btnCrearJugador;
+        private Button btnProbarConexion;
     }
 }

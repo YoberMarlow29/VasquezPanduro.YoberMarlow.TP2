@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,8 @@ namespace FORMULARIOS
 {
     public partial class FrmPrincipal : Form
     {
-        
-        
+        ConexionBaseDeDatos ado= new ConexionBaseDeDatos();
+
         public FrmPrincipal()
         {
             InitializeComponent();
@@ -21,18 +22,18 @@ namespace FORMULARIOS
         }
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            
-  
+
+
         }
         private void btnCrearPartida_Click(object sender, EventArgs e)
         {
-            FrmSeleccionarJugador frmJuegos= new FrmSeleccionarJugador();
+            FrmSeleccionarJugador frmJuegos = new FrmSeleccionarJugador();
             frmJuegos.Show();
         }
 
         private void btnCrearJugador_Click(object sender, EventArgs e)
         {
-            FrmCrearJugador frmCrearJugador= new FrmCrearJugador();
+            FrmCrearJugador frmCrearJugador = new FrmCrearJugador();
             frmCrearJugador.Show();
         }
 
@@ -46,6 +47,14 @@ namespace FORMULARIOS
 
         }
 
+        private void btnProbarConexion_Click(object sender, EventArgs e)
+        {
+            if (ado.ProbarConexion()) 
+                MessageBox.Show("Conexion con exito");
+            else
+                MessageBox.Show("hubo un error");
 
+
+        }
     }
 }

@@ -28,78 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dado1 = new PictureBox();
-            dado2 = new PictureBox();
-            dado3 = new PictureBox();
-            dado4 = new PictureBox();
-            dado5 = new PictureBox();
-            richTextBox1 = new RichTextBox();
+            richTabla = new RichTextBox();
             btnIniciarPartida = new Button();
             btnCancelarPartida = new Button();
-            ((System.ComponentModel.ISupportInitialize)dado1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dado2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dado3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dado4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dado5).BeginInit();
             SuspendLayout();
             // 
-            // dado1
+            // richTabla
             // 
-            dado1.Image = Properties.Resources._1cara;
-            dado1.Location = new Point(38, 29);
-            dado1.Name = "dado1";
-            dado1.Size = new Size(100, 100);
-            dado1.SizeMode = PictureBoxSizeMode.StretchImage;
-            dado1.TabIndex = 0;
-            dado1.TabStop = false;
-            // 
-            // dado2
-            // 
-            dado2.Image = Properties.Resources._2cara;
-            dado2.Location = new Point(144, 29);
-            dado2.Name = "dado2";
-            dado2.Size = new Size(100, 100);
-            dado2.SizeMode = PictureBoxSizeMode.StretchImage;
-            dado2.TabIndex = 1;
-            dado2.TabStop = false;
-            // 
-            // dado3
-            // 
-            dado3.Image = Properties.Resources._3cara;
-            dado3.Location = new Point(250, 29);
-            dado3.Name = "dado3";
-            dado3.Size = new Size(100, 100);
-            dado3.SizeMode = PictureBoxSizeMode.StretchImage;
-            dado3.TabIndex = 2;
-            dado3.TabStop = false;
-            // 
-            // dado4
-            // 
-            dado4.Image = Properties.Resources._4cara;
-            dado4.Location = new Point(356, 29);
-            dado4.Name = "dado4";
-            dado4.Size = new Size(100, 100);
-            dado4.SizeMode = PictureBoxSizeMode.StretchImage;
-            dado4.TabIndex = 3;
-            dado4.TabStop = false;
-            // 
-            // dado5
-            // 
-            dado5.Image = Properties.Resources._5cara;
-            dado5.Location = new Point(462, 29);
-            dado5.Name = "dado5";
-            dado5.Size = new Size(100, 100);
-            dado5.SizeMode = PictureBoxSizeMode.StretchImage;
-            dado5.TabIndex = 4;
-            dado5.TabStop = false;
-            // 
-            // richTextBox1
-            // 
-            richTextBox1.Location = new Point(38, 151);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(524, 281);
-            richTextBox1.TabIndex = 5;
-            richTextBox1.Text = "";
+            richTabla.Location = new Point(38, 12);
+            richTabla.Name = "richTabla";
+            richTabla.ReadOnly = true;
+            richTabla.Size = new Size(524, 430);
+            richTabla.TabIndex = 5;
+            richTabla.Text = "";
             // 
             // btnIniciarPartida
             // 
@@ -128,32 +69,15 @@
             ClientSize = new Size(659, 454);
             Controls.Add(btnCancelarPartida);
             Controls.Add(btnIniciarPartida);
-            Controls.Add(richTextBox1);
-            Controls.Add(dado5);
-            Controls.Add(dado4);
-            Controls.Add(dado3);
-            Controls.Add(dado2);
-            Controls.Add(dado1);
-            ImeMode = ImeMode.NoControl;
+            Controls.Add(richTabla);
             Name = "FrmSalaDeJuegos";
             Text = "FrmSalaDeJuegos";
             Load += FrmSalaDeJuegos_Load;
-            ((System.ComponentModel.ISupportInitialize)dado1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dado2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dado3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dado4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dado5).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private PictureBox dado1;
-        private PictureBox dado2;
-        private PictureBox dado3;
-        private PictureBox dado4;
-        private PictureBox dado5;
-        private RichTextBox richTextBox1;
+        private RichTextBox richTabla;
         private Button btnIniciarPartida;
         private Button btnCancelarPartida;
     }
