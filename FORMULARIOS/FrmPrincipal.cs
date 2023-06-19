@@ -12,20 +12,28 @@ namespace FORMULARIOS
 {
     public partial class FrmPrincipal : Form
     {
+        
+        
         public FrmPrincipal()
         {
             InitializeComponent();
-        }
 
+        }
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+            
+  
+        }
         private void btnCrearPartida_Click(object sender, EventArgs e)
         {
-
+            FrmSeleccionarJugador frmJuegos= new FrmSeleccionarJugador();
+            frmJuegos.Show();
         }
 
         private void btnCrearJugador_Click(object sender, EventArgs e)
         {
-            FrmCrearJugador frmCrearJugador = new FrmCrearJugador();
-            frmCrearJugador.ShowDialog();
+            FrmCrearJugador frmCrearJugador= new FrmCrearJugador();
+            frmCrearJugador.Show();
         }
 
         private void btnHistorial_Click(object sender, EventArgs e)
@@ -37,5 +45,7 @@ namespace FORMULARIOS
         {
 
         }
+
+
     }
 }

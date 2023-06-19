@@ -78,6 +78,7 @@
             btnCrearPartida.TabIndex = 4;
             btnCrearPartida.Text = "Crear Partida";
             btnCrearPartida.UseVisualStyleBackColor = true;
+            btnCrearPartida.Click += btnCrearPartida_Click;
             // 
             // labelError
             // 

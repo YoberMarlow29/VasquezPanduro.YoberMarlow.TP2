@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSalaDeJuegos));
             dado1 = new PictureBox();
             dado2 = new PictureBox();
             dado3 = new PictureBox();
@@ -46,7 +45,7 @@
             // 
             // dado1
             // 
-            dado1.Image = (Image)resources.GetObject("dado1.Image");
+            dado1.Image = Properties.Resources._1cara;
             dado1.Location = new Point(38, 29);
             dado1.Name = "dado1";
             dado1.Size = new Size(100, 100);
@@ -56,7 +55,7 @@
             // 
             // dado2
             // 
-            dado2.Image = (Image)resources.GetObject("dado2.Image");
+            dado2.Image = Properties.Resources._2cara;
             dado2.Location = new Point(144, 29);
             dado2.Name = "dado2";
             dado2.Size = new Size(100, 100);
@@ -66,7 +65,7 @@
             // 
             // dado3
             // 
-            dado3.Image = (Image)resources.GetObject("dado3.Image");
+            dado3.Image = Properties.Resources._3cara;
             dado3.Location = new Point(250, 29);
             dado3.Name = "dado3";
             dado3.Size = new Size(100, 100);
@@ -76,7 +75,7 @@
             // 
             // dado4
             // 
-            dado4.Image = (Image)resources.GetObject("dado4.Image");
+            dado4.Image = Properties.Resources._4cara;
             dado4.Location = new Point(356, 29);
             dado4.Name = "dado4";
             dado4.Size = new Size(100, 100);
@@ -86,7 +85,7 @@
             // 
             // dado5
             // 
-            dado5.Image = (Image)resources.GetObject("dado5.Image");
+            dado5.Image = Properties.Resources._5cara;
             dado5.Location = new Point(462, 29);
             dado5.Name = "dado5";
             dado5.Size = new Size(100, 100);
@@ -135,6 +134,7 @@
             Controls.Add(dado3);
             Controls.Add(dado2);
             Controls.Add(dado1);
+            ImeMode = ImeMode.NoControl;
             Name = "FrmSalaDeJuegos";
             Text = "FrmSalaDeJuegos";
             Load += FrmSalaDeJuegos_Load;

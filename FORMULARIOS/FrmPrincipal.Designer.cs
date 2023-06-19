@@ -85,6 +85,7 @@
             Controls.Add(btnCrearPartida);
             Name = "FrmPrincipal";
             Text = "FrmPrincipal";
+            Load += FrmPrincipal_Load;
             ResumeLayout(false);
         }
 

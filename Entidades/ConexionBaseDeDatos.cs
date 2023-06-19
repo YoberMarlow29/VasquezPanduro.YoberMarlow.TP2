@@ -155,8 +155,6 @@ namespace Entidades
                     item.PartidasJugadas = int.Parse(lector["PartidasJugadas"].ToString());
                     item.PartidasGanadas = int.Parse(lector["PartidasGanadas"].ToString());
                     item.PartidasPerdidas = int.Parse(lector["PartidasPerdidas"].ToString());
-
-
                     lista.Add(item);
                 }
 

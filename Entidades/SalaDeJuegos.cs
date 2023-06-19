@@ -8,7 +8,6 @@ namespace Entidades
 {
     public class SalaDeJuegos
     {
-        private bool juegoEnCurso;
         private string ganador;
         private Jugador jugadorUno;
         private Jugador jugadorDos;
@@ -18,7 +17,9 @@ namespace Entidades
         private CancellationTokenSource cancellationTokenSource;
         private CancellationToken cancellationToken;
         private Task juegoTask;
-        private bool partidaCancelada = false;
+        private bool partidaCancelada;
+        private bool juegoEnCurso;
+        private ConexionBaseDeDatos conexionBD;
 
         public event Action<string> MensajeEnviado;
 
@@ -31,6 +32,7 @@ namespace Entidades
 
         public SalaDeJuegos(Jugador jugadorUno, Jugador jugadorDos)
         {
+            this.partidaCancelada = false;
             this.juegoEnCurso = false;
             this.juegoTask = null;
             this.ganador = string.Empty;
@@ -41,6 +43,7 @@ namespace Entidades
             this.ronda = 1;
             this.cancellationTokenSource = new CancellationTokenSource();
             this.cancellationToken = cancellationTokenSource.Token;
+            this.conexionBD = new ConexionBaseDeDatos();
         }
 
         public void IniciarJuego()
@@ -59,7 +62,7 @@ namespace Entidades
                     else
                         SiguienteRonda();
 
-                    Thread.Sleep(2000); // Esperar 2 segundos
+                    Thread.Sleep(2000);
 
                     if (cancellationToken.IsCancellationRequested)
                         break;
@@ -84,7 +87,6 @@ namespace Entidades
             int[] mapeoDados = new int[6];
             List<int> dados = new List<int>();
 
-            // Lanzar los 5 dados
             for (int i = 0; i < 5; i++)
             {
                 Dado dado = new Dado();
@@ -96,11 +98,9 @@ namespace Entidades
 
             MensajeEnviado?.Invoke($"Dados de {jugador.Nombre}: {string.Join(", ", dados)}");
 
-            // Calcular puntaje
             int puntaje = CalcularPuntaje(mapeoDados, dados);
-            MensajeEnviado?.Invoke($"Puntaje de {jugador.Nombre}: {puntaje}");
+            MensajeEnviado?.Invoke($"Puntaje de {jugador.Nombre}, con {puntaje} puntos.");
 
-            // Actualizar puntajes de los jugadores
             if (puntaje > 0)
             {
                 if (jugador == JugadorUno)
@@ -158,7 +158,7 @@ namespace Entidades
         {
             ronda++;
             MensajeEnviado?.Invoke("Siguiente ronda...");
-            Thread.Sleep(2000); // Esperar un poco antes de la siguiente ronda
+            Thread.Sleep(2000);
         }
 
         private void FinalizarJuego()
@@ -168,7 +168,6 @@ namespace Entidades
 
             if (!partidaCancelada)
             {
-                // Calcular ganador
                 if (PuntajeUno > PuntajeDos)
                 {
                     ganador = JugadorUno.Nombre;
@@ -185,6 +184,10 @@ namespace Entidades
                 }
                 MensajeEnviado?.Invoke($"El ganador es: {ganador}");
             }
+
+            FinalizarPartida();
+            ModificarJugador(JugadorUno);
+            ModificarJugador(JugadorDos);
         }
 
         public void CancelarPartida()
@@ -193,11 +196,9 @@ namespace Entidades
             cancellationTokenSource.Cancel();
             juegoEnCurso = false;
 
-            // Esperar a que el juego se detenga
             if (juegoTask != null)
                 juegoTask.Wait();
 
-            // Calcular ganador en función de los puntos actuales
             if (PuntajeUno > PuntajeDos)
             {
                 ganador = JugadorUno.Nombre;
@@ -213,6 +214,33 @@ namespace Entidades
                 ganador = "Empate";
             }
             MensajeEnviado?.Invoke($"El ganador es: {ganador}");
+
+            FinalizarPartida();
+
+            MensajeEnviado?.Invoke("Partida cancelada.");
+        }
+        private void FinalizarPartida()
+        {
+            JugadorUno.PartidasJugadas++;
+            JugadorDos.PartidasJugadas++;
+
+            if (ganador != JugadorUno.Nombre)
+                JugadorUno.PartidasPerdidas++;
+            else if (ganador != JugadorDos.Nombre)
+                JugadorDos.PartidasPerdidas++;
+        }
+        private void ModificarJugador(Jugador jugador)
+        {
+            bool exito = conexionBD.ModificarJugador(jugador);
+
+            if (exito)
+            {
+                MensajeEnviado?.Invoke($"Se ha modificado el jugador {jugador.Nombre} en la base de datos.");
+            }
+            else
+            {
+                MensajeEnviado?.Invoke($"No se pudo modificar el jugador {jugador.Nombre} en la base de datos.");
+            }
         }
     }
 }
