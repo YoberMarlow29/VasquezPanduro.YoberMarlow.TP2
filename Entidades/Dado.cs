@@ -102,17 +102,5 @@
 
             return esFull;
         }
-        public static int VerificarPuntuacionNumero(List<int> dados, int numero)
-        {
-            int contador = 0;
-            for (int i = 0; i < dados.Count; i++)
-            {
-                if (dados[i] == numero)
-                {
-                    contador++;
-                }
-            }
-            return contador;
-        }
     }
 }

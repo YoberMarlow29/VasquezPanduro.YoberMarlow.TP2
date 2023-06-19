@@ -35,8 +35,8 @@
             dado4 = new PictureBox();
             dado5 = new PictureBox();
             richTextBox1 = new RichTextBox();
-            btnLanzar = new Button();
-            btnCancelar = new Button();
+            btnIniciarPartida = new Button();
+            btnCancelarPartida = new Button();
             ((System.ComponentModel.ISupportInitialize)dado1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dado2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dado3).BeginInit();
@@ -102,31 +102,33 @@
             richTextBox1.TabIndex = 5;
             richTextBox1.Text = "";
             // 
-            // btnLanzar
+            // btnIniciarPartida
             // 
-            btnLanzar.Location = new Point(568, 104);
-            btnLanzar.Name = "btnLanzar";
-            btnLanzar.Size = new Size(75, 76);
-            btnLanzar.TabIndex = 6;
-            btnLanzar.Text = "Lanzar";
-            btnLanzar.UseVisualStyleBackColor = true;
+            btnIniciarPartida.Location = new Point(568, 104);
+            btnIniciarPartida.Name = "btnIniciarPartida";
+            btnIniciarPartida.Size = new Size(75, 76);
+            btnIniciarPartida.TabIndex = 6;
+            btnIniciarPartida.Text = "Lanzar";
+            btnIniciarPartida.UseVisualStyleBackColor = true;
+            btnIniciarPartida.Click += btnLanzar_Click;
             // 
-            // btnCancelar
+            // btnCancelarPartida
             // 
-            btnCancelar.Location = new Point(568, 186);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(75, 76);
-            btnCancelar.TabIndex = 7;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelarPartida.Location = new Point(568, 186);
+            btnCancelarPartida.Name = "btnCancelarPartida";
+            btnCancelarPartida.Size = new Size(75, 76);
+            btnCancelarPartida.TabIndex = 7;
+            btnCancelarPartida.Text = "Cancelar";
+            btnCancelarPartida.UseVisualStyleBackColor = true;
+            btnCancelarPartida.Click += btnCancelar_Click;
             // 
             // FrmSalaDeJuegos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(659, 454);
-            Controls.Add(btnCancelar);
-            Controls.Add(btnLanzar);
+            Controls.Add(btnCancelarPartida);
+            Controls.Add(btnIniciarPartida);
             Controls.Add(richTextBox1);
             Controls.Add(dado5);
             Controls.Add(dado4);
@@ -135,6 +137,7 @@
             Controls.Add(dado1);
             Name = "FrmSalaDeJuegos";
             Text = "FrmSalaDeJuegos";
+            Load += FrmSalaDeJuegos_Load;
             ((System.ComponentModel.ISupportInitialize)dado1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dado2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dado3).EndInit();
@@ -151,7 +154,7 @@
         private PictureBox dado4;
         private PictureBox dado5;
         private RichTextBox richTextBox1;
-        private Button btnLanzar;
-        private Button btnCancelar;
+        private Button btnIniciarPartida;
+        private Button btnCancelarPartida;
     }
 }
