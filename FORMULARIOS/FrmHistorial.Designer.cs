@@ -41,14 +41,14 @@
             dtgListaDeJugadores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgListaDeJugadores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgListaDeJugadores.EnableHeadersVisualStyles = false;
-            dtgListaDeJugadores.Location = new Point(33, 42);
+            dtgListaDeJugadores.Location = new Point(36, 12);
             dtgListaDeJugadores.MultiSelect = false;
             dtgListaDeJugadores.Name = "dtgListaDeJugadores";
             dtgListaDeJugadores.ReadOnly = true;
             dtgListaDeJugadores.RowHeadersVisible = false;
             dtgListaDeJugadores.RowTemplate.Height = 25;
             dtgListaDeJugadores.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgListaDeJugadores.Size = new Size(921, 499);
+            dtgListaDeJugadores.Size = new Size(921, 529);
             dtgListaDeJugadores.TabIndex = 11;
             dtgListaDeJugadores.TabStop = false;
             dtgListaDeJugadores.VirtualMode = true;

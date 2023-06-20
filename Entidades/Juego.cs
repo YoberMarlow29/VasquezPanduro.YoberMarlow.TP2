@@ -14,14 +14,14 @@ namespace Entidades
         private int puntajeUno;
         private int puntajeDos;
         private int ronda;
+        private bool partidaCancelada;
+        private bool juegoEnCurso;
         private CancellationTokenSource cancellationTokenSource;
         private CancellationToken cancellationToken;
         private Task juegoTask;
-        private bool partidaCancelada;
-        private bool juegoEnCurso;
         private ConexionBaseDeDatos conexionBD;
-
         public event Action<string> MensajeEnviado;
+
 
         public int Ronda { get => ronda; set => ronda = value; }
         public string Ganador { get => ganador; set => ganador = value; }
@@ -55,10 +55,12 @@ namespace Entidades
             {
                 while (juegoEnCurso)
                 {
-                    JugarRonda();
+                    JugarJuego();
 
                     if (ronda >= 4)
+                    {
                         FinalizarJuego();
+                    }
                     else
                         SiguienteRonda();
 
@@ -70,7 +72,7 @@ namespace Entidades
             });
         }
 
-        private void JugarRonda()
+        private void JugarJuego()
         {
             MensajeEnviado?.Invoke($"Ronda {ronda}");
             MensajeEnviado?.Invoke($"Turno de {JugadorUno.Nombre}");
@@ -171,7 +173,6 @@ namespace Entidades
                 DeterminarGanador();
                 MensajeEnviado?.Invoke($"El ganador es: {ganador}");
             }
-
             FinalizarPartida();
             ModificarJugador(JugadorUno);
             ModificarJugador(JugadorDos);

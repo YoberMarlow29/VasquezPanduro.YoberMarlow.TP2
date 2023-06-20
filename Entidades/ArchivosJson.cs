@@ -10,51 +10,50 @@ namespace Entidades
 {
     public class ArchivosJson<T> : IArchivos<T> where T : class, new()
     {
-        public bool Serializar(T obj, string path)
+        public string path= Environment.GetFolderPath(Environment.SpecialFolder.Desktop)+ "\\" + "PartidasJugadas.Json";
+
+        public bool Serializar(T obj)
         {
             string json = JsonConvert.SerializeObject(obj, Formatting.Indented);
             bool retorno;
             try
             {
-                File.WriteAllText(path, json);
+                File.WriteAllText(this.path, json);
                 retorno = true;
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al serializar el archivo '" + path + "': " + ex.Message, ex);
+                throw new Exception("Error al serializar el archivo '" + this.path + "': " + ex.Message, ex);
                 retorno= false;
             }
-
             
             return retorno;
         }
-        public T Deserializar(string path)
+        public T Deserializar()
         {
             T aux = new T();
             try
             {
-                if (File.Exists(path))
+                if (File.Exists(this.path))
                 {
-                    string json = File.ReadAllText(path);
+                    string json = File.ReadAllText(this.path);
                      aux = JsonConvert.DeserializeObject<T>(json);
                     return aux;
                 }
                 else
                 {
-                    File.WriteAllText(path, string.Empty);
+                    File.WriteAllText(this.path, string.Empty);
                     return new T();
                 }
             }
             catch (JsonSerializationException ex)
             {
-                throw new JsonSerializationException("Error de deserialización en el archivo '" + path + "': " + ex.Message, ex);
+                throw new JsonSerializationException("Error de deserialización en el archivo '" + this.path + "': " + ex.Message, ex);
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al deserializar el archivo '" + path + "': " + ex.Message, ex);
+                throw new Exception("Error al deserializar el archivo '" + this.path + "': " + ex.Message, ex);
             }
         }
-
-
     }
 }

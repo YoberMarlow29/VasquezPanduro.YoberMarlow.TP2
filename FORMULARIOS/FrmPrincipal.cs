@@ -13,7 +13,7 @@ namespace FORMULARIOS
 {
     public partial class FrmPrincipal : Form
     {
-        ConexionBaseDeDatos ado= new ConexionBaseDeDatos();
+        ConexionBaseDeDatos ado = new ConexionBaseDeDatos();
 
         public FrmPrincipal()
         {
@@ -49,7 +49,7 @@ namespace FORMULARIOS
 
         private void btnProbarConexion_Click(object sender, EventArgs e)
         {
-            if (ado.ProbarConexion()) 
+            if (ado.ProbarConexion())
                 MessageBox.Show("Conexion con exito");
             else
                 MessageBox.Show("hubo un error");

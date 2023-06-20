@@ -13,7 +13,6 @@ namespace Entidades
         private int puntajeJugadorUno;
         private int puntajeJugadorDos;
         private string ganador;
-
         public string JugadorUno { get => jugadorUno; set => jugadorUno = value; }
         public string JugadorDos { get => jugadorDos; set => jugadorDos = value; }
         public int PuntajeJugadorUno { get => puntajeJugadorUno; set => puntajeJugadorUno = value; }
@@ -27,6 +26,14 @@ namespace Entidades
             this.puntajeJugadorUno = puntajeJugadorUno;
             this.puntajeJugadorDos = puntajeJugadorDos;
             this.ganador = ganador;
+        }
+        public JuegoTerminado()
+        { 
+            this.jugadorUno = "";
+            this.jugadorDos = "";
+            this.puntajeJugadorUno = 0;
+            this.puntajeJugadorDos = 0;
+            this.ganador = "";
         }
     }
 }

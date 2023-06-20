@@ -8,16 +8,18 @@ namespace Entidades
 {
     public static class Sistema
     {
-        static ConexionBaseDeDatos conexion;      
-        static Sistema() 
+        static ConexionBaseDeDatos conexion;
+
+        static Sistema()
         {
             conexion = new ConexionBaseDeDatos();
+
         }
-        public static void AgregarJugador(Jugador jugador) 
+        public static void AgregarJugador(Jugador jugador)
         {
             conexion.AgregarJugador(jugador);
         }
-        public static void AgregarUsuario(Usuario usuario) 
+        public static void AgregarUsuario(Usuario usuario)
         {
             conexion.Agregarsuarios(usuario);
         }

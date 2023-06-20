@@ -67,7 +67,7 @@
             // 
             // btnCrearJugador
             // 
-            btnCrearJugador.Location = new Point(158, 258);
+            btnCrearJugador.Location = new Point(158, 249);
             btnCrearJugador.Name = "btnCrearJugador";
             btnCrearJugador.Size = new Size(105, 23);
             btnCrearJugador.TabIndex = 3;

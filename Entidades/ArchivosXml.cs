@@ -10,14 +10,16 @@ namespace Entidades
 {
     public class ArchivosXml<T> : IArchivos<T> where T : class, new()
     {
-        public bool Serializar(T obj, string path)
+        public string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + "PartidasJugadas.xml";
+
+        public bool Serializar(T obj)
         {
             bool retorno=false;
             try
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(T));
 
-                using (FileStream fileStream = new FileStream(path, FileMode.Create))
+                using (FileStream fileStream = new FileStream(this.path, FileMode.Create))
                 {
                     serializer.Serialize(fileStream, obj);
                     retorno = true;
@@ -25,22 +27,22 @@ namespace Entidades
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al serializar la lista en formato XML y guardar en el archivo '" + path + "': " + ex.Message, ex);
+                throw new Exception("Error al serializar la lista en formato XML y guardar en el archivo '" + this.path + "': " + ex.Message, ex);
                 retorno = false;
             }
             return retorno;
         }
 
-        public T Deserializar(string path)
+        public T Deserializar()
         {
             T aux = new T();
             try
             {
-                if (File.Exists(path))
+                if (File.Exists(this.path))
                 {
                     XmlSerializer serializer = new XmlSerializer(typeof(T));
 
-                    using (FileStream fileStream = new FileStream(path, FileMode.Open))
+                    using (FileStream fileStream = new FileStream(this.path, FileMode.Open))
                     {
                         T lista = (T)serializer.Deserialize(fileStream);
                         return aux;
@@ -48,13 +50,13 @@ namespace Entidades
                 }
                 else
                 {
-                    File.WriteAllText(path, string.Empty);
+                    File.WriteAllText(this.path, string.Empty);
                     return new T();
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al deserializar el archivo XML '" + path + "': " + ex.Message, ex);
+                throw new Exception("Error al deserializar el archivo XML '" + this.path + "': " + ex.Message, ex);
             }
         }
 
