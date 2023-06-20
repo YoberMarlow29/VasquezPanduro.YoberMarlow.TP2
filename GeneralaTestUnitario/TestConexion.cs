@@ -57,6 +57,18 @@ namespace GeneralaTestUnitario
             //assert
             Assert.IsNotNull(lista);
         }
+        [TestMethod]
+        public void AgregarUsuarioABaseDeDatos() 
+        {
+            //arrange
+            ConexionBaseDeDatos baseDeDatos = new ConexionBaseDeDatos();
+            Usuario nuevoUsuario = new Usuario("Roberto","Guidones","eso@pepe.com","1234");
+            //act
+            bool resultado;
+            resultado = baseDeDatos.Agregarsuarios(nuevoUsuario);
+            //assert
+            Assert.IsTrue(resultado);
+        }
 
 
 
