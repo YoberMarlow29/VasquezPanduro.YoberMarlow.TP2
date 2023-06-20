@@ -173,17 +173,23 @@ namespace Entidades
                     ganador = JugadorUno.Nombre;
                     JugadorUno.PartidasGanadas++;
                     JugadorUno.PuntajeTotal += PuntajeUno;
+                    JugadorDos.PuntajeTotal += PuntajeDos;
+
                 }
                 else if (PuntajeDos > PuntajeUno)
                 {
                     ganador = JugadorDos.Nombre;
                     JugadorDos.PartidasGanadas++;
                     JugadorDos.PuntajeTotal += PuntajeDos;
+                    JugadorUno.PuntajeTotal += PuntajeUno;
+
 
                 }
                 else
                 {
                     ganador = "Empate";
+                    JugadorUno.PuntajeTotal += PuntajeUno;
+                    JugadorDos.PuntajeTotal += PuntajeDos;
                 }
                 MensajeEnviado?.Invoke($"El ganador es: {ganador}");
             }
@@ -209,6 +215,8 @@ namespace Entidades
                     ganador = JugadorUno.Nombre;
                     JugadorUno.PartidasGanadas++;
                     JugadorUno.PuntajeTotal += PuntajeUno;
+                    JugadorDos.PuntajeTotal += PuntajeDos;
+
 
                 }
                 else if (PuntajeDos > PuntajeUno)
@@ -216,11 +224,15 @@ namespace Entidades
                     ganador = JugadorDos.Nombre;
                     JugadorDos.PartidasGanadas++;
                     JugadorDos.PuntajeTotal += PuntajeDos;
+                    JugadorUno.PuntajeTotal += PuntajeUno;
+
 
                 }
                 else
                 {
                     ganador = "Empate";
+                    JugadorUno.PuntajeTotal += PuntajeUno;
+                    JugadorDos.PuntajeTotal += PuntajeDos;
                 }
 
                 MensajeEnviado?.Invoke($"El ganador es: {ganador}");
