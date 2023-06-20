@@ -31,10 +31,10 @@
             lblJugadorMasPartidas = new Label();
             lblJugadorMasPartidasGanadas = new Label();
             lblJugadorPartidasMasPerdidas = new Label();
-            dtgListaDeJugadores = new DataGridView();
-            dataGridView1 = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dtgListaDeJugadores).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            dgtMasVictorias = new DataGridView();
+            dgtMasPuntos = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dgtMasVictorias).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgtMasPuntos).BeginInit();
             SuspendLayout();
             // 
             // lblJugadorMasPartidas
@@ -64,63 +64,63 @@
             lblJugadorPartidasMasPerdidas.TabIndex = 2;
             lblJugadorPartidasMasPerdidas.Text = "label3";
             // 
-            // dtgListaDeJugadores
+            // dgtMasVictorias
             // 
-            dtgListaDeJugadores.AllowUserToAddRows = false;
-            dtgListaDeJugadores.AllowUserToDeleteRows = false;
-            dtgListaDeJugadores.AllowUserToResizeRows = false;
-            dtgListaDeJugadores.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dtgListaDeJugadores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dtgListaDeJugadores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgListaDeJugadores.EnableHeadersVisualStyles = false;
-            dtgListaDeJugadores.Location = new Point(185, 59);
-            dtgListaDeJugadores.MultiSelect = false;
-            dtgListaDeJugadores.Name = "dtgListaDeJugadores";
-            dtgListaDeJugadores.ReadOnly = true;
-            dtgListaDeJugadores.RowHeadersVisible = false;
-            dtgListaDeJugadores.RowTemplate.Height = 25;
-            dtgListaDeJugadores.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgListaDeJugadores.Size = new Size(414, 548);
-            dtgListaDeJugadores.TabIndex = 10;
-            dtgListaDeJugadores.TabStop = false;
-            dtgListaDeJugadores.VirtualMode = true;
+            dgtMasVictorias.AllowUserToAddRows = false;
+            dgtMasVictorias.AllowUserToDeleteRows = false;
+            dgtMasVictorias.AllowUserToResizeRows = false;
+            dgtMasVictorias.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgtMasVictorias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgtMasVictorias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgtMasVictorias.EnableHeadersVisualStyles = false;
+            dgtMasVictorias.Location = new Point(185, 59);
+            dgtMasVictorias.MultiSelect = false;
+            dgtMasVictorias.Name = "dgtMasVictorias";
+            dgtMasVictorias.ReadOnly = true;
+            dgtMasVictorias.RowHeadersVisible = false;
+            dgtMasVictorias.RowTemplate.Height = 25;
+            dgtMasVictorias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgtMasVictorias.Size = new Size(414, 548);
+            dgtMasVictorias.TabIndex = 10;
+            dgtMasVictorias.TabStop = false;
+            dgtMasVictorias.VirtualMode = true;
             // 
-            // dataGridView1
+            // dgtMasPuntos
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AllowUserToResizeRows = false;
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.Location = new Point(624, 59);
-            dataGridView1.MultiSelect = false;
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(414, 548);
-            dataGridView1.TabIndex = 11;
-            dataGridView1.TabStop = false;
-            dataGridView1.VirtualMode = true;
+            dgtMasPuntos.AllowUserToAddRows = false;
+            dgtMasPuntos.AllowUserToDeleteRows = false;
+            dgtMasPuntos.AllowUserToResizeRows = false;
+            dgtMasPuntos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgtMasPuntos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgtMasPuntos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgtMasPuntos.EnableHeadersVisualStyles = false;
+            dgtMasPuntos.Location = new Point(624, 59);
+            dgtMasPuntos.MultiSelect = false;
+            dgtMasPuntos.Name = "dgtMasPuntos";
+            dgtMasPuntos.ReadOnly = true;
+            dgtMasPuntos.RowHeadersVisible = false;
+            dgtMasPuntos.RowTemplate.Height = 25;
+            dgtMasPuntos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgtMasPuntos.Size = new Size(414, 548);
+            dgtMasPuntos.TabIndex = 11;
+            dgtMasPuntos.TabStop = false;
+            dgtMasPuntos.VirtualMode = true;
             // 
             // FrmEstadisticas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1144, 619);
-            Controls.Add(dataGridView1);
-            Controls.Add(dtgListaDeJugadores);
+            Controls.Add(dgtMasPuntos);
+            Controls.Add(dgtMasVictorias);
             Controls.Add(lblJugadorPartidasMasPerdidas);
             Controls.Add(lblJugadorMasPartidasGanadas);
             Controls.Add(lblJugadorMasPartidas);
             Name = "FrmEstadisticas";
             Text = "FrmEstadisticas";
             Load += FrmEstadisticas_Load;
-            ((System.ComponentModel.ISupportInitialize)dtgListaDeJugadores).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgtMasVictorias).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgtMasPuntos).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -130,7 +130,7 @@
         private Label lblJugadorMasPartidas;
         private Label lblJugadorMasPartidasGanadas;
         private Label lblJugadorPartidasMasPerdidas;
-        private DataGridView dtgListaDeJugadores;
-        private DataGridView dataGridView1;
+        private DataGridView dgtMasVictorias;
+        private DataGridView dgtMasPuntos;
     }
 }
