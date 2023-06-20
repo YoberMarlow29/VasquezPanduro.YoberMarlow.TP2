@@ -56,6 +56,10 @@ namespace Entidades
         {
             return conexion.ObtenerListaDeUsuarios();
         }
+        public static List<Jugador> ObtenerListaDeJugadores() 
+        {
+            return conexion.ObtenerListaDeJugadores();
+        }
         public static void AgregarJugador(Jugador jugador)
         {
             conexion.AgregarJugador(jugador);
@@ -63,6 +67,13 @@ namespace Entidades
         public static void AgregarUsuario(Usuario usuario)
         {
             conexion.Agregarsuarios(usuario);
+        }
+        public static bool ModificarJugador(Jugador jugador) 
+        {
+           bool result = false; 
+            if (conexion.ModificarJugador(jugador))
+                result = true;
+            return result;
         }
         public static string ObtenerJugadorMasPartidas(List<Jugador> jugadores)
         {

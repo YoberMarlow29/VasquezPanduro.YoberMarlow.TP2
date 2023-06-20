@@ -13,12 +13,10 @@ namespace FORMULARIOS
 {
     public partial class FrmSeleccionarJugador : Form
     {
-        ConexionBaseDeDatos ado;
 
         public FrmSeleccionarJugador()
         {
             InitializeComponent();
-            ado = new ConexionBaseDeDatos();
         }
         private void FrmSeleccionarJugador_Load(object sender, EventArgs e)
         {
@@ -29,8 +27,8 @@ namespace FORMULARIOS
         {
             try
             {
-                cmb_JugadorUno.DataSource = ado.ObtenerListaDeJugadores();
-                cmb_JugadorDos.DataSource = ado.ObtenerListaDeJugadores();
+                cmb_JugadorUno.DataSource = .ObtenerListaDeJugadores();
+                cmb_JugadorDos.DataSource = Sistema.ObtenerListaDeJugadores();
             }
             catch (Exception ex)
             {

@@ -226,7 +226,7 @@ namespace Entidades
         }
         private void ModificarJugador(Jugador jugador)
         {
-            bool exito = conexionBD.ModificarJugador(jugador);
+            bool exito = Sistema.ModificarJugador(jugador);
 
             if (exito)
             {

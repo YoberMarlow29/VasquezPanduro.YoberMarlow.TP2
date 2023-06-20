@@ -13,21 +13,19 @@ namespace FORMULARIOS
 {
     public partial class FrmEstadisticas : Form
     {
-        ConexionBaseDeDatos conexion;
         List<Jugador> listaDeJugadores;
         public FrmEstadisticas()
         {
             InitializeComponent();
-            conexion = new ConexionBaseDeDatos();
         }
 
         private void FrmEstadisticas_Load(object sender, EventArgs e)
         {
-            listaDeJugadores = conexion.ObtenerListaDeJugadores();
+            listaDeJugadores = Sistema.ObtenerListaDeJugadores();
             lblJugadorMasPartidas.Text = Sistema.ObtenerJugadorMasPartidas(listaDeJugadores);
             lblJugadorMasPartidasGanadas.Text = Sistema.ObtenerJugadorMasGanadas(listaDeJugadores);
             lblJugadorPartidasMasPerdidas.Text = Sistema.ObtenerJugadorMasPerdidas(listaDeJugadores);
-            listaDeJugadores = conexion.ObtenerListaDeJugadores();
+            listaDeJugadores = Sistema.ObtenerListaDeJugadores();
 
             List<Jugador> jugadoresPorVictorias = listaDeJugadores.OrderByDescending(j => j.PartidasGanadas).ToList();
             UpdateDataGridVictorias(dgtMasVictorias, jugadoresPorVictorias);

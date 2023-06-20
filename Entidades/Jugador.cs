@@ -71,8 +71,7 @@ namespace Entidades
         }
         private bool ExisteMismoNombre(string nombre) 
         {
-            ConexionBaseDeDatos ado = new ConexionBaseDeDatos();
-            foreach (Jugador jugador in ado.ObtenerListaDeJugadores())
+            foreach (Jugador jugador in Sistema.ObtenerListaDeJugadores())
             {
                 if (jugador.ToString() == nombre)
                 {
