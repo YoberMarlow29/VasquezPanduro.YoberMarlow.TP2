@@ -39,12 +39,14 @@ namespace FORMULARIOS
 
         private void btnHistorial_Click(object sender, EventArgs e)
         {
-
+            FrmHistorial frmHistorial = new FrmHistorial();
+            frmHistorial.ShowDialog();
         }
 
         private void btnEstadisticas_Click(object sender, EventArgs e)
         {
-
+            FrmEstadisticas frmEstadisticas = new FrmEstadisticas();
+            frmEstadisticas.ShowDialog();
         }
 
         private void btnProbarConexion_Click(object sender, EventArgs e)

@@ -29,6 +29,8 @@ namespace Entidades
         public Jugador JugadorDos { get => jugadorDos; set => jugadorDos = value; }
         public int PuntajeUno { get => puntajeUno; set => puntajeUno = value; }
         public int PuntajeDos { get => puntajeDos; set => puntajeDos = value; }
+        public bool PartidaCancelada { get => partidaCancelada; set => partidaCancelada = value; }
+        public bool JuegoEnCurso { get => juegoEnCurso; set => juegoEnCurso = value; }
 
         public Juego(Jugador jugadorUno, Jugador jugadorDos)
         {
@@ -166,6 +168,7 @@ namespace Entidades
         private void FinalizarJuego()
         {
             juegoEnCurso = false;
+
             MensajeEnviado?.Invoke("¡Fin del juego!");
 
             if (!partidaCancelada)
@@ -173,13 +176,8 @@ namespace Entidades
                 DeterminarGanador();
                 MensajeEnviado?.Invoke($"El ganador es: {ganador}");
             }
-            // Crear instancia de JuegoTerminado
             JuegoTerminado juegoTerminado = new JuegoTerminado(JugadorUno.Nombre,JugadorDos.Nombre,puntajeUno,PuntajeDos,Ganador);
-
-            // Agregar la partida terminada a la lista en Sistema
             Sistema.AgregarPartidaTerminada(juegoTerminado);
-
-            // Serializar la lista de partidas terminadas en Sistema
             Sistema.SerializarPartidasTerminadas();
             
             FinalizarPartida();
@@ -205,6 +203,9 @@ namespace Entidades
                 FinalizarPartida();
                 ModificarJugador(JugadorUno);
                 ModificarJugador(JugadorDos);
+                JuegoTerminado juegoTerminado = new JuegoTerminado(JugadorUno.Nombre, JugadorDos.Nombre, puntajeUno, PuntajeDos, Ganador);
+                Sistema.AgregarPartidaTerminada(juegoTerminado);
+                Sistema.SerializarPartidasTerminadas();
 
                 MensajeEnviado?.Invoke("Partida cancelada.");
             });

@@ -30,8 +30,17 @@ namespace Entidades
         }
         public Usuario(string correo, string clave):this() 
         {
-            this.correo= correo;
-            this.clave= clave;
+
+            if (ExisteUsuarioConMismoCorreo(correo))
+            {
+                throw new Exception("Ya existe un usuario con el mismo correo.");
+            }
+            else 
+            {
+                this.correo = correo;
+                this.clave = clave;
+            }
+
         }
         public Usuario(string nombre, string apellido, string correo, string clave):this(correo,clave)
         {
@@ -42,6 +51,27 @@ namespace Entidades
         public bool ComprobarClave(string clave)
         {
             return clave == this.clave;
+        }
+        public override string ToString()
+        {
+            return this.Correo;
+        }
+        public override int GetHashCode()
+        {
+            return this.id;
+        }
+
+        public bool ExisteUsuarioConMismoCorreo(string correo) 
+        {
+            ConexionBaseDeDatos ado = new ConexionBaseDeDatos();
+            foreach (Usuario jugador in ado.ObtenerListaDeUsuarios())
+            {
+                if (jugador.ToString() == correo)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
     }

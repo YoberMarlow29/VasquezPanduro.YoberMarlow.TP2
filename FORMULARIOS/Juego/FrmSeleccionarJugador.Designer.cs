@@ -30,8 +30,8 @@
         {
             lblJugadorUno = new Label();
             lblJugadorDos = new Label();
-            cboJugador1 = new ComboBox();
-            cboJugador2 = new ComboBox();
+            cmb_JugadorUno = new ComboBox();
+            cmb_JugadorDos = new ComboBox();
             btnCrearPartida = new Button();
             labelError = new Label();
             SuspendLayout();
@@ -54,21 +54,21 @@
             lblJugadorDos.TabIndex = 1;
             lblJugadorDos.Text = "Jugador2";
             // 
-            // cboJugador1
+            // cmb_JugadorUno
             // 
-            cboJugador1.FormattingEnabled = true;
-            cboJugador1.Location = new Point(12, 52);
-            cboJugador1.Name = "cboJugador1";
-            cboJugador1.Size = new Size(173, 23);
-            cboJugador1.TabIndex = 2;
+            cmb_JugadorUno.FormattingEnabled = true;
+            cmb_JugadorUno.Location = new Point(12, 52);
+            cmb_JugadorUno.Name = "cmb_JugadorUno";
+            cmb_JugadorUno.Size = new Size(173, 23);
+            cmb_JugadorUno.TabIndex = 2;
             // 
-            // cboJugador2
+            // cmb_JugadorDos
             // 
-            cboJugador2.FormattingEnabled = true;
-            cboJugador2.Location = new Point(208, 52);
-            cboJugador2.Name = "cboJugador2";
-            cboJugador2.Size = new Size(173, 23);
-            cboJugador2.TabIndex = 3;
+            cmb_JugadorDos.FormattingEnabled = true;
+            cmb_JugadorDos.Location = new Point(208, 52);
+            cmb_JugadorDos.Name = "cmb_JugadorDos";
+            cmb_JugadorDos.Size = new Size(173, 23);
+            cmb_JugadorDos.TabIndex = 3;
             // 
             // btnCrearPartida
             // 
@@ -97,8 +97,8 @@
             ClientSize = new Size(415, 236);
             Controls.Add(labelError);
             Controls.Add(btnCrearPartida);
-            Controls.Add(cboJugador2);
-            Controls.Add(cboJugador1);
+            Controls.Add(cmb_JugadorDos);
+            Controls.Add(cmb_JugadorUno);
             Controls.Add(lblJugadorDos);
             Controls.Add(lblJugadorUno);
             Name = "FrmSeleccionarJugador";
@@ -112,8 +112,8 @@
 
         private Label lblJugadorUno;
         private Label lblJugadorDos;
-        private ComboBox cboJugador1;
-        private ComboBox cboJugador2;
+        private ComboBox cmb_JugadorUno;
+        private ComboBox cmb_JugadorDos;
         private Button btnCrearPartida;
         private Label labelError;
     }

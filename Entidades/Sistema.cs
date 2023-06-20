@@ -26,6 +26,7 @@ namespace Entidades
             Inicializar();
 
         }   
+        
         public static void Inicializar()
         {
             partidasTerminadasjson = archivosJson.Deserializar();

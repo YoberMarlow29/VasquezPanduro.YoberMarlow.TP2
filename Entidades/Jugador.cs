@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -32,11 +33,20 @@ namespace Entidades
         }
         public Jugador(string nombre,int partidasJugadas,int partidasGanadas,int partidasPerdidas,int puntajeTotal) : this()
         {
-            ValidarCampoString(nombre, out this.nombre);
-            this.partidasJugadas = partidasJugadas;
-            this.partidasGanadas= partidasGanadas;
-            this.partidasPerdidas = partidasPerdidas;
-            this.puntajeTotal=puntajeTotal;
+            if (ExisteMismoNombre(nombre))
+            {
+                throw new Exception("Ya existe un jugador con el mismo nombre.");
+
+            }
+            else 
+            {
+                ValidarCampoString(nombre, out this.nombre);
+                this.partidasJugadas = partidasJugadas;
+                this.partidasGanadas = partidasGanadas;
+                this.partidasPerdidas = partidasPerdidas;
+                this.puntajeTotal = puntajeTotal;
+            }
+
         }
         private void ValidarCampoString(string campo, out string campoValidado)
         {
@@ -46,9 +56,30 @@ namespace Entidades
             }
             campoValidado = campo;
         }
+        public override bool Equals(object obj)
+        {
+            Jugador jugador = obj as Jugador;
+            return jugador is not null && GetHashCode() == jugador.Id;
+        }
         public override string ToString()
         {
             return this.Nombre;
+        }
+        public override int GetHashCode()
+        {
+            return this.id;
+        }
+        private bool ExisteMismoNombre(string nombre) 
+        {
+            ConexionBaseDeDatos ado = new ConexionBaseDeDatos();
+            foreach (Jugador jugador in ado.ObtenerListaDeJugadores())
+            {
+                if (jugador.ToString() == nombre)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

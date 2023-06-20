@@ -29,8 +29,8 @@ namespace FORMULARIOS
         {
             try
             {
-                cboJugador1.DataSource = ado.ObtenerListaDeJugadores();
-                cboJugador2.DataSource = ado.ObtenerListaDeJugadores();
+                cmb_JugadorUno.DataSource = ado.ObtenerListaDeJugadores();
+                cmb_JugadorDos.DataSource = ado.ObtenerListaDeJugadores();
             }
             catch (Exception ex)
             {
@@ -38,13 +38,25 @@ namespace FORMULARIOS
                 this.labelError.Visible = true;
             }
         }
-
+        private void MostrarError(string msj)
+        {
+            this.labelError.Visible = true;
+            this.labelError.Text = msj;
+        }
         private void btnCrearPartida_Click(object sender, EventArgs e)
         {
-            Jugador jugador1 = (Jugador)cboJugador1.SelectedItem;
-            Jugador jugador2 = (Jugador)cboJugador2.SelectedItem;
-            FrmSalaDeJuegos frmSala = new FrmSalaDeJuegos(jugador1 , jugador2);
-            frmSala.Show();
+
+            if (cmb_JugadorUno.SelectedItem.Equals(cmb_JugadorDos.SelectedItem))
+            {
+                MostrarError("Los jugadores no pueden ser iguales");
+            }
+            else 
+            {
+                Jugador jugador1 = (Jugador)cmb_JugadorUno.SelectedItem;
+                Jugador jugador2 = (Jugador)cmb_JugadorDos.SelectedItem;
+                FrmSalaDeJuegos frmSala = new FrmSalaDeJuegos(jugador1, jugador2);
+                frmSala.Show();
+            }
 
         }
     }
