@@ -168,29 +168,7 @@ namespace Entidades
 
             if (!partidaCancelada)
             {
-                if (PuntajeUno > PuntajeDos)
-                {
-                    ganador = JugadorUno.Nombre;
-                    JugadorUno.PartidasGanadas++;
-                    JugadorUno.PuntajeTotal += PuntajeUno;
-                    JugadorDos.PuntajeTotal += PuntajeDos;
-
-                }
-                else if (PuntajeDos > PuntajeUno)
-                {
-                    ganador = JugadorDos.Nombre;
-                    JugadorDos.PartidasGanadas++;
-                    JugadorDos.PuntajeTotal += PuntajeDos;
-                    JugadorUno.PuntajeTotal += PuntajeUno;
-
-
-                }
-                else
-                {
-                    ganador = "Empate";
-                    JugadorUno.PuntajeTotal += PuntajeUno;
-                    JugadorDos.PuntajeTotal += PuntajeDos;
-                }
+                DeterminarGanador();
                 MensajeEnviado?.Invoke($"El ganador es: {ganador}");
             }
 
@@ -210,30 +188,7 @@ namespace Entidades
                 if (juegoTask != null)
                     juegoTask.Wait();
 
-                if (PuntajeUno > PuntajeDos)
-                {
-                    ganador = JugadorUno.Nombre;
-                    JugadorUno.PartidasGanadas++;
-                    JugadorUno.PuntajeTotal += PuntajeUno;
-                    JugadorDos.PuntajeTotal += PuntajeDos;
-
-
-                }
-                else if (PuntajeDos > PuntajeUno)
-                {
-                    ganador = JugadorDos.Nombre;
-                    JugadorDos.PartidasGanadas++;
-                    JugadorDos.PuntajeTotal += PuntajeDos;
-                    JugadorUno.PuntajeTotal += PuntajeUno;
-
-
-                }
-                else
-                {
-                    ganador = "Empate";
-                    JugadorUno.PuntajeTotal += PuntajeUno;
-                    JugadorDos.PuntajeTotal += PuntajeDos;
-                }
+                DeterminarGanador();
 
                 MensajeEnviado?.Invoke($"El ganador es: {ganador}");
 
@@ -265,6 +220,29 @@ namespace Entidades
             else
             {
                 MensajeEnviado?.Invoke($"No se pudo modificar el jugador {jugador.Nombre} en la base de datos.");
+            }
+        }
+        private void DeterminarGanador()
+        {
+            if (PuntajeUno > PuntajeDos)
+            {
+                ganador = JugadorUno.Nombre;
+                JugadorUno.PartidasGanadas++;
+                JugadorUno.PuntajeTotal += PuntajeUno;
+                JugadorDos.PuntajeTotal += PuntajeDos;
+            }
+            else if (PuntajeDos > PuntajeUno)
+            {
+                ganador = JugadorDos.Nombre;
+                JugadorDos.PartidasGanadas++;
+                JugadorDos.PuntajeTotal += PuntajeDos;
+                JugadorUno.PuntajeTotal += PuntajeUno;
+            }
+            else
+            {
+                ganador = "Empate";
+                JugadorUno.PuntajeTotal += PuntajeUno;
+                JugadorDos.PuntajeTotal += PuntajeDos;
             }
         }
     }
