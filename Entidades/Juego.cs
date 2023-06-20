@@ -20,7 +20,11 @@ namespace Entidades
         private CancellationToken cancellationToken;
         private Task juegoTask;
         private ConexionBaseDeDatos conexionBD;
-        public event Action<string> MensajeEnviado;
+        public delegate void MensajeEnviadoEventHandler(string mensaje);
+        public delegate void PartidaFinalizadaEventHandler(string ganador);
+        public event MensajeEnviadoEventHandler MensajeEnviado;
+        public event PartidaFinalizadaEventHandler PartidaFinalizada;
+
 
 
         public int Ronda { get => ronda; set => ronda = value; }
@@ -174,7 +178,7 @@ namespace Entidades
             if (!partidaCancelada)
             {
                 DeterminarGanador();
-                MensajeEnviado?.Invoke($"El ganador es: {ganador}");
+                PartidaFinalizada?.Invoke($"El ganador es {ganador}");
             }
             JuegoTerminado juegoTerminado = new JuegoTerminado(JugadorUno.Nombre,JugadorDos.Nombre,puntajeUno,PuntajeDos,Ganador);
             Sistema.AgregarPartidaTerminada(juegoTerminado);

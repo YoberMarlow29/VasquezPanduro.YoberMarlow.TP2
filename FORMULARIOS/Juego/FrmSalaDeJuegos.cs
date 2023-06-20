@@ -19,6 +19,8 @@ namespace FORMULARIOS
         {
             InitializeComponent();
             salaDeJuegos = new Juego(jugador1, jugador2);
+            salaDeJuegos.PartidaFinalizada += MostrarGanador;
+            salaDeJuegos.MensajeEnviado += MensajeEnviado;
         }
         private void FrmSalaDeJuegos_Load(object sender, EventArgs e)
         {
@@ -26,17 +28,13 @@ namespace FORMULARIOS
         }
         private void btnLanzar_Click(object sender, EventArgs e)
         {
-            salaDeJuegos.MensajeEnviado += MensajeEnviado;
-
             btnIniciarPartida.Enabled = false;
             btnCancelarPartida.Enabled = true;
-
-            Task.Run(() => salaDeJuegos.IniciarJuego());
+            salaDeJuegos.IniciarJuego();
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             salaDeJuegos?.CancelarPartida();
-
             btnIniciarPartida.Enabled = false;
             btnCancelarPartida.Enabled = false;
         }
@@ -52,6 +50,20 @@ namespace FORMULARIOS
             else
             {
                 richTabla.AppendText(mensaje + Environment.NewLine);
+            }
+        }
+        private void MostrarGanador(string ganador)
+        {
+            if (richTabla.InvokeRequired)
+            {
+                richTabla.Invoke((MethodInvoker)delegate
+                {
+                    richTabla.AppendText(ganador + Environment.NewLine);
+                });
+            }
+            else
+            {
+                richTabla.AppendText(ganador + Environment.NewLine);
             }
         }
     }

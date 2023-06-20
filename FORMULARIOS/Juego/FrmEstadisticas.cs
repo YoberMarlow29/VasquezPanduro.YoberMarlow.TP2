@@ -29,7 +29,7 @@ namespace FORMULARIOS
             lblJugadorPartidasMasPerdidas.Text = Sistema.ObtenerJugadorMasPerdidas(listaDeJugadores);
             UpdateDataGrid(dtgListaDeJugadores);
         }
-        private void UpdateDataGrid(DataGridView datagridListaJugadores) 
+        private void UpdateDataGrid(DataGridView datagridListaJugadores)
         {
             if (conexion.ObtenerListaDeJugadores().Count > 0)
             {
