@@ -172,11 +172,14 @@ namespace Entidades
                 {
                     ganador = JugadorUno.Nombre;
                     JugadorUno.PartidasGanadas++;
+                    JugadorUno.PuntajeTotal += PuntajeUno;
                 }
                 else if (PuntajeDos > PuntajeUno)
                 {
                     ganador = JugadorDos.Nombre;
                     JugadorDos.PartidasGanadas++;
+                    JugadorDos.PuntajeTotal += PuntajeDos;
+
                 }
                 else
                 {
@@ -205,11 +208,15 @@ namespace Entidades
                 {
                     ganador = JugadorUno.Nombre;
                     JugadorUno.PartidasGanadas++;
+                    JugadorUno.PuntajeTotal += PuntajeUno;
+
                 }
                 else if (PuntajeDos > PuntajeUno)
                 {
                     ganador = JugadorDos.Nombre;
                     JugadorDos.PartidasGanadas++;
+                    JugadorDos.PuntajeTotal += PuntajeDos;
+
                 }
                 else
                 {

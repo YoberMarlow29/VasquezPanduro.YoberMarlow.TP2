@@ -155,6 +155,7 @@ namespace Entidades
                     item.PartidasJugadas = int.Parse(lector["PartidasJugadas"].ToString());
                     item.PartidasGanadas = int.Parse(lector["PartidasGanadas"].ToString());
                     item.PartidasPerdidas = int.Parse(lector["PartidasPerdidas"].ToString());
+                    item.PuntajeTotal = int.Parse(lector["PuntajeTotal"].ToString());
                     lista.Add(item);
                 }
 
@@ -178,8 +179,8 @@ namespace Entidades
 
             try
             {
-                string sql = "INSERT INTO Jugadores (Nombre, PartidasJugadas, PartidasGanadas, PartidasPerdidas) VALUES(";
-                sql = sql + "'" + param.Nombre + "'," +param.PartidasJugadas.ToString() + "," + param.PartidasGanadas.ToString() + "," + param.PartidasPerdidas.ToString() + ")";
+                string sql = "INSERT INTO Jugadores (Nombre, PartidasJugadas, PartidasGanadas, PartidasPerdidas, PuntajeTotal) VALUES(";
+                sql = sql + "'" + param.Nombre + "'," +param.PartidasJugadas.ToString() + "," + param.PartidasGanadas.ToString() + "," + param.PartidasPerdidas.ToString() +"," + param.PuntajeTotal + ")";
 
 
                 this.comando = new SqlCommand();
@@ -221,9 +222,12 @@ namespace Entidades
                 this.comando.Parameters.AddWithValue("@PartidasJugadas", param.PartidasJugadas);
                 this.comando.Parameters.AddWithValue("@PartidasGanadas", param.PartidasGanadas);
                 this.comando.Parameters.AddWithValue("@PartidasPerdidas", param.PartidasPerdidas);
+                this.comando.Parameters.AddWithValue("@PuntajeTotal", param.PuntajeTotal);
+
+
 
                 string sql = "UPDATE Jugadores ";
-                sql += "SET Nombre = @Nombre,PartidasJugadas=@PartidasJugadas,PartidasGanadas=@PartidasGanadas,PartidasPerdidas=@PartidasPerdidas ";
+                sql += "SET Nombre = @Nombre,PartidasJugadas=@PartidasJugadas,PartidasGanadas=@PartidasGanadas,PartidasPerdidas=@PartidasPerdidas,PuntajeTotal=@PuntajeTotal ";
                 sql += "WHERE id = @id";
 
                 this.comando.CommandType = CommandType.Text;
