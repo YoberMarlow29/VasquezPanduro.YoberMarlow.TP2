@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class SalaDeJuegos
+    public class Juego
     {
         private string ganador;
         private Jugador jugadorUno;
@@ -30,7 +30,7 @@ namespace Entidades
         public int PuntajeUno { get => puntajeUno; set => puntajeUno = value; }
         public int PuntajeDos { get => puntajeDos; set => puntajeDos = value; }
 
-        public SalaDeJuegos(Jugador jugadorUno, Jugador jugadorDos)
+        public Juego(Jugador jugadorUno, Jugador jugadorDos)
         {
             this.partidaCancelada = false;
             this.juegoEnCurso = false;

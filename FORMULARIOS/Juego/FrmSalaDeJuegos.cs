@@ -13,12 +13,12 @@ namespace FORMULARIOS
 {
     public partial class FrmSalaDeJuegos : Form
     {
-        SalaDeJuegos salaDeJuegos;
+        Juego salaDeJuegos;
 
         public FrmSalaDeJuegos(Jugador jugador1, Jugador jugador2)
         {
             InitializeComponent();
-            salaDeJuegos = new SalaDeJuegos(jugador1, jugador2);
+            salaDeJuegos = new Juego(jugador1, jugador2);
         }
         private void FrmSalaDeJuegos_Load(object sender, EventArgs e)
         {
