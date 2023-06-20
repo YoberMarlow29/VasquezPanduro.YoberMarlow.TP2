@@ -10,7 +10,7 @@ namespace Entidades
 {
     public class ArchivosJson<T> : IArchivos<T> where T : class, new()
     {
-        public string path= Environment.GetFolderPath(Environment.SpecialFolder.Desktop)+ "\\" + "PartidasJugadas.Json";
+        public string path="PartidasJugadas.Json";
 
         public bool Serializar(T obj)
         {

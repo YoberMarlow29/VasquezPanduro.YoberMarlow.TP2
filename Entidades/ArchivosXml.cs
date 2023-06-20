@@ -10,7 +10,7 @@ namespace Entidades
 {
     public class ArchivosXml<T> : IArchivos<T> where T : class, new()
     {
-        public string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + "PartidasJugadas.xml";
+        public string path ="PartidasJugadas.xml";
 
         public bool Serializar(T obj)
         {
@@ -35,31 +35,24 @@ namespace Entidades
 
         public T Deserializar()
         {
-            T aux = new T();
+            if (!File.Exists(this.path))
+            {
+                return default(T);
+            }
+
             try
             {
-                if (File.Exists(this.path))
+                XmlSerializer serializer = new XmlSerializer(typeof(T));
+                using (StreamReader reader = new StreamReader(this.path))
                 {
-                    XmlSerializer serializer = new XmlSerializer(typeof(T));
-
-                    using (FileStream fileStream = new FileStream(this.path, FileMode.Open))
-                    {
-                        T lista = (T)serializer.Deserialize(fileStream);
-                        return aux;
-                    }
-                }
-                else
-                {
-                    File.WriteAllText(this.path, string.Empty);
-                    return new T();
+                    return (T)serializer.Deserialize(reader);
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al deserializar el archivo XML '" + this.path + "': " + ex.Message, ex);
+                throw new Exception("Error durante la deserialización: " + ex.Message);
             }
         }
-
 
     }
 }

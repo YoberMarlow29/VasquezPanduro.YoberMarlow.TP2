@@ -173,6 +173,15 @@ namespace Entidades
                 DeterminarGanador();
                 MensajeEnviado?.Invoke($"El ganador es: {ganador}");
             }
+            // Crear instancia de JuegoTerminado
+            JuegoTerminado juegoTerminado = new JuegoTerminado(JugadorUno.Nombre,JugadorDos.Nombre,puntajeUno,PuntajeDos,Ganador);
+
+            // Agregar la partida terminada a la lista en Sistema
+            Sistema.AgregarPartidaTerminada(juegoTerminado);
+
+            // Serializar la lista de partidas terminadas en Sistema
+            Sistema.SerializarPartidasTerminadas();
+            
             FinalizarPartida();
             ModificarJugador(JugadorUno);
             ModificarJugador(JugadorDos);

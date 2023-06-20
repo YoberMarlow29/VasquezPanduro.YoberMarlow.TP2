@@ -9,11 +9,48 @@ namespace Entidades
     public static class Sistema
     {
         static ConexionBaseDeDatos conexion;
+        private static List<JuegoTerminado> partidasTerminadasjson;
+        private static List<JuegoTerminado> partidasTerminadasXml;
+
+        private static ArchivosJson<List<JuegoTerminado>> archivosJson;
+        private static ArchivosXml<List<JuegoTerminado>> archivosXml;
 
         static Sistema()
         {
             conexion = new ConexionBaseDeDatos();
+            partidasTerminadasjson = new List<JuegoTerminado>();
+            partidasTerminadasXml = new List<JuegoTerminado>();
 
+            archivosJson = new ArchivosJson<List<JuegoTerminado>>();
+            archivosXml = new ArchivosXml<List<JuegoTerminado>>();
+            Inicializar();
+
+        }   
+        public static void Inicializar()
+        {
+            partidasTerminadasjson = archivosJson.Deserializar();
+            partidasTerminadasXml = archivosXml.Deserializar();
+
+        }
+
+        public static void SerializarPartidasTerminadas()
+        {
+            archivosJson.Serializar(partidasTerminadasjson);
+            archivosXml.Serializar(partidasTerminadasXml);
+        }
+
+        public static void AgregarPartidaTerminada(JuegoTerminado partidaTerminada)
+        {
+            partidasTerminadasjson.Add(partidaTerminada);
+            partidasTerminadasXml.Add(partidaTerminada);
+        }
+        public static List<JuegoTerminado> ObtenerHistorialJson() 
+        {
+            return partidasTerminadasjson = archivosJson.Deserializar();
+        }
+        public static List<JuegoTerminado> ObtenerHistorialXml()
+        {
+            return partidasTerminadasXml = archivosXml.Deserializar();
         }
         public static void AgregarJugador(Jugador jugador)
         {
@@ -23,6 +60,7 @@ namespace Entidades
         {
             conexion.Agregarsuarios(usuario);
         }
+
         public static string ObtenerJugadorMasPartidas(List<Jugador> jugadores)
         {
             Jugador jugadorMasPartidas = null;
@@ -73,5 +111,6 @@ namespace Entidades
 
             return jugadorMasPerdidas != null ? jugadorMasPerdidas.Nombre : "N/A";
         }
+
     }
 }

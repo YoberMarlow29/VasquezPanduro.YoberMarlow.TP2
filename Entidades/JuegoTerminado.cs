@@ -19,21 +19,21 @@ namespace Entidades
         public int PuntajeJugadorDos { get => puntajeJugadorDos; set => puntajeJugadorDos = value; }
         public string Ganador { get => ganador; set => ganador = value; }
 
-        public JuegoTerminado(string jugadorUno, string jugadorDos, int puntajeJugadorUno, int puntajeJugadorDos, string ganador)
+        public JuegoTerminado()
+        {
+            this.jugadorUno = "";
+            this.jugadorDos = "";
+            this.puntajeJugadorUno = 0;
+            this.puntajeJugadorDos = 0;
+            this.ganador = "";
+        }
+        public JuegoTerminado(string jugadorUno, string jugadorDos, int puntajeJugadorUno, int puntajeJugadorDos, string ganador):this()
         {
             this.jugadorUno = jugadorUno;
             this.jugadorDos = jugadorDos;
             this.puntajeJugadorUno = puntajeJugadorUno;
             this.puntajeJugadorDos = puntajeJugadorDos;
             this.ganador = ganador;
-        }
-        public JuegoTerminado()
-        { 
-            this.jugadorUno = "";
-            this.jugadorDos = "";
-            this.puntajeJugadorUno = 0;
-            this.puntajeJugadorDos = 0;
-            this.ganador = "";
         }
     }
 }

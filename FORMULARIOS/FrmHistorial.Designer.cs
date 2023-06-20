@@ -28,45 +28,96 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dtgListaDeJugadores = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dtgListaDeJugadores).BeginInit();
+            dgtHistorialPartidas = new DataGridView();
+            btnDeserializarJson = new Button();
+            btnDeserializarXml = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            ((System.ComponentModel.ISupportInitialize)dgtHistorialPartidas).BeginInit();
             SuspendLayout();
             // 
-            // dtgListaDeJugadores
+            // dgtHistorialPartidas
             // 
-            dtgListaDeJugadores.AllowUserToAddRows = false;
-            dtgListaDeJugadores.AllowUserToDeleteRows = false;
-            dtgListaDeJugadores.AllowUserToResizeRows = false;
-            dtgListaDeJugadores.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dtgListaDeJugadores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dtgListaDeJugadores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgListaDeJugadores.EnableHeadersVisualStyles = false;
-            dtgListaDeJugadores.Location = new Point(36, 12);
-            dtgListaDeJugadores.MultiSelect = false;
-            dtgListaDeJugadores.Name = "dtgListaDeJugadores";
-            dtgListaDeJugadores.ReadOnly = true;
-            dtgListaDeJugadores.RowHeadersVisible = false;
-            dtgListaDeJugadores.RowTemplate.Height = 25;
-            dtgListaDeJugadores.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgListaDeJugadores.Size = new Size(921, 529);
-            dtgListaDeJugadores.TabIndex = 11;
-            dtgListaDeJugadores.TabStop = false;
-            dtgListaDeJugadores.VirtualMode = true;
+            dgtHistorialPartidas.AllowUserToAddRows = false;
+            dgtHistorialPartidas.AllowUserToDeleteRows = false;
+            dgtHistorialPartidas.AllowUserToResizeRows = false;
+            dgtHistorialPartidas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgtHistorialPartidas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgtHistorialPartidas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgtHistorialPartidas.EnableHeadersVisualStyles = false;
+            dgtHistorialPartidas.Location = new Point(36, 97);
+            dgtHistorialPartidas.MultiSelect = false;
+            dgtHistorialPartidas.Name = "dgtHistorialPartidas";
+            dgtHistorialPartidas.ReadOnly = true;
+            dgtHistorialPartidas.RowHeadersVisible = false;
+            dgtHistorialPartidas.RowTemplate.Height = 25;
+            dgtHistorialPartidas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgtHistorialPartidas.Size = new Size(921, 444);
+            dgtHistorialPartidas.TabIndex = 11;
+            dgtHistorialPartidas.TabStop = false;
+            dgtHistorialPartidas.VirtualMode = true;
+            // 
+            // btnDeserializarJson
+            // 
+            btnDeserializarJson.Location = new Point(300, 39);
+            btnDeserializarJson.Name = "btnDeserializarJson";
+            btnDeserializarJson.Size = new Size(81, 23);
+            btnDeserializarJson.TabIndex = 12;
+            btnDeserializarJson.Text = "DeserializarJ";
+            btnDeserializarJson.UseVisualStyleBackColor = true;
+            btnDeserializarJson.Click += btnDeserializarJson_Click;
+            // 
+            // btnDeserializarXml
+            // 
+            btnDeserializarXml.Location = new Point(300, 68);
+            btnDeserializarXml.Name = "btnDeserializarXml";
+            btnDeserializarXml.Size = new Size(81, 23);
+            btnDeserializarXml.TabIndex = 13;
+            btnDeserializarXml.Text = "DeserializarX";
+            btnDeserializarXml.UseVisualStyleBackColor = true;
+            btnDeserializarXml.Click += btnDeserializarXml_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(36, 43);
+            label1.Name = "label1";
+            label1.Size = new Size(258, 15);
+            label1.TabIndex = 14;
+            label1.Text = "Deserializar Historial de Partidas de archivo Json";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(36, 72);
+            label2.Name = "label2";
+            label2.Size = new Size(256, 15);
+            label2.TabIndex = 15;
+            label2.Text = "Deserializar Historial de Partidas de archivo Xml";
             // 
             // FrmHistorial
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1009, 553);
-            Controls.Add(dtgListaDeJugadores);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(btnDeserializarXml);
+            Controls.Add(btnDeserializarJson);
+            Controls.Add(dgtHistorialPartidas);
             Name = "FrmHistorial";
             Text = "FrmHistorial";
-            ((System.ComponentModel.ISupportInitialize)dtgListaDeJugadores).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgtHistorialPartidas).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dtgListaDeJugadores;
+        private DataGridView dgtHistorialPartidas;
+        private Button btnDeserializarJson;
+        private Button btnDeserializarXml;
+        private Label label1;
+        private Label label2;
     }
 }
