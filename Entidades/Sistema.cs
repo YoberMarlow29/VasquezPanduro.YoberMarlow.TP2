@@ -11,18 +11,17 @@ namespace Entidades
         static ConexionBaseDeDatos conexion;
         private static List<JuegoTerminado> partidasTerminadasjson;
         private static List<JuegoTerminado> partidasTerminadasXml;
-
         private static ArchivosJson<List<JuegoTerminado>> archivosJson;
         private static ArchivosXml<List<JuegoTerminado>> archivosXml;
-
+        private static List<Usuario> listaDeUsuarios; 
         static Sistema()
         {
             conexion = new ConexionBaseDeDatos();
             partidasTerminadasjson = new List<JuegoTerminado>();
             partidasTerminadasXml = new List<JuegoTerminado>();
-
             archivosJson = new ArchivosJson<List<JuegoTerminado>>();
             archivosXml = new ArchivosXml<List<JuegoTerminado>>();
+            listaDeUsuarios = new List<Usuario>();
             Inicializar();
 
         }   
@@ -53,6 +52,10 @@ namespace Entidades
         {
             return partidasTerminadasXml = archivosXml.Deserializar();
         }
+        public static List<Usuario> ObtenerListaDeUsuarios()
+        {
+            return conexion.ObtenerListaDeUsuarios();
+        }
         public static void AgregarJugador(Jugador jugador)
         {
             conexion.AgregarJugador(jugador);
@@ -61,7 +64,6 @@ namespace Entidades
         {
             conexion.Agregarsuarios(usuario);
         }
-
         public static string ObtenerJugadorMasPartidas(List<Jugador> jugadores)
         {
             Jugador jugadorMasPartidas = null;
@@ -109,7 +111,6 @@ namespace Entidades
                     jugadorMasPerdidas = jugador;
                 }
             }
-
             return jugadorMasPerdidas != null ? jugadorMasPerdidas.Nombre : "N/A";
         }
 

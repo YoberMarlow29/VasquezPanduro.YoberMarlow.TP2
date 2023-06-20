@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,21 @@ namespace FORMULARIOS
         public FrmLogin()
         {
             InitializeComponent();
+        }
+
+        private void btnIngresar_Click(object sender, EventArgs e)
+        {
+            int correcto = 0;
+            foreach (Usuario item in Sistema.ObtenerListaDeUsuarios())
+            {
+                if (item.Correo == txtCorreo.Text && item.Clave == txtClave.Text)
+                {
+                    FrmPrincipal principal = new FrmPrincipal();
+                    principal.ShowDialog();
+                }
+            }
+
+
         }
     }
 }

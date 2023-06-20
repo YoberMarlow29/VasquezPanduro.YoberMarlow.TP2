@@ -27,7 +27,7 @@ namespace GeneralaTestUnitario
         {
             //arrange
             ConexionBaseDeDatos baseDeDatos = new ConexionBaseDeDatos();
-            Jugador jugador = new Jugador("Jugador", 0, 0, 0);
+            Jugador jugador = new Jugador("Jugador", 0, 0, 0,0);
             bool resultado;
             //act
             resultado = baseDeDatos.AgregarJugador(jugador);
@@ -39,7 +39,7 @@ namespace GeneralaTestUnitario
         {
             //arrange
             ConexionBaseDeDatos baseDeDatos = new ConexionBaseDeDatos();
-            Jugador jugador = new Jugador("Rodrigo", 0, 0, 0);
+            Jugador jugador = new Jugador("Rodrigo", 0, 0, 0, 0);
             bool resultado;
             //act
             resultado = baseDeDatos.ModificarJugador(jugador);
@@ -68,6 +68,17 @@ namespace GeneralaTestUnitario
             resultado = baseDeDatos.Agregarsuarios(nuevoUsuario);
             //assert
             Assert.IsTrue(resultado);
+        }
+        [TestMethod]
+        public void ObtenerListaUsuariosDeBaseDeDatos()
+        {
+            //arrange
+            ConexionBaseDeDatos baseDeDatos = new ConexionBaseDeDatos();
+            List<Usuario> lista = new List<Usuario>();
+            //act
+            lista = baseDeDatos.ObtenerListaDeUsuarios();
+            //assert
+            Assert.IsNotNull(lista);
         }
 
 

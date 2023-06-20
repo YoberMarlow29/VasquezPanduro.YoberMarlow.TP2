@@ -37,15 +37,15 @@ namespace Entidades
             }
             else 
             {
-                this.correo = correo;
-                this.clave = clave;
+                ValidarCampoEmail(correo, out this.correo);
+                ValidarContrasenia(clave, out this.clave);
             }
 
         }
         public Usuario(string nombre, string apellido, string correo, string clave):this(correo,clave)
         {
-            this.nombre = nombre;
-            this.apellido = apellido;
+            ValidarCampoString(nombre, out this.nombre);
+            ValidarCampoString(apellido, out this.apellido);
 
         }
         public bool ComprobarClave(string clave)
@@ -72,6 +72,40 @@ namespace Entidades
                 }
             }
             return false;
+        }
+        private void ValidarCampoEmail(string email, out string emailValidado)
+        {
+            emailValidado = string.Empty;
+            if (string.IsNullOrEmpty(email) || !email.Contains("@"))
+            {
+                throw new Exception("No es un email válido.");
+            }
+            emailValidado = email;
+        }
+        private void ValidarContrasenia(string contraseniaAValidar, out string contraseniaValidado)
+        {
+            contraseniaValidado = string.Empty;
+
+            if (contraseniaAValidar is null)
+            {
+                throw new ArgumentNullException("La contraseña no puede ser nula");
+            }
+            else if (contraseniaAValidar.Length < 8)
+            {
+                throw new FormatException("La contraseña debe tener un largo de 8 caracteres");
+            }
+            else
+            {
+                contraseniaValidado = contraseniaAValidar;
+            }
+        }
+        private void ValidarCampoString(string campo, out string campoValidado)
+        {
+            if (string.IsNullOrEmpty(campo))
+            {
+                throw new Exception("Ingresar un valor válido.");
+            }
+            campoValidado = campo;
         }
 
     }

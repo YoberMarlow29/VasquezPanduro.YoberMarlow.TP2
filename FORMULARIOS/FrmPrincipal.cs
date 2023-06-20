@@ -28,7 +28,7 @@ namespace FORMULARIOS
         private void btnCrearPartida_Click(object sender, EventArgs e)
         {
             FrmSeleccionarJugador frmJuegos = new FrmSeleccionarJugador();
-            frmJuegos.ShowDialog();
+            frmJuegos.Show();
         }
 
         private void btnCrearJugador_Click(object sender, EventArgs e)

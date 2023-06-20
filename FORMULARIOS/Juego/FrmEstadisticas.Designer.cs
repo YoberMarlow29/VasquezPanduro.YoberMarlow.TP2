@@ -33,6 +33,9 @@
             lblJugadorPartidasMasPerdidas = new Label();
             dgtMasVictorias = new DataGridView();
             dgtMasPuntos = new DataGridView();
+            lblTituloUno = new Label();
+            lblTituloDos = new Label();
+            lblTituloTres = new Label();
             ((System.ComponentModel.ISupportInitialize)dgtMasVictorias).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgtMasPuntos).BeginInit();
             SuspendLayout();
@@ -40,7 +43,7 @@
             // lblJugadorMasPartidas
             // 
             lblJugadorMasPartidas.AutoSize = true;
-            lblJugadorMasPartidas.Location = new Point(70, 111);
+            lblJugadorMasPartidas.Location = new Point(147, 105);
             lblJugadorMasPartidas.Name = "lblJugadorMasPartidas";
             lblJugadorMasPartidas.Size = new Size(38, 15);
             lblJugadorMasPartidas.TabIndex = 0;
@@ -49,7 +52,7 @@
             // lblJugadorMasPartidasGanadas
             // 
             lblJugadorMasPartidasGanadas.AutoSize = true;
-            lblJugadorMasPartidasGanadas.Location = new Point(70, 139);
+            lblJugadorMasPartidasGanadas.Location = new Point(147, 132);
             lblJugadorMasPartidasGanadas.Name = "lblJugadorMasPartidasGanadas";
             lblJugadorMasPartidasGanadas.Size = new Size(38, 15);
             lblJugadorMasPartidasGanadas.TabIndex = 1;
@@ -58,7 +61,7 @@
             // lblJugadorPartidasMasPerdidas
             // 
             lblJugadorPartidasMasPerdidas.AutoSize = true;
-            lblJugadorPartidasMasPerdidas.Location = new Point(70, 169);
+            lblJugadorPartidasMasPerdidas.Location = new Point(147, 161);
             lblJugadorPartidasMasPerdidas.Name = "lblJugadorPartidasMasPerdidas";
             lblJugadorPartidasMasPerdidas.Size = new Size(38, 15);
             lblJugadorPartidasMasPerdidas.TabIndex = 2;
@@ -73,7 +76,7 @@
             dgtMasVictorias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgtMasVictorias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgtMasVictorias.EnableHeadersVisualStyles = false;
-            dgtMasVictorias.Location = new Point(185, 59);
+            dgtMasVictorias.Location = new Point(269, 59);
             dgtMasVictorias.MultiSelect = false;
             dgtMasVictorias.Name = "dgtMasVictorias";
             dgtMasVictorias.ReadOnly = true;
@@ -94,7 +97,7 @@
             dgtMasPuntos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgtMasPuntos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgtMasPuntos.EnableHeadersVisualStyles = false;
-            dgtMasPuntos.Location = new Point(624, 59);
+            dgtMasPuntos.Location = new Point(707, 59);
             dgtMasPuntos.MultiSelect = false;
             dgtMasPuntos.Name = "dgtMasPuntos";
             dgtMasPuntos.ReadOnly = true;
@@ -106,11 +109,41 @@
             dgtMasPuntos.TabStop = false;
             dgtMasPuntos.VirtualMode = true;
             // 
+            // lblTituloUno
+            // 
+            lblTituloUno.AutoSize = true;
+            lblTituloUno.Location = new Point(12, 132);
+            lblTituloUno.Name = "lblTituloUno";
+            lblTituloUno.Size = new Size(82, 15);
+            lblTituloUno.TabIndex = 12;
+            lblTituloUno.Text = "El mas insano:";
+            // 
+            // lblTituloDos
+            // 
+            lblTituloDos.AutoSize = true;
+            lblTituloDos.Location = new Point(12, 105);
+            lblTituloDos.Name = "lblTituloDos";
+            lblTituloDos.Size = new Size(105, 15);
+            lblTituloDos.TabIndex = 13;
+            lblTituloDos.Text = "Jugo mas partidas:";
+            // 
+            // lblTituloTres
+            // 
+            lblTituloTres.AutoSize = true;
+            lblTituloTres.Location = new Point(12, 161);
+            lblTituloTres.Name = "lblTituloTres";
+            lblTituloTres.Size = new Size(72, 15);
+            lblTituloTres.TabIndex = 14;
+            lblTituloTres.Text = "El mas noob";
+            // 
             // FrmEstadisticas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1144, 619);
+            Controls.Add(lblTituloTres);
+            Controls.Add(lblTituloDos);
+            Controls.Add(lblTituloUno);
             Controls.Add(dgtMasPuntos);
             Controls.Add(dgtMasVictorias);
             Controls.Add(lblJugadorPartidasMasPerdidas);
@@ -132,5 +165,8 @@
         private Label lblJugadorPartidasMasPerdidas;
         private DataGridView dgtMasVictorias;
         private DataGridView dgtMasPuntos;
+        private Label lblTituloUno;
+        private Label lblTituloDos;
+        private Label lblTituloTres;
     }
 }

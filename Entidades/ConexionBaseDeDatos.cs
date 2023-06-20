@@ -254,44 +254,6 @@ namespace Entidades
             }
             return rta;
         }
-        public bool EliminarJugador(int id)
-        {
-            bool rta = true;
-
-            try
-            {
-                this.comando = new SqlCommand();
-
-                this.comando.Parameters.AddWithValue("@Id", id);
-
-                string sql = "DELETE FROM Jugadores ";
-                sql += "WHERE Id = @Id";
-
-                this.comando.CommandType = CommandType.Text;
-                this.comando.CommandText = sql;
-                this.comando.Connection = this.conexion;
-
-                this.conexion.Open();
-
-                int filasAfectadas = this.comando.ExecuteNonQuery();
-
-                if (filasAfectadas == 0)
-                {
-                    rta = false;
-                }
-
-            }
-            catch (Exception)
-            {
-                rta = false;
-            }
-            finally
-            {
-                CerrarConexion();
-            }
-
-            return rta;
-        }
         public void CerrarConexion() 
         {
             if (this.conexion.State == ConnectionState.Open)
