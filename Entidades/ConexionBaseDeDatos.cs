@@ -40,6 +40,7 @@ namespace Entidades
             }
             catch (Exception)
             {
+
                 rta = false;
             }
             finally

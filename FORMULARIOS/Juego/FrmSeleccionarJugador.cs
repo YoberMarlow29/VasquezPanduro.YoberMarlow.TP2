@@ -27,7 +27,7 @@ namespace FORMULARIOS
         {
             try
             {
-                cmb_JugadorUno.DataSource = .ObtenerListaDeJugadores();
+                cmb_JugadorUno.DataSource = Sistema.ObtenerListaDeJugadores();
                 cmb_JugadorDos.DataSource = Sistema.ObtenerListaDeJugadores();
             }
             catch (Exception ex)
@@ -48,7 +48,7 @@ namespace FORMULARIOS
             {
                 MostrarError("Los jugadores no pueden ser iguales");
             }
-            else 
+            else
             {
                 Jugador jugador1 = (Jugador)cmb_JugadorUno.SelectedItem;
                 Jugador jugador2 = (Jugador)cmb_JugadorDos.SelectedItem;

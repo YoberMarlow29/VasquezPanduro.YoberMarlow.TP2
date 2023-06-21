@@ -27,13 +27,13 @@ namespace FORMULARIOS
             try
             {
                 string nombre = txtNombre.Text;
-                Jugador jugador = new Jugador(nombre,0,0,0,0);
+                Jugador jugador = new Jugador(nombre, 0, 0, 0, 0);
                 Sistema.AgregarJugador(jugador);
                 txtNombre.Text = "";
                 this.Close();
             }
-            catch(Exception ex)
-            {               
+            catch (Exception ex)
+            {
                 this.labelError.Text = $"       {ex.Message}";
                 this.labelError.Visible = true;
             }

@@ -35,16 +35,16 @@
             // 
             // richTabla
             // 
-            richTabla.Location = new Point(38, 12);
+            richTabla.Location = new Point(12, 12);
             richTabla.Name = "richTabla";
             richTabla.ReadOnly = true;
-            richTabla.Size = new Size(524, 430);
+            richTabla.Size = new Size(550, 537);
             richTabla.TabIndex = 5;
             richTabla.Text = "";
             // 
             // btnIniciarPartida
             // 
-            btnIniciarPartida.Location = new Point(568, 104);
+            btnIniciarPartida.Location = new Point(584, 104);
             btnIniciarPartida.Name = "btnIniciarPartida";
             btnIniciarPartida.Size = new Size(75, 76);
             btnIniciarPartida.TabIndex = 6;
@@ -54,7 +54,7 @@
             // 
             // btnCancelarPartida
             // 
-            btnCancelarPartida.Location = new Point(568, 186);
+            btnCancelarPartida.Location = new Point(584, 186);
             btnCancelarPartida.Name = "btnCancelarPartida";
             btnCancelarPartida.Size = new Size(75, 76);
             btnCancelarPartida.TabIndex = 7;
@@ -66,10 +66,13 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(659, 454);
+            BackColor = Color.FromArgb(23, 21, 32);
+            ClientSize = new Size(684, 561);
             Controls.Add(btnCancelarPartida);
             Controls.Add(btnIniciarPartida);
             Controls.Add(richTabla);
+            MaximumSize = new Size(700, 600);
+            MinimumSize = new Size(700, 600);
             Name = "FrmSalaDeJuegos";
             Text = "FrmSalaDeJuegos";
             Load += FrmSalaDeJuegos_Load;

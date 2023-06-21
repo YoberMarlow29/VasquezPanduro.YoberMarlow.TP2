@@ -24,8 +24,11 @@ namespace Entidades
             listaDeUsuarios = new List<Usuario>();
             Inicializar();
 
-        }   
-        
+        }
+        public static bool ProbarConexionABaseDeDatos() 
+        {
+            return conexion.ProbarConexion();
+        }
         public static void Inicializar()
         {
             partidasTerminadasjson = archivosJson.Deserializar();

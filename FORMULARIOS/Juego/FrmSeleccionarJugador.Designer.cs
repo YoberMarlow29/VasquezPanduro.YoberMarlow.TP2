@@ -39,7 +39,8 @@
             // lblJugadorUno
             // 
             lblJugadorUno.AutoSize = true;
-            lblJugadorUno.Location = new Point(12, 24);
+            lblJugadorUno.ForeColor = Color.White;
+            lblJugadorUno.Location = new Point(31, 120);
             lblJugadorUno.Name = "lblJugadorUno";
             lblJugadorUno.Size = new Size(55, 15);
             lblJugadorUno.TabIndex = 0;
@@ -48,7 +49,8 @@
             // lblJugadorDos
             // 
             lblJugadorDos.AutoSize = true;
-            lblJugadorDos.Location = new Point(208, 24);
+            lblJugadorDos.ForeColor = Color.White;
+            lblJugadorDos.Location = new Point(448, 120);
             lblJugadorDos.Name = "lblJugadorDos";
             lblJugadorDos.Size = new Size(55, 15);
             lblJugadorDos.TabIndex = 1;
@@ -57,22 +59,22 @@
             // cmb_JugadorUno
             // 
             cmb_JugadorUno.FormattingEnabled = true;
-            cmb_JugadorUno.Location = new Point(12, 52);
+            cmb_JugadorUno.Location = new Point(31, 156);
             cmb_JugadorUno.Name = "cmb_JugadorUno";
-            cmb_JugadorUno.Size = new Size(173, 23);
+            cmb_JugadorUno.Size = new Size(349, 23);
             cmb_JugadorUno.TabIndex = 2;
             // 
             // cmb_JugadorDos
             // 
             cmb_JugadorDos.FormattingEnabled = true;
-            cmb_JugadorDos.Location = new Point(208, 52);
+            cmb_JugadorDos.Location = new Point(448, 156);
             cmb_JugadorDos.Name = "cmb_JugadorDos";
-            cmb_JugadorDos.Size = new Size(173, 23);
+            cmb_JugadorDos.Size = new Size(349, 23);
             cmb_JugadorDos.TabIndex = 3;
             // 
             // btnCrearPartida
             // 
-            btnCrearPartida.Location = new Point(144, 98);
+            btnCrearPartida.Location = new Point(357, 222);
             btnCrearPartida.Name = "btnCrearPartida";
             btnCrearPartida.Size = new Size(104, 23);
             btnCrearPartida.TabIndex = 4;
@@ -84,7 +86,7 @@
             // 
             labelError.AutoSize = true;
             labelError.ForeColor = Color.Red;
-            labelError.Location = new Point(29, 141);
+            labelError.Location = new Point(31, 280);
             labelError.Name = "labelError";
             labelError.Size = new Size(38, 15);
             labelError.TabIndex = 63;
@@ -94,13 +96,17 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(415, 236);
+            BackColor = Color.FromArgb(23, 21, 32);
+            ClientSize = new Size(918, 522);
             Controls.Add(labelError);
             Controls.Add(btnCrearPartida);
             Controls.Add(cmb_JugadorDos);
             Controls.Add(cmb_JugadorUno);
             Controls.Add(lblJugadorDos);
             Controls.Add(lblJugadorUno);
+            FormBorderStyle = FormBorderStyle.None;
+            MaximumSize = new Size(1134, 761);
+            MinimumSize = new Size(934, 561);
             Name = "FrmSeleccionarJugador";
             Text = "SalaDeJuego";
             Load += FrmSeleccionarJugador_Load;

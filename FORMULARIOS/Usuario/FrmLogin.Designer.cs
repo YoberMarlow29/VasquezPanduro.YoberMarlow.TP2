@@ -28,77 +28,135 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblCorreo = new Label();
-            lblClave = new Label();
-            txtCorreo = new TextBox();
+            btnAceptar = new Button();
             txtClave = new TextBox();
-            btnIngresar = new Button();
+            txtCorreo = new TextBox();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            pictureBox1 = new PictureBox();
+            panel1 = new Panel();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // lblCorreo
+            // btnAceptar
             // 
-            lblCorreo.AutoSize = true;
-            lblCorreo.Location = new Point(83, 58);
-            lblCorreo.Name = "lblCorreo";
-            lblCorreo.Size = new Size(43, 15);
-            lblCorreo.TabIndex = 0;
-            lblCorreo.Text = "Correo";
-            // 
-            // lblClave
-            // 
-            lblClave.AutoSize = true;
-            lblClave.Location = new Point(83, 103);
-            lblClave.Name = "lblClave";
-            lblClave.Size = new Size(36, 15);
-            lblClave.TabIndex = 1;
-            lblClave.Text = "Clave";
-            // 
-            // txtCorreo
-            // 
-            txtCorreo.Location = new Point(158, 55);
-            txtCorreo.Name = "txtCorreo";
-            txtCorreo.Size = new Size(219, 23);
-            txtCorreo.TabIndex = 2;
+            btnAceptar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnAceptar.Location = new Point(322, 203);
+            btnAceptar.Name = "btnAceptar";
+            btnAceptar.Size = new Size(291, 37);
+            btnAceptar.TabIndex = 14;
+            btnAceptar.Text = "ACEPTAR";
+            btnAceptar.UseVisualStyleBackColor = true;
+            btnAceptar.Click += btnAceptar_Click;
             // 
             // txtClave
             // 
-            txtClave.Location = new Point(158, 95);
+            txtClave.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            txtClave.Location = new Point(393, 144);
             txtClave.Name = "txtClave";
-            txtClave.Size = new Size(219, 23);
-            txtClave.TabIndex = 3;
+            txtClave.Size = new Size(342, 23);
+            txtClave.TabIndex = 13;
             // 
-            // btnIngresar
+            // txtCorreo
             // 
-            btnIngresar.Location = new Point(215, 150);
-            btnIngresar.Name = "btnIngresar";
-            btnIngresar.Size = new Size(75, 23);
-            btnIngresar.TabIndex = 4;
-            btnIngresar.Text = "Ingresar";
-            btnIngresar.UseVisualStyleBackColor = true;
-            btnIngresar.Click += btnIngresar_Click;
+            txtCorreo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            txtCorreo.Location = new Point(393, 79);
+            txtCorreo.Name = "txtCorreo";
+            txtCorreo.Size = new Size(342, 23);
+            txtCorreo.TabIndex = 12;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.Top;
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(469, 9);
+            label3.Name = "label3";
+            label3.Size = new Size(69, 28);
+            label3.TabIndex = 11;
+            label3.Text = "LOGIN";
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(208, 144);
+            label2.Name = "label2";
+            label2.Size = new Size(63, 28);
+            label2.TabIndex = 10;
+            label2.Text = "Clave:";
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(208, 74);
+            label1.Name = "label1";
+            label1.Size = new Size(178, 28);
+            label1.TabIndex = 9;
+            label1.Text = "Correo Electronico:";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Firebrick;
+            pictureBox1.Image = Properties.Resources.ImagenDado;
+            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(200, 291);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Firebrick;
+            panel1.Controls.Add(pictureBox1);
+            panel1.Dock = DockStyle.Left;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(200, 291);
+            panel1.TabIndex = 8;
             // 
             // FrmLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(460, 226);
-            Controls.Add(btnIngresar);
+            BackColor = Color.FromArgb(23, 21, 32);
+            ClientSize = new Size(760, 291);
+            Controls.Add(btnAceptar);
             Controls.Add(txtClave);
             Controls.Add(txtCorreo);
-            Controls.Add(lblClave);
-            Controls.Add(lblCorreo);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(panel1);
+            ForeColor = Color.Black;
+            MaximumSize = new Size(776, 330);
+            MinimumSize = new Size(776, 330);
             Name = "FrmLogin";
             Text = "FrmLogin";
+            Load += FrmLogin_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Label lblCorreo;
-        private Label lblClave;
-        private TextBox txtCorreo;
+        private Button btnAceptar;
         private TextBox txtClave;
-        private Button btnIngresar;
+        private TextBox txtCorreo;
+        private Label label3;
+        private Label label2;
+        private Label label1;
+        private PictureBox pictureBox1;
+        private Panel panel1;
     }
 }

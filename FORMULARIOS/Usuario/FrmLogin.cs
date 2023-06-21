@@ -17,20 +17,28 @@ namespace FORMULARIOS
         {
             InitializeComponent();
         }
-
-        private void btnIngresar_Click(object sender, EventArgs e)
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+            txtClave.PasswordChar = '*';
+        }
+        private void btnAceptar_Click(object sender, EventArgs e)
         {
             int correcto = 0;
             foreach (Usuario item in Sistema.ObtenerListaDeUsuarios())
             {
                 if (item.Correo == txtCorreo.Text && item.Clave == txtClave.Text)
                 {
-                    FrmPrincipal principal = new FrmPrincipal();
+                    correcto = 1;
+                    FrmMenu principal = new FrmMenu();
+                    principal.NombreUsuario = item.Nombre;
+                    principal.CorreoUsuario = item.Correo;
                     principal.ShowDialog();
                 }
             }
-
-
+            if (correcto == 0)
+            {
+                MessageBox.Show("correo o contraseña erroneos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
