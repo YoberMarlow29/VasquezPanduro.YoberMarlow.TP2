@@ -44,10 +44,11 @@
             // 
             // lblJugadorMasPartidas
             // 
+            lblJugadorMasPartidas.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblJugadorMasPartidas.AutoSize = true;
             lblJugadorMasPartidas.BackColor = Color.FromArgb(23, 21, 32);
             lblJugadorMasPartidas.ForeColor = Color.White;
-            lblJugadorMasPartidas.Location = new Point(822, 45);
+            lblJugadorMasPartidas.Location = new Point(830, 139);
             lblJugadorMasPartidas.Name = "lblJugadorMasPartidas";
             lblJugadorMasPartidas.Size = new Size(38, 15);
             lblJugadorMasPartidas.TabIndex = 0;
@@ -55,10 +56,11 @@
             // 
             // lblJugadorMasPartidasGanadas
             // 
+            lblJugadorMasPartidasGanadas.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblJugadorMasPartidasGanadas.AutoSize = true;
             lblJugadorMasPartidasGanadas.BackColor = Color.FromArgb(23, 21, 32);
             lblJugadorMasPartidasGanadas.ForeColor = Color.White;
-            lblJugadorMasPartidasGanadas.Location = new Point(822, 72);
+            lblJugadorMasPartidasGanadas.Location = new Point(830, 166);
             lblJugadorMasPartidasGanadas.Name = "lblJugadorMasPartidasGanadas";
             lblJugadorMasPartidasGanadas.Size = new Size(38, 15);
             lblJugadorMasPartidasGanadas.TabIndex = 1;
@@ -66,10 +68,11 @@
             // 
             // lblJugadorPartidasMasPerdidas
             // 
+            lblJugadorPartidasMasPerdidas.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblJugadorPartidasMasPerdidas.AutoSize = true;
             lblJugadorPartidasMasPerdidas.BackColor = Color.FromArgb(23, 21, 32);
             lblJugadorPartidasMasPerdidas.ForeColor = Color.White;
-            lblJugadorPartidasMasPerdidas.Location = new Point(822, 101);
+            lblJugadorPartidasMasPerdidas.Location = new Point(830, 195);
             lblJugadorPartidasMasPerdidas.Name = "lblJugadorPartidasMasPerdidas";
             lblJugadorPartidasMasPerdidas.Size = new Size(38, 15);
             lblJugadorPartidasMasPerdidas.TabIndex = 2;
@@ -80,7 +83,7 @@
             dgtMasVictorias.AllowUserToAddRows = false;
             dgtMasVictorias.AllowUserToDeleteRows = false;
             dgtMasVictorias.AllowUserToResizeRows = false;
-            dgtMasVictorias.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgtMasVictorias.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             dgtMasVictorias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgtMasVictorias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgtMasVictorias.EnableHeadersVisualStyles = false;
@@ -101,7 +104,7 @@
             dgtMasPuntos.AllowUserToAddRows = false;
             dgtMasPuntos.AllowUserToDeleteRows = false;
             dgtMasPuntos.AllowUserToResizeRows = false;
-            dgtMasPuntos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgtMasPuntos.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             dgtMasPuntos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgtMasPuntos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgtMasPuntos.EnableHeadersVisualStyles = false;
@@ -119,10 +122,11 @@
             // 
             // lblTituloUno
             // 
+            lblTituloUno.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblTituloUno.AutoSize = true;
             lblTituloUno.BackColor = Color.FromArgb(23, 21, 32);
             lblTituloUno.ForeColor = Color.White;
-            lblTituloUno.Location = new Point(687, 72);
+            lblTituloUno.Location = new Point(695, 166);
             lblTituloUno.Name = "lblTituloUno";
             lblTituloUno.Size = new Size(82, 15);
             lblTituloUno.TabIndex = 12;
@@ -130,10 +134,11 @@
             // 
             // lblTituloDos
             // 
+            lblTituloDos.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblTituloDos.AutoSize = true;
             lblTituloDos.BackColor = Color.FromArgb(23, 21, 32);
             lblTituloDos.ForeColor = Color.White;
-            lblTituloDos.Location = new Point(687, 45);
+            lblTituloDos.Location = new Point(695, 139);
             lblTituloDos.Name = "lblTituloDos";
             lblTituloDos.Size = new Size(105, 15);
             lblTituloDos.TabIndex = 13;
@@ -141,10 +146,11 @@
             // 
             // lblTituloTres
             // 
+            lblTituloTres.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblTituloTres.AutoSize = true;
             lblTituloTres.BackColor = Color.FromArgb(23, 21, 32);
             lblTituloTres.ForeColor = Color.White;
-            lblTituloTres.Location = new Point(687, 101);
+            lblTituloTres.Location = new Point(695, 195);
             lblTituloTres.Name = "lblTituloTres";
             lblTituloTres.Size = new Size(72, 15);
             lblTituloTres.TabIndex = 14;
@@ -152,6 +158,7 @@
             // 
             // lblVictorias
             // 
+            lblVictorias.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             lblVictorias.AutoSize = true;
             lblVictorias.BackColor = Color.FromArgb(23, 21, 32);
             lblVictorias.ForeColor = Color.White;
@@ -163,6 +170,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label1.AutoSize = true;
             label1.BackColor = Color.FromArgb(23, 21, 32);
             label1.ForeColor = Color.White;

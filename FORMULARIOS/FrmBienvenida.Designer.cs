@@ -37,6 +37,7 @@
             // 
             // btnCrearCuenta
             // 
+            btnCrearCuenta.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnCrearCuenta.ForeColor = SystemColors.ActiveCaptionText;
             btnCrearCuenta.Location = new Point(209, 341);
             btnCrearCuenta.Name = "btnCrearCuenta";
@@ -48,6 +49,7 @@
             // 
             // btnIngresar
             // 
+            btnIngresar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnIngresar.ForeColor = Color.Black;
             btnIngresar.Location = new Point(209, 289);
             btnIngresar.Name = "btnIngresar";
@@ -59,6 +61,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
@@ -70,6 +73,7 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
@@ -81,6 +85,7 @@
             // 
             // btnProbarConexion
             // 
+            btnProbarConexion.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnProbarConexion.ForeColor = Color.Black;
             btnProbarConexion.Location = new Point(209, 176);
             btnProbarConexion.Name = "btnProbarConexion";
@@ -102,6 +107,8 @@
             Controls.Add(btnIngresar);
             Controls.Add(label1);
             ForeColor = Color.White;
+            MaximumSize = new Size(816, 489);
+            MinimumSize = new Size(816, 489);
             Name = "FrmBienvenida";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmBienvenida";

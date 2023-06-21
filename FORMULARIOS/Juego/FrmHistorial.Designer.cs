@@ -41,7 +41,7 @@
             dgtHistorialPartidas.AllowUserToAddRows = false;
             dgtHistorialPartidas.AllowUserToDeleteRows = false;
             dgtHistorialPartidas.AllowUserToResizeRows = false;
-            dgtHistorialPartidas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgtHistorialPartidas.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgtHistorialPartidas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgtHistorialPartidas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgtHistorialPartidas.EnableHeadersVisualStyles = false;

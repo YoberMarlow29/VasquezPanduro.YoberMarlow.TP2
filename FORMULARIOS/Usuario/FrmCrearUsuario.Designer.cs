@@ -43,7 +43,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Anchor = AnchorStyles.Left;
+            btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnCancelar.Location = new Point(135, 260);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(120, 29);
@@ -54,7 +54,7 @@
             // 
             // labelError
             // 
-            labelError.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            labelError.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             labelError.AutoSize = true;
             labelError.ForeColor = Color.Red;
             labelError.Location = new Point(48, 375);
@@ -65,7 +65,7 @@
             // 
             // btnAceptar
             // 
-            btnAceptar.Anchor = AnchorStyles.Left;
+            btnAceptar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnAceptar.Location = new Point(135, 213);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(120, 29);
@@ -76,7 +76,6 @@
             // 
             // txtClave
             // 
-            txtClave.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtClave.Location = new Point(135, 175);
             txtClave.Name = "txtClave";
             txtClave.Size = new Size(241, 23);
@@ -84,7 +83,6 @@
             // 
             // txtCorreo
             // 
-            txtCorreo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtCorreo.Location = new Point(135, 137);
             txtCorreo.Name = "txtCorreo";
             txtCorreo.Size = new Size(241, 23);
@@ -92,7 +90,6 @@
             // 
             // txtNombre
             // 
-            txtNombre.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtNombre.Location = new Point(135, 100);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(241, 23);
@@ -100,7 +97,6 @@
             // 
             // txtApellido
             // 
-            txtApellido.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtApellido.Location = new Point(135, 61);
             txtApellido.Name = "txtApellido";
             txtApellido.Size = new Size(241, 23);
@@ -108,7 +104,6 @@
             // 
             // label5
             // 
-            label5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label5.AutoSize = true;
             label5.ForeColor = Color.White;
             label5.Location = new Point(48, 183);
@@ -119,7 +114,6 @@
             // 
             // label3
             // 
-            label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label3.AutoSize = true;
             label3.ForeColor = Color.White;
             label3.Location = new Point(48, 145);
@@ -130,7 +124,6 @@
             // 
             // label2
             // 
-            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.ForeColor = Color.White;
             label2.Location = new Point(48, 108);
@@ -141,7 +134,6 @@
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.ForeColor = Color.White;
             label1.Location = new Point(48, 69);

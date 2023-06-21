@@ -36,7 +36,7 @@
             // 
             // btnAceptar
             // 
-            btnAceptar.Anchor = AnchorStyles.None;
+            btnAceptar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnAceptar.Location = new Point(31, 119);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(120, 29);
@@ -47,7 +47,6 @@
             // 
             // txtNombre
             // 
-            txtNombre.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtNombre.Location = new Point(110, 37);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(749, 23);
@@ -55,7 +54,6 @@
             // 
             // label2
             // 
-            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.ForeColor = Color.White;
             label2.Location = new Point(23, 45);
@@ -66,6 +64,7 @@
             // 
             // labelError
             // 
+            labelError.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             labelError.AutoSize = true;
             labelError.ForeColor = Color.Red;
             labelError.Location = new Point(23, 165);

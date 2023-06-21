@@ -35,6 +35,7 @@
             // 
             // richTabla
             // 
+            richTabla.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             richTabla.Location = new Point(12, 12);
             richTabla.Name = "richTabla";
             richTabla.ReadOnly = true;
@@ -44,6 +45,7 @@
             // 
             // btnIniciarPartida
             // 
+            btnIniciarPartida.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnIniciarPartida.Location = new Point(584, 104);
             btnIniciarPartida.Name = "btnIniciarPartida";
             btnIniciarPartida.Size = new Size(75, 76);
@@ -54,6 +56,7 @@
             // 
             // btnCancelarPartida
             // 
+            btnCancelarPartida.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnCancelarPartida.Location = new Point(584, 186);
             btnCancelarPartida.Name = "btnCancelarPartida";
             btnCancelarPartida.Size = new Size(75, 76);
