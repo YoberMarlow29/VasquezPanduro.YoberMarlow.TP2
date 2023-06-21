@@ -159,5 +159,110 @@
     "PuntajeJugadorUno": 18,
     "PuntajeJugadorDos": 32,
     "Ganador": "CeleVas"
+  },
+  {
+    "JugadorUno": "Jamaica",
+    "JugadorDos": "WAZAA",
+    "PuntajeJugadorUno": 4,
+    "PuntajeJugadorDos": 4,
+    "Ganador": "Empate"
+  },
+  {
+    "JugadorUno": "Lucifewr",
+    "JugadorDos": "OMG123",
+    "PuntajeJugadorUno": 30,
+    "PuntajeJugadorDos": 8,
+    "Ganador": "Lucifewr"
+  },
+  {
+    "JugadorUno": "Kanthus",
+    "JugadorDos": "ElMasCapo202",
+    "PuntajeJugadorUno": 8,
+    "PuntajeJugadorDos": 24,
+    "Ganador": ""
+  },
+  {
+    "JugadorUno": "Goku.com",
+    "JugadorDos": "Jamaica",
+    "PuntajeJugadorUno": 4,
+    "PuntajeJugadorDos": 16,
+    "Ganador": ""
+  },
+  {
+    "JugadorUno": "LucasModric",
+    "JugadorDos": "BartS",
+    "PuntajeJugadorUno": 38,
+    "PuntajeJugadorDos": 27,
+    "Ganador": "LucasModric"
+  },
+  {
+    "JugadorUno": "LucasModric",
+    "JugadorDos": "BartS",
+    "PuntajeJugadorUno": 46,
+    "PuntajeJugadorDos": 31,
+    "Ganador": "LucasModric"
+  },
+  {
+    "JugadorUno": "Kanthus",
+    "JugadorDos": "ElMasCapo202",
+    "PuntajeJugadorUno": 22,
+    "PuntajeJugadorDos": 12,
+    "Ganador": ""
+  },
+  {
+    "JugadorUno": "Lucifewr",
+    "JugadorDos": "WAZAA",
+    "PuntajeJugadorUno": 20,
+    "PuntajeJugadorDos": 9,
+    "Ganador": ""
+  },
+  {
+    "JugadorUno": "LeonelMessi",
+    "JugadorDos": "WAZAA",
+    "PuntajeJugadorUno": 20,
+    "PuntajeJugadorDos": 2,
+    "Ganador": ""
+  },
+  {
+    "JugadorUno": "LeonelMessi",
+    "JugadorDos": "BartS",
+    "PuntajeJugadorUno": 17,
+    "PuntajeJugadorDos": 22,
+    "Ganador": "BartS"
+  },
+  {
+    "JugadorUno": "LeonelMessi",
+    "JugadorDos": "Goku.com",
+    "PuntajeJugadorUno": 75,
+    "PuntajeJugadorDos": 10,
+    "Ganador": "LeonelMessi"
+  },
+  {
+    "JugadorUno": "Jamaica",
+    "JugadorDos": "Goku.com",
+    "PuntajeJugadorUno": 14,
+    "PuntajeJugadorDos": 28,
+    "Ganador": "Goku.com"
+  },
+  {
+    "JugadorUno": "Jamaica",
+    "JugadorDos": "Goku.com",
+    "PuntajeJugadorUno": 14,
+    "PuntajeJugadorDos": 28,
+    "Ganador": "Goku.com"
+  },
+  {
+    "JugadorUno": "BartS",
+    "JugadorDos": "LeonelMessi",
+    "PuntajeJugadorUno": 24,
+    "PuntajeJugadorDos": 26,
+    "Ganador": "LeonelMessi"
+  },
+  {
+    "JugadorUno": "ElMasCapo202",
+    "JugadorDos": "PepeMarino",
+    "PuntajeJugadorUno": 30,
+    "PuntajeJugadorDos": 38,
+    "Ganador": "PepeMarino"
   }
 ]

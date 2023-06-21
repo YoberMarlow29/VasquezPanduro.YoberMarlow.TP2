@@ -20,8 +20,6 @@ namespace Entidades
         private bool partidaCancelada;
         private bool juegoEnCurso;
         private CancellationTokenSource cancellationTokenSource;
-        private Task juegoTask;
-        private ConexionBaseDeDatos conexionBD;
         public delegate void MensajeEnviadoEventHandler(string mensaje);
         public delegate void PartidaFinalizadaEventHandler(string ganador);
         public event MensajeEnviadoEventHandler MensajeEnviado;
@@ -37,6 +35,7 @@ namespace Entidades
         public int PuntajeDos { get => puntajeDos; set => puntajeDos = value; }
         public bool PartidaCancelada { get => partidaCancelada; set => partidaCancelada = value; }
         public bool JuegoEnCurso { get => juegoEnCurso; set => juegoEnCurso = value; }
+        public CancellationTokenSource CancellationTokenSource { get => cancellationTokenSource; set => cancellationTokenSource = value; }
 
         /// <summary>
         /// Crea una nueva instancia de la clase Juego con los jugadores proporcionados.
@@ -47,7 +46,6 @@ namespace Entidades
         {
             this.partidaCancelada = false;
             this.juegoEnCurso = false;
-            this.juegoTask = null;
             this.ganador = string.Empty;
             this.jugadorUno = jugadorUno;
             this.jugadorDos = jugadorDos;
@@ -55,37 +53,42 @@ namespace Entidades
             this.puntajeDos = 0;
             this.ronda = 1;
             this.cancellationTokenSource = new CancellationTokenSource();
-            this.conexionBD = new ConexionBaseDeDatos();
         }
-
-        /// <summary>
-        /// Inicia el juego.
-        /// </summary>
-        public void IniciarJuego()
+        public void IniciarPartida()
         {
-            // Establece el juego como en curso y envía un mensaje de inicio de partida
             juegoEnCurso = true;
+            MensajeEnviado?.Invoke("¡Comienza la partida!");
+            Task simulacion = Task.Run(() => IniciarJuego(this.CancellationTokenSource.Token));
+        }
+        public void IniciarJuego(CancellationToken cancellation)
+        {
+
+            int maxRondas = 4;
 
             MensajeEnviado?.Invoke("¡Comienza la partida!");
 
-            // Ejecuta la lógica del juego en un bucle mientras el juego esté en curso
-            juegoTask = Task.Run(async () =>
-            {
                 while (juegoEnCurso)
                 {
-                    JugarJuego();
-
-                    if (ronda >= 4)
+                    if (!cancellation.IsCancellationRequested && ronda<=maxRondas)
                     {
-                        FinalizarJuego();
-                    }
-                    else
+                        JugarJuego();
                         SiguienteRonda();
 
-                    Thread.Sleep(2000);
-
+                    }
+                    else 
+                    {
+                    MensajeEnviado?.Invoke("¡Fin De la partida!");
+                    break;
+                    }
                 }
-            });
+
+        }
+        public void CancelarJugada() 
+        {
+            this.CancellationTokenSource.Cancel();
+            MensajeEnviado?.Invoke("Partida cancelada.");
+
+
         }
         /// <summary>
         /// Simula una ronda del juego.
@@ -103,6 +106,7 @@ namespace Entidades
             MensajeEnviado?.Invoke($"Turno de {JugadorDos.Nombre}");
             RealizarLanzamiento(JugadorDos);
         }
+        #region
         /// <summary>
         /// Realiza el lanzamiento de los dados para un jugador específico y calcula el puntaje obtenido.
         /// </summary>
@@ -184,6 +188,7 @@ namespace Entidades
 
             return puntaje;
         }
+        #endregion
         /// <summary>
         /// Avanza a la siguiente ronda del juego.
         /// </summary>
@@ -193,68 +198,49 @@ namespace Entidades
             MensajeEnviado?.Invoke("Siguiente ronda...");
             Thread.Sleep(2000);
         }
-        /// <summary>
-        /// Finaliza el juego, determinando al ganador y actualizando las estadísticas de los jugadores.
-        /// </summary>
-        private void FinalizarJuego()
-        {
-            juegoEnCurso = false;
 
-            MensajeEnviado?.Invoke("¡Fin del juego!");
 
-            if (!partidaCancelada)
-            {
-                DeterminarGanador();
-                PartidaFinalizada?.Invoke($"El ganador es {ganador}");
-            }
-            JuegoTerminado juegoTerminado = new JuegoTerminado(JugadorUno.Nombre,JugadorDos.Nombre,puntajeUno,PuntajeDos,Ganador);
-            Sistema.AgregarPartidaTerminada(juegoTerminado);
-            Sistema.SerializarPartidasTerminadas();
-            
-            FinalizarPartida();
-            ModificarJugador(JugadorUno);
-            ModificarJugador(JugadorDos);
-        }
-        /// <summary>
-        /// Cancela la partida en curso.
-        /// </summary>
-        public void CancelarPartida()
-        {
-            partidaCancelada = true;
-            cancellationTokenSource.Cancel();
-            juegoEnCurso = false;
 
-            Task.Run(() =>
-            {
-                if (juegoTask != null)
-                    juegoTask.Wait();
 
-                DeterminarGanador();
-
-                MensajeEnviado?.Invoke($"El ganador es: {ganador}");
-
-                FinalizarPartida();
-                ModificarJugador(JugadorUno);
-                ModificarJugador(JugadorDos);
-                JuegoTerminado juegoTerminado = new JuegoTerminado(JugadorUno.Nombre, JugadorDos.Nombre, puntajeUno, PuntajeDos, Ganador);
-                Sistema.AgregarPartidaTerminada(juegoTerminado);
-                Sistema.SerializarPartidasTerminadas();
-
-                MensajeEnviado?.Invoke("Partida cancelada.");
-            });
-        }
-        /// <summary>
-        /// Finaliza la partida .
-        /// </summary>
-        private void FinalizarPartida()
+        private void FinalizarPartidaYDeterminarGanador()
         {
             JugadorUno.PartidasJugadas++;
             JugadorDos.PartidasJugadas++;
 
-            if (ganador != JugadorUno.Nombre)
-                JugadorUno.PartidasPerdidas++;
-            else if (ganador != JugadorDos.Nombre)
+            if (PuntajeUno > PuntajeDos)
+            {
+                ganador = JugadorUno.Nombre;
+                JugadorUno.PartidasGanadas++;
                 JugadorDos.PartidasPerdidas++;
+                JugadorUno.PuntajeTotal += PuntajeUno;
+                JugadorDos.PuntajeTotal += PuntajeDos;
+            }
+            else if (PuntajeDos > PuntajeUno)
+            {
+                ganador = JugadorDos.Nombre;
+                JugadorDos.PartidasGanadas++;
+                JugadorUno.PartidasPerdidas++;
+                JugadorDos.PuntajeTotal += PuntajeDos;
+                JugadorUno.PuntajeTotal += PuntajeUno;
+            }
+            else
+            {
+                ganador = "Empate";
+                JugadorUno.PuntajeTotal += PuntajeUno;
+                JugadorDos.PuntajeTotal += PuntajeDos;
+            }
+
+            MensajeEnviado?.Invoke($"El ganador es {ganador}");
+
+            ModificarJugador(JugadorUno);
+            ModificarJugador(JugadorDos);
+            GuardarDatosEnArchivos();
+        }
+        public void GuardarDatosEnArchivos()
+        {
+            JuegoTerminado juegoTerminado = new JuegoTerminado(JugadorUno.Nombre, JugadorDos.Nombre, puntajeUno, PuntajeDos, Ganador);
+            Sistema.AgregarPartidaTerminada(juegoTerminado);
+            Sistema.SerializarPartidasTerminadas();
         }
         /// <summary>
         /// Modifica el jugador en la base de datos
@@ -271,32 +257,6 @@ namespace Entidades
             else
             {
                 MensajeEnviado?.Invoke($"No se pudo modificar el jugador {jugador.Nombre} en la base de datos.");
-            }
-        }
-        /// <summary>
-        /// Determina quien gana la partida
-        /// </summary>
-        private void DeterminarGanador()
-        {
-            if (PuntajeUno > PuntajeDos)
-            {
-                ganador = JugadorUno.Nombre;
-                JugadorUno.PartidasGanadas++;
-                JugadorUno.PuntajeTotal += PuntajeUno;
-                JugadorDos.PuntajeTotal += PuntajeDos;
-            }
-            else if (PuntajeDos > PuntajeUno)
-            {
-                ganador = JugadorDos.Nombre;
-                JugadorDos.PartidasGanadas++;
-                JugadorDos.PuntajeTotal += PuntajeDos;
-                JugadorUno.PuntajeTotal += PuntajeUno;
-            }
-            else
-            {
-                ganador = "Empate";
-                JugadorUno.PuntajeTotal += PuntajeUno;
-                JugadorDos.PuntajeTotal += PuntajeDos;
             }
         }
     }

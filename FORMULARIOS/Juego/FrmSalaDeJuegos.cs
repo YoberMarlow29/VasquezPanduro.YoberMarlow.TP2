@@ -30,11 +30,11 @@ namespace FORMULARIOS
         {
             btnIniciarPartida.Enabled = false;
             btnCancelarPartida.Enabled = true;
-            salaDeJuegos.IniciarJuego();
+            salaDeJuegos.IniciarPartida();
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            salaDeJuegos?.CancelarPartida();
+            salaDeJuegos?.CancelarJugada();
             btnIniciarPartida.Enabled = false;
             btnCancelarPartida.Enabled = false;
         }
