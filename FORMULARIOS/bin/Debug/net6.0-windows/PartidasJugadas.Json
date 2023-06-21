@@ -1,338 +1,86 @@
 [
   {
-    "JugadorUno": "Kanthus",
-    "JugadorDos": "CeleVas",
-    "PuntajeJugadorUno": 34,
-    "PuntajeJugadorDos": 24,
-    "Ganador": "Kanthus"
+    "JugadorUno": "Botsitoasa",
+    "JugadorDos": "Vettta777",
+    "PuntajeJugadorUno": 18,
+    "PuntajeJugadorDos": 10,
+    "Ganador": "Botsitoasa"
   },
   {
-    "JugadorUno": "CeleVas",
-    "JugadorDos": "LeonelMessi",
-    "PuntajeJugadorUno": 12,
-    "PuntajeJugadorDos": 31,
-    "Ganador": "LeonelMessi"
-  },
-  {
-    "JugadorUno": "NarutoSasuke",
-    "JugadorDos": "Jamaica",
-    "PuntajeJugadorUno": 36,
-    "PuntajeJugadorDos": 41,
-    "Ganador": "Jamaica"
-  },
-  {
-    "JugadorUno": "Feli233",
-    "JugadorDos": "PepeMarino",
-    "PuntajeJugadorUno": 62,
-    "PuntajeJugadorDos": 41,
-    "Ganador": "Feli233"
-  },
-  {
-    "JugadorUno": "Asta",
-    "JugadorDos": "CeleVas",
-    "PuntajeJugadorUno": 42,
+    "JugadorUno": "Ariga112",
+    "JugadorDos": "Hilux2341",
+    "PuntajeJugadorUno": 31,
     "PuntajeJugadorDos": 46,
-    "Ganador": "CeleVas"
+    "Ganador": "Hilux2341"
   },
   {
-    "JugadorUno": "WAZAA",
-    "JugadorDos": "Jamaica",
-    "PuntajeJugadorUno": 23,
-    "PuntajeJugadorDos": 29,
-    "Ganador": "Jamaica"
-  },
-  {
-    "JugadorUno": "NarutoSasuke",
-    "JugadorDos": "Jamaica",
-    "PuntajeJugadorUno": 25,
-    "PuntajeJugadorDos": 36,
-    "Ganador": "Jamaica"
-  },
-  {
-    "JugadorUno": "Jamaica",
-    "JugadorDos": "ElMasCapo202",
-    "PuntajeJugadorUno": 28,
-    "PuntajeJugadorDos": 76,
-    "Ganador": "ElMasCapo202"
-  },
-  {
-    "JugadorUno": "CR7",
-    "JugadorDos": "Jamaica",
-    "PuntajeJugadorUno": 44,
-    "PuntajeJugadorDos": 60,
-    "Ganador": "Jamaica"
-  },
-  {
-    "JugadorUno": "Ñandyu12",
-    "JugadorDos": "LeonelMessi",
-    "PuntajeJugadorUno": 20,
-    "PuntajeJugadorDos": 20,
-    "Ganador": "Empate"
-  },
-  {
-    "JugadorUno": "BartS",
-    "JugadorDos": "NarutoSasuke",
-    "PuntajeJugadorUno": 125,
-    "PuntajeJugadorDos": 56,
-    "Ganador": "BartS"
-  },
-  {
-    "JugadorUno": "Jamaica",
-    "JugadorDos": "ñoño5",
+    "JugadorUno": "Naruto",
+    "JugadorDos": "LolA",
     "PuntajeJugadorUno": 30,
-    "PuntajeJugadorDos": 62,
-    "Ganador": "ñoño5"
+    "PuntajeJugadorDos": 15,
+    "Ganador": "Naruto"
   },
   {
-    "JugadorUno": "Feli233",
-    "JugadorDos": "Jamaica",
-    "PuntajeJugadorUno": 25,
-    "PuntajeJugadorDos": 28,
-    "Ganador": "Jamaica"
+    "JugadorUno": "YoEl",
+    "JugadorDos": "Api",
+    "PuntajeJugadorUno": 28,
+    "PuntajeJugadorDos": 60,
+    "Ganador": "Api"
   },
   {
-    "JugadorUno": "MegMel",
-    "JugadorDos": "jejeVegeta12",
-    "PuntajeJugadorUno": 45,
+    "JugadorUno": "Botsitoasa",
+    "JugadorDos": "Maggi121111",
+    "PuntajeJugadorUno": 22,
+    "PuntajeJugadorDos": 33,
+    "Ganador": "Maggi121111"
+  },
+  {
+    "JugadorUno": "Naruto",
+    "JugadorDos": "xXmamiXx",
+    "PuntajeJugadorUno": 44,
     "PuntajeJugadorDos": 20,
+    "Ganador": "Naruto"
+  },
+  {
+    "JugadorUno": "GokyVe",
+    "JugadorDos": "Asta",
+    "PuntajeJugadorUno": 32,
+    "PuntajeJugadorDos": 22,
+    "Ganador": "GokyVe"
+  },
+  {
+    "JugadorUno": "Wazaaaa",
+    "JugadorDos": "PEpeArgento",
+    "PuntajeJugadorUno": 46,
+    "PuntajeJugadorDos": 36,
+    "Ganador": "Wazaaaa"
+  },
+  {
+    "JugadorUno": "Ceni1231",
+    "JugadorDos": "Lucifer",
+    "PuntajeJugadorUno": 59,
+    "PuntajeJugadorDos": 39,
+    "Ganador": "Ceni1231"
+  },
+  {
+    "JugadorUno": "Naruto",
+    "JugadorDos": "Ñandu121",
+    "PuntajeJugadorUno": 16,
+    "PuntajeJugadorDos": 10,
+    "Ganador": "Naruto"
+  },
+  {
+    "JugadorUno": "GokyVe",
+    "JugadorDos": "MegMel",
+    "PuntajeJugadorUno": 18,
+    "PuntajeJugadorDos": 30,
     "Ganador": "MegMel"
   },
   {
-    "JugadorUno": "CR7",
-    "JugadorDos": "ElMasCapo202",
-    "PuntajeJugadorUno": 12,
-    "PuntajeJugadorDos": 35,
-    "Ganador": "ElMasCapo202"
-  },
-  {
-    "JugadorUno": "LeonelMessi",
-    "JugadorDos": "Lucifewr",
-    "PuntajeJugadorUno": 47,
-    "PuntajeJugadorDos": 30,
-    "Ganador": "LeonelMessi"
-  },
-  {
-    "JugadorUno": "Goku1234",
-    "JugadorDos": "Goku.com",
-    "PuntajeJugadorUno": 25,
-    "PuntajeJugadorDos": 42,
-    "Ganador": "Goku.com"
-  },
-  {
-    "JugadorUno": "LucasModric",
-    "JugadorDos": "Goku.com",
-    "PuntajeJugadorUno": 34,
-    "PuntajeJugadorDos": 20,
-    "Ganador": "LucasModric"
-  },
-  {
-    "JugadorUno": "LuceroVp12",
-    "JugadorDos": "Maxiasdd",
-    "PuntajeJugadorUno": 56,
-    "PuntajeJugadorDos": 32,
-    "Ganador": "LuceroVp12"
-  },
-  {
-    "JugadorUno": "NarutoSasuke",
-    "JugadorDos": "SugarDady3",
-    "PuntajeJugadorUno": 13,
-    "PuntajeJugadorDos": 40,
-    "Ganador": "SugarDady3"
-  },
-  {
-    "JugadorUno": "CR7",
-    "JugadorDos": "CeleVas",
-    "PuntajeJugadorUno": 25,
-    "PuntajeJugadorDos": 36,
-    "Ganador": "CeleVas"
-  },
-  {
-    "JugadorUno": "OMG123",
-    "JugadorDos": "BartS",
-    "PuntajeJugadorUno": 20,
-    "PuntajeJugadorDos": 60,
-    "Ganador": "BartS"
-  },
-  {
-    "JugadorUno": "Goku1234",
-    "JugadorDos": "CeleVas",
-    "PuntajeJugadorUno": 18,
-    "PuntajeJugadorDos": 32,
-    "Ganador": "CeleVas"
-  },
-  {
-    "JugadorUno": "Jamaica",
-    "JugadorDos": "WAZAA",
-    "PuntajeJugadorUno": 4,
-    "PuntajeJugadorDos": 4,
-    "Ganador": "Empate"
-  },
-  {
-    "JugadorUno": "Lucifewr",
-    "JugadorDos": "OMG123",
-    "PuntajeJugadorUno": 30,
-    "PuntajeJugadorDos": 8,
-    "Ganador": "Lucifewr"
-  },
-  {
-    "JugadorUno": "Kanthus",
-    "JugadorDos": "ElMasCapo202",
-    "PuntajeJugadorUno": 8,
-    "PuntajeJugadorDos": 24,
-    "Ganador": ""
-  },
-  {
-    "JugadorUno": "Goku.com",
-    "JugadorDos": "Jamaica",
-    "PuntajeJugadorUno": 4,
-    "PuntajeJugadorDos": 16,
-    "Ganador": ""
-  },
-  {
-    "JugadorUno": "LucasModric",
-    "JugadorDos": "BartS",
-    "PuntajeJugadorUno": 38,
-    "PuntajeJugadorDos": 27,
-    "Ganador": "LucasModric"
-  },
-  {
-    "JugadorUno": "LucasModric",
-    "JugadorDos": "BartS",
-    "PuntajeJugadorUno": 46,
-    "PuntajeJugadorDos": 31,
-    "Ganador": "LucasModric"
-  },
-  {
-    "JugadorUno": "Kanthus",
-    "JugadorDos": "ElMasCapo202",
-    "PuntajeJugadorUno": 22,
-    "PuntajeJugadorDos": 12,
-    "Ganador": ""
-  },
-  {
-    "JugadorUno": "Lucifewr",
-    "JugadorDos": "WAZAA",
-    "PuntajeJugadorUno": 20,
-    "PuntajeJugadorDos": 9,
-    "Ganador": ""
-  },
-  {
-    "JugadorUno": "LeonelMessi",
-    "JugadorDos": "WAZAA",
-    "PuntajeJugadorUno": 20,
-    "PuntajeJugadorDos": 2,
-    "Ganador": ""
-  },
-  {
-    "JugadorUno": "LeonelMessi",
-    "JugadorDos": "BartS",
-    "PuntajeJugadorUno": 17,
+    "JugadorUno": "Botsitoasa",
+    "JugadorDos": "xXmamiXx",
+    "PuntajeJugadorUno": 35,
     "PuntajeJugadorDos": 22,
-    "Ganador": "BartS"
-  },
-  {
-    "JugadorUno": "LeonelMessi",
-    "JugadorDos": "Goku.com",
-    "PuntajeJugadorUno": 75,
-    "PuntajeJugadorDos": 10,
-    "Ganador": "LeonelMessi"
-  },
-  {
-    "JugadorUno": "Jamaica",
-    "JugadorDos": "Goku.com",
-    "PuntajeJugadorUno": 14,
-    "PuntajeJugadorDos": 28,
-    "Ganador": "Goku.com"
-  },
-  {
-    "JugadorUno": "Jamaica",
-    "JugadorDos": "Goku.com",
-    "PuntajeJugadorUno": 14,
-    "PuntajeJugadorDos": 28,
-    "Ganador": "Goku.com"
-  },
-  {
-    "JugadorUno": "BartS",
-    "JugadorDos": "LeonelMessi",
-    "PuntajeJugadorUno": 24,
-    "PuntajeJugadorDos": 26,
-    "Ganador": "LeonelMessi"
-  },
-  {
-    "JugadorUno": "ElMasCapo202",
-    "JugadorDos": "PepeMarino",
-    "PuntajeJugadorUno": 30,
-    "PuntajeJugadorDos": 38,
-    "Ganador": "PepeMarino"
-  },
-  {
-    "JugadorUno": "LeonelMessi",
-    "JugadorDos": "Kanthus",
-    "PuntajeJugadorUno": 18,
-    "PuntajeJugadorDos": 56,
-    "Ganador": "Kanthus"
-  },
-  {
-    "JugadorUno": "ElMasCapo202",
-    "JugadorDos": "Kanthus",
-    "PuntajeJugadorUno": 2,
-    "PuntajeJugadorDos": 12,
-    "Ganador": "Kanthus"
-  },
-  {
-    "JugadorUno": "ElMasCapo202",
-    "JugadorDos": "Kanthus",
-    "PuntajeJugadorUno": 2,
-    "PuntajeJugadorDos": 2,
-    "Ganador": "Empate"
-  },
-  {
-    "JugadorUno": "ElMasCapo202",
-    "JugadorDos": "Kanthus",
-    "PuntajeJugadorUno": 3,
-    "PuntajeJugadorDos": 8,
-    "Ganador": "Kanthus"
-  },
-  {
-    "JugadorUno": "Jamaica",
-    "JugadorDos": "Goku1234",
-    "PuntajeJugadorUno": 28,
-    "PuntajeJugadorDos": 12,
-    "Ganador": "Jamaica"
-  },
-  {
-    "JugadorUno": "Jamaica",
-    "JugadorDos": "Kanthus",
-    "PuntajeJugadorUno": 28,
-    "PuntajeJugadorDos": 54,
-    "Ganador": "Kanthus"
-  },
-  {
-    "JugadorUno": "Kanthus",
-    "JugadorDos": "ElMasCapo202",
-    "PuntajeJugadorUno": 16,
-    "PuntajeJugadorDos": 24,
-    "Ganador": "ElMasCapo202"
-  },
-  {
-    "JugadorUno": "PepeMarino",
-    "JugadorDos": "Goku1234",
-    "PuntajeJugadorUno": 12,
-    "PuntajeJugadorDos": 36,
-    "Ganador": "Goku1234"
-  },
-  {
-    "JugadorUno": "ElMasCapo202",
-    "JugadorDos": "Kanthus",
-    "PuntajeJugadorUno": 31,
-    "PuntajeJugadorDos": 36,
-    "Ganador": "Kanthus"
-  },
-  {
-    "JugadorUno": "ElMasCapo202",
-    "JugadorDos": "Goku.com",
-    "PuntajeJugadorUno": 33,
-    "PuntajeJugadorDos": 56,
-    "Ganador": "Goku.com"
+    "Ganador": "Botsitoasa"
   }
 ]

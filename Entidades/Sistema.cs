@@ -27,7 +27,7 @@ namespace Entidades
             partidasTerminadasXml = new List<JuegoTerminado>();
             archivosJson = new ArchivosJson<List<JuegoTerminado>>();
             archivosXml = new ArchivosXml<List<JuegoTerminado>>();
-            Inicializar();
+            //Inicializar();
 
         }
 
