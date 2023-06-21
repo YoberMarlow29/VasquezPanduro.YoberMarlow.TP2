@@ -66,40 +66,51 @@ namespace Entidades
 
             MensajeEnviado?.Invoke("¡Comienza la partida!");
 
-                while (juegoEnCurso)
+            while (juegoEnCurso)
+            {
+                if (!cancellation.IsCancellationRequested && ronda<=maxRondas)
                 {
-                    if (!cancellation.IsCancellationRequested && ronda<=maxRondas)
-                    {
-                        JugarJuego();
-                        SiguienteRonda();
-                    }
-                    else 
-                    {
-                    MensajeEnviado?.Invoke("¡Fin De la partida!");
-                    break;
-                    }
+                    JugarJuego();
+                    SiguienteRonda();
                 }
+                else 
+                {
+                    MensajeEnviado?.Invoke("¡Fin De la partida!");
+                    partidaCancelada = true;
+                    FinalizarPartidaYDeterminarGanador();
+                    break;
+                }
+            }
+            if (!partidaCancelada)
+            {
+                MensajeEnviado?.Invoke("¡Fin De la partida!");
+                FinalizarPartidaYDeterminarGanador();
+            }
         }
         public void CancelarJugada() 
         {
+
             this.CancellationTokenSource.Cancel();
             MensajeEnviado?.Invoke("Partida cancelada.");
+
+
         }
         /// <summary>
         /// Simula una ronda del juego.
         /// </summary>
         private void JugarJuego()
         {
-            // Envía mensajes sobre la ronda actual y el turno del JugadorUno
+
             MensajeEnviado?.Invoke($"Ronda {ronda}");
             MensajeEnviado?.Invoke($"Turno de {JugadorUno.Nombre}");
             RealizarLanzamiento(JugadorUno);
 
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
 
-            // Envía mensajes sobre el turno del JugadorDos
             MensajeEnviado?.Invoke($"Turno de {JugadorDos.Nombre}");
             RealizarLanzamiento(JugadorDos);
+
+            Thread.Sleep(1000);
         }
         #region
         /// <summary>
@@ -195,6 +206,7 @@ namespace Entidades
         }
         private void FinalizarPartidaYDeterminarGanador()
         {
+
             JugadorUno.PartidasJugadas++;
             JugadorDos.PartidasJugadas++;
 

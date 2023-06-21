@@ -14,7 +14,6 @@ namespace FORMULARIOS
     public partial class FrmSalaDeJuegos : Form
     {
         Juego salaDeJuegos;
-
         public FrmSalaDeJuegos(Jugador jugador1, Jugador jugador2)
         {
             InitializeComponent();
