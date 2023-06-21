@@ -3,7 +3,7 @@ Mi nombre es Yober Marlow, estudiante de la Tecnicatura en
 Programacion de la UTN. Fue un trabajo muy duro, pero con el tiempo le pude agarrar la mano, me hubiera gustado
 poder agregarle mas cosas pero creo que esta bien implementado.
 # Formulario de Bienvenida
-![FrmBienvenida](./Imagenes/Frmbienvenida.png)
+![FrmBienvenida](./Imagenes/FrmBienvenida.png)
 
 Formulario de Bienvenida en el cual primero se debe probar la conexion a la base de datos para que los botones de iniciar sesion y crear cuenta de habilite, caso contrario no se habilitan,
 luego de eso se podra elegir si iniciar sesion o crearme alguna cuenta.
