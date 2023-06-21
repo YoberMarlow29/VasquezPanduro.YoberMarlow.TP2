@@ -62,7 +62,6 @@ namespace Entidades
         }
         public void IniciarJuego(CancellationToken cancellation)
         {
-
             int maxRondas = 4;
 
             MensajeEnviado?.Invoke("¡Comienza la partida!");
@@ -73,7 +72,6 @@ namespace Entidades
                     {
                         JugarJuego();
                         SiguienteRonda();
-
                     }
                     else 
                     {
@@ -81,14 +79,11 @@ namespace Entidades
                     break;
                     }
                 }
-
         }
         public void CancelarJugada() 
         {
             this.CancellationTokenSource.Cancel();
             MensajeEnviado?.Invoke("Partida cancelada.");
-
-
         }
         /// <summary>
         /// Simula una ronda del juego.
@@ -198,10 +193,6 @@ namespace Entidades
             MensajeEnviado?.Invoke("Siguiente ronda...");
             Thread.Sleep(2000);
         }
-
-
-
-
         private void FinalizarPartidaYDeterminarGanador()
         {
             JugadorUno.PartidasJugadas++;
