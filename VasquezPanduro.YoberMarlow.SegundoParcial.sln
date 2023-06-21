@@ -11,6 +11,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeneralaTestUnitario", "Gen
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución", "Elementos de la solución", "{CA1E272D-6633-427B-BBDC-FF8FB702DC18}"
 	ProjectSection(SolutionItems) = preProject
+		Imagenes\DiagramaDeClases.png = Imagenes\DiagramaDeClases.png
+		Imagenes\FrmBienvenida.png = Imagenes\FrmBienvenida.png
+		Imagenes\FrmCrearCuenta.png = Imagenes\FrmCrearCuenta.png
+		Imagenes\FrmCrearJugador.png = Imagenes\FrmCrearJugador.png
+		Imagenes\FrmEstadisticas.png = Imagenes\FrmEstadisticas.png
+		Imagenes\FrmHitorial.png = Imagenes\FrmHitorial.png
+		Imagenes\FrmLogin.png = Imagenes\FrmLogin.png
+		Imagenes\FrmMenu.png = Imagenes\FrmMenu.png
+		Imagenes\FrmSalaDeJuego.png = Imagenes\FrmSalaDeJuego.png
+		Imagenes\FrmSeleccionarJugadores.png = Imagenes\FrmSeleccionarJugadores.png
+		Imagenes\ImagenDado.png = Imagenes\ImagenDado.png
 		README.md = README.md
 	EndProjectSection
 EndProject
