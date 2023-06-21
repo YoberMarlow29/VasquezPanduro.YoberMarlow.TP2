@@ -58,6 +58,7 @@
             // 
             // cmb_JugadorUno
             // 
+            cmb_JugadorUno.DropDownStyle = ComboBoxStyle.DropDownList;
             cmb_JugadorUno.FormattingEnabled = true;
             cmb_JugadorUno.Location = new Point(31, 156);
             cmb_JugadorUno.Name = "cmb_JugadorUno";
@@ -66,6 +67,7 @@
             // 
             // cmb_JugadorDos
             // 
+            cmb_JugadorDos.DropDownStyle = ComboBoxStyle.DropDownList;
             cmb_JugadorDos.FormattingEnabled = true;
             cmb_JugadorDos.Location = new Point(448, 156);
             cmb_JugadorDos.Name = "cmb_JugadorDos";
@@ -97,7 +99,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(23, 21, 32);
-            ClientSize = new Size(918, 522);
+            ClientSize = new Size(934, 561);
             Controls.Add(labelError);
             Controls.Add(btnCrearPartida);
             Controls.Add(cmb_JugadorDos);

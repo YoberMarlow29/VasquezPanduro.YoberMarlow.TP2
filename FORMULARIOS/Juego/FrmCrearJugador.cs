@@ -30,7 +30,6 @@ namespace FORMULARIOS
                 Jugador jugador = new Jugador(nombre, 0, 0, 0, 0);
                 Sistema.AgregarJugador(jugador);
                 txtNombre.Text = "";
-                this.Close();
             }
             catch (Exception ex)
             {

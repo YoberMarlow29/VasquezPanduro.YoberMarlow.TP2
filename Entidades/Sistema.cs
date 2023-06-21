@@ -56,7 +56,6 @@ namespace Entidades
         public static void SerializarPartidasTerminadas()
         {
             archivosJson.Serializar(partidasTerminadasjson);
-          
             archivosXml.Serializar(partidasTerminadasXml);
         }
         /// <summary>
@@ -65,9 +64,7 @@ namespace Entidades
         /// <param name="partidaTerminada">La partida terminada a agregar.</param>
         public static void AgregarPartidaTerminada(JuegoTerminado partidaTerminada)
         {
-            partidasTerminadasjson.Add(partidaTerminada);
-            
-           
+            partidasTerminadasjson.Add(partidaTerminada);                     
             partidasTerminadasXml.Add(partidaTerminada);
         }
 
