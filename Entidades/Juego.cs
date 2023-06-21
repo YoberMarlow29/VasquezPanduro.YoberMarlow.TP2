@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
+    /// <summary>
+    /// Representa un juego entre dos jugadores.
+    /// </summary>
     public class Juego
     {
         private string ganador;
@@ -35,6 +38,11 @@ namespace Entidades
         public bool PartidaCancelada { get => partidaCancelada; set => partidaCancelada = value; }
         public bool JuegoEnCurso { get => juegoEnCurso; set => juegoEnCurso = value; }
 
+        /// <summary>
+        /// Crea una nueva instancia de la clase Juego con los jugadores proporcionados.
+        /// </summary>
+        /// <param name="jugadorUno">El jugador uno.</param>
+        /// <param name="jugadorDos">El jugador dos.</param>
         public Juego(Jugador jugadorUno, Jugador jugadorDos)
         {
             this.partidaCancelada = false;
@@ -50,11 +58,17 @@ namespace Entidades
             this.conexionBD = new ConexionBaseDeDatos();
         }
 
+        /// <summary>
+        /// Inicia el juego.
+        /// </summary>
         public void IniciarJuego()
         {
+            // Establece el juego como en curso y envía un mensaje de inicio de partida
             juegoEnCurso = true;
+
             MensajeEnviado?.Invoke("¡Comienza la partida!");
 
+            // Ejecuta la lógica del juego en un bucle mientras el juego esté en curso
             juegoTask = Task.Run(async () =>
             {
                 while (juegoEnCurso)
@@ -73,19 +87,26 @@ namespace Entidades
                 }
             });
         }
-
+        /// <summary>
+        /// Simula una ronda del juego.
+        /// </summary>
         private void JugarJuego()
         {
+            // Envía mensajes sobre la ronda actual y el turno del JugadorUno
             MensajeEnviado?.Invoke($"Ronda {ronda}");
             MensajeEnviado?.Invoke($"Turno de {JugadorUno.Nombre}");
             RealizarLanzamiento(JugadorUno);
 
             Thread.Sleep(2000);
 
+            // Envía mensajes sobre el turno del JugadorDos
             MensajeEnviado?.Invoke($"Turno de {JugadorDos.Nombre}");
             RealizarLanzamiento(JugadorDos);
         }
-
+        /// <summary>
+        /// Realiza el lanzamiento de los dados para un jugador específico y calcula el puntaje obtenido.
+        /// </summary>
+        /// <param name="jugador">El jugador que realiza el lanzamiento.</param>
         private void RealizarLanzamiento(Jugador jugador)
         {
             int[] mapeoDados = new int[6];
@@ -104,7 +125,7 @@ namespace Entidades
 
             int puntaje = CalcularPuntaje(mapeoDados, dados);
             MensajeEnviado?.Invoke($"Puntaje de {jugador.Nombre}, con {puntaje} puntos.");
-
+            // Actualiza el puntaje del jugador si es mayor que cero
             if (puntaje > 0)
             {
                 if (jugador == JugadorUno)
@@ -113,7 +134,12 @@ namespace Entidades
                     PuntajeDos += puntaje;
             }
         }
-
+        /// <summary>
+        /// Calcula el puntaje obtenido a partir del mapeo de los dados y los valores de los dados.
+        /// </summary>
+        /// <param name="mapeoDados">El mapeo de los dados obtenidos.</param>
+        /// <param name="dados">La lista de valores de los dados obtenidos.</param>
+        /// <returns>El puntaje obtenido.</returns>
         private int CalcularPuntaje(int[] mapeoDados, List<int> dados)
         {
             int puntaje = 0;
@@ -151,20 +177,25 @@ namespace Entidades
                         numeroMasRepetido = i + 1;
                     }
                 }
+                // Calcula el puntaje basado en el número más repetido
 
                 puntaje = numeroMasRepetido * cantidadMasRepetido;
             }
 
             return puntaje;
         }
-
+        /// <summary>
+        /// Avanza a la siguiente ronda del juego.
+        /// </summary>
         private void SiguienteRonda()
         {
             ronda++;
             MensajeEnviado?.Invoke("Siguiente ronda...");
             Thread.Sleep(2000);
         }
-
+        /// <summary>
+        /// Finaliza el juego, determinando al ganador y actualizando las estadísticas de los jugadores.
+        /// </summary>
         private void FinalizarJuego()
         {
             juegoEnCurso = false;
@@ -184,7 +215,9 @@ namespace Entidades
             ModificarJugador(JugadorUno);
             ModificarJugador(JugadorDos);
         }
-
+        /// <summary>
+        /// Cancela la partida en curso.
+        /// </summary>
         public void CancelarPartida()
         {
             partidaCancelada = true;
@@ -210,6 +243,9 @@ namespace Entidades
                 MensajeEnviado?.Invoke("Partida cancelada.");
             });
         }
+        /// <summary>
+        /// Finaliza la partida .
+        /// </summary>
         private void FinalizarPartida()
         {
             JugadorUno.PartidasJugadas++;
@@ -220,6 +256,10 @@ namespace Entidades
             else if (ganador != JugadorDos.Nombre)
                 JugadorDos.PartidasPerdidas++;
         }
+        /// <summary>
+        /// Modifica el jugador en la base de datos
+        /// </summary>
+        /// <param name="jugador"></param>
         private void ModificarJugador(Jugador jugador)
         {
             bool exito = Sistema.ModificarJugador(jugador);
@@ -233,6 +273,9 @@ namespace Entidades
                 MensajeEnviado?.Invoke($"No se pudo modificar el jugador {jugador.Nombre} en la base de datos.");
             }
         }
+        /// <summary>
+        /// Determina quien gana la partida
+        /// </summary>
         private void DeterminarGanador()
         {
             if (PuntajeUno > PuntajeDos)

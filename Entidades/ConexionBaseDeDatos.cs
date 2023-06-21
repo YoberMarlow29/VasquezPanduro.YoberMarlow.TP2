@@ -8,6 +8,9 @@ using System.Data;
 
 namespace Entidades
 {
+    /// <summary>
+    /// Clase que maneja la conexión a la base de datos y realiza operaciones relacionadas con usuarios y jugadores.
+    /// </summary>
     public class ConexionBaseDeDatos
     {
         private static string cadena_conexion;
@@ -15,6 +18,9 @@ namespace Entidades
         private SqlCommand comando;
         private SqlDataReader lector;
 
+        /// <summary>
+        /// Constructor estático que establece la cadena de conexión a la base de datos.
+        /// </summary>
         static ConexionBaseDeDatos()
         {
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
@@ -25,11 +31,18 @@ namespace Entidades
             builder.InitialCatalog = "GeneralaDataBase";
             ConexionBaseDeDatos.cadena_conexion = builder.ConnectionString;
         }
+        /// <summary>
+        /// Constructor de la clase ConexionBaseDeDatos.
+        /// </summary>
         public ConexionBaseDeDatos()
         {
             // CREO UN OBJETO SQLCONECTION
             this.conexion = new SqlConnection(ConexionBaseDeDatos.cadena_conexion);
         }
+        /// <summary>
+        /// Prueba la conexión a la base de datos.
+        /// </summary>
+        /// <returns><c>true</c> si la conexión es exitosa; de lo contrario, <c>false</c>.</returns>
         public bool ProbarConexion()
         {
             bool rta = true;
@@ -50,6 +63,10 @@ namespace Entidades
 
             return rta;
         }
+        /// <summary>
+        /// Obtiene una lista de usuarios desde la base de datos.
+        /// </summary>
+        /// <returns>La lista de usuarios obtenida desde la base de datos.</returns>
         public List<Usuario> ObtenerListaDeUsuarios()
         {
             List<Usuario> lista = new List<Usuario>();
@@ -94,6 +111,11 @@ namespace Entidades
 
             return lista;
         }
+        /// <summary>
+        /// Agrega un usuario a la base de datos.
+        /// </summary>
+        /// <param name="param">El usuario a agregar.</param>
+        /// <returns><c>true</c> si la operación se realizó con éxito; de lo contrario, <c>false</c>.</returns>
         public bool Agregarsuarios(Usuario param)
         {
             bool rta = true;
@@ -129,7 +151,10 @@ namespace Entidades
 
             return rta;
         }
-
+        /// <summary>
+        /// Obtiene una lista de jugadores desde la base de datos.
+        /// </summary>
+        /// <returns>La lista de jugadores obtenida desde la base de datos.</returns>
         public List<Jugador> ObtenerListaDeJugadores()
         {
             List<Jugador> lista = new List<Jugador>();
@@ -174,6 +199,11 @@ namespace Entidades
 
             return lista;
         }
+        /// <summary>
+        /// Agrega un jugador a la base de datos.
+        /// </summary>
+        /// <param name="param">El jugador a agregar.</param>
+        /// <returns><c>true</c> si la operación se realizó con éxito; de lo contrario, <c>false</c>.</returns>
         public bool AgregarJugador(Jugador param)
         {
             bool rta = true;
@@ -210,6 +240,11 @@ namespace Entidades
 
             return rta;
         }
+        /// <summary>
+        /// Modifica un jugador en la base de datos.
+        /// </summary>
+        /// <param name="param">El jugador a modificar.</param>
+        /// <returns><c>true</c> si la operación se realizó con éxito; de lo contrario, <c>false</c>.</returns>
         public bool ModificarJugador(Jugador param)
         {
             bool rta = true;
@@ -255,6 +290,9 @@ namespace Entidades
             }
             return rta;
         }
+        /// <summary>
+        /// Cierra la conexión a la base de datos.
+        /// </summary>
         public void CerrarConexion() 
         {
             if (this.conexion.State == ConnectionState.Open)
