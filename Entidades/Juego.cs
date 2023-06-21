@@ -17,7 +17,6 @@ namespace Entidades
         private bool partidaCancelada;
         private bool juegoEnCurso;
         private CancellationTokenSource cancellationTokenSource;
-        private CancellationToken cancellationToken;
         private Task juegoTask;
         private ConexionBaseDeDatos conexionBD;
         public delegate void MensajeEnviadoEventHandler(string mensaje);
@@ -48,7 +47,6 @@ namespace Entidades
             this.puntajeDos = 0;
             this.ronda = 1;
             this.cancellationTokenSource = new CancellationTokenSource();
-            this.cancellationToken = cancellationTokenSource.Token;
             this.conexionBD = new ConexionBaseDeDatos();
         }
 
@@ -72,8 +70,6 @@ namespace Entidades
 
                     Thread.Sleep(2000);
 
-                    if (cancellationToken.IsCancellationRequested)
-                        break;
                 }
             });
         }

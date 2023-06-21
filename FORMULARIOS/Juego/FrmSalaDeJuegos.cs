@@ -24,7 +24,7 @@ namespace FORMULARIOS
         }
         private void FrmSalaDeJuegos_Load(object sender, EventArgs e)
         {
-
+            btnCancelarPartida.Enabled = false;
         }
         private void btnLanzar_Click(object sender, EventArgs e)
         {

@@ -103,6 +103,7 @@
             Controls.Add(label1);
             ForeColor = Color.White;
             Name = "FrmBienvenida";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmBienvenida";
             Load += FrmBienvenida_Load;
             ResumeLayout(false);

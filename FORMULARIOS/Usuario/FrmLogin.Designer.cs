@@ -141,6 +141,7 @@
             MaximumSize = new Size(776, 330);
             MinimumSize = new Size(776, 330);
             Name = "FrmLogin";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmLogin";
             Load += FrmLogin_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

@@ -33,6 +33,7 @@ namespace FORMULARIOS
                     principal.NombreUsuario = item.Nombre;
                     principal.CorreoUsuario = item.Correo;
                     principal.ShowDialog();
+                    this.Hide();
                 }
             }
             if (correcto == 0)

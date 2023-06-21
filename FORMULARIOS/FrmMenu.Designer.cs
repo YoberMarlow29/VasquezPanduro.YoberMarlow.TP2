@@ -196,6 +196,7 @@
             MaximumSize = new Size(1400, 800);
             MinimumSize = new Size(1200, 600);
             Name = "FrmMenu";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmMenu";
             Load += FrmMenu_Load;
             panelMenuPrincipal.ResumeLayout(false);

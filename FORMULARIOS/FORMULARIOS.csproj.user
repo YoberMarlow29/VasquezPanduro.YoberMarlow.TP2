@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="FrmBienvenida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Usuario\FrmCrearUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Juego\FrmHistorial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Juego\FrmEstadisticas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Juego\FrmSalaDeJuegos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Usuario\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Juego\FrmCrearJugador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Juego\FrmSeleccionarJugador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

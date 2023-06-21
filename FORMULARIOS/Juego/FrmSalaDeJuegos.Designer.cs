@@ -74,6 +74,7 @@
             MaximumSize = new Size(700, 600);
             MinimumSize = new Size(700, 600);
             Name = "FrmSalaDeJuegos";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmSalaDeJuegos";
             Load += FrmSalaDeJuegos_Load;
             ResumeLayout(false);

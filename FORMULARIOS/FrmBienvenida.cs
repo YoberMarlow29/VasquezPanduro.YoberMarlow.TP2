@@ -40,7 +40,7 @@ namespace FORMULARIOS
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             FrmLogin frm = new FrmLogin();
-            frm.ShowDialog();   
+            frm.ShowDialog();
         }
 
         private void btnCrearCuenta_Click(object sender, EventArgs e)
