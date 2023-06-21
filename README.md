@@ -69,7 +69,7 @@ Antes de poder entrar al menu principal, se pedira probar la conexion a la base 
 - Delegados: Se utilizan dos delegados que reciben un string.
 - Task: Al llamar al metodo IniciarJuego() de la clase Juego se iniciara una task ejecutando el metodo Jugar() en un hilo secundario. Esta terminara cuando termine el metodo o sea cancelada por el CancellationToken el cual sera cancelado en un hilo secundario.
 - Eventos: Mi clase Juego, tiene dos eventos, ambos al ser invocados envian un mensaje.
-- 
+- Manejo de excepciones: Se usa excepciones para mostrar mensajes al momento de validar datos.
 
 
 
