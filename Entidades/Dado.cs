@@ -1,23 +1,41 @@
 ﻿namespace Entidades
 {
+    /// <summary>
+    /// Representa un dado utilizado en un juego.
+    /// </summary>
     public class Dado
     {
         private int numero;
         private Random random;
+
+        /// <summary>
+        /// Crea una nueva instancia de la clase Dado.
+        /// </summary>
         public Dado()
         {
             this.numero = 0;
             this.random = new Random();
         }
-        public int Numero
-        {
-            get { return this.numero; }
-            set { this.numero = value; }
-        }
+
+
+        public int Numero { get => numero; set => numero = value; }
+        public Random Random { get => random; set => random = value; }
+
+
+        /// <summary>
+        /// Lanza el dado y genera un número aleatorio entre 1 y 6.
+        /// </summary>
         public void Lanzar()
         {
             this.numero = random.Next(1, 7);
         }
+        /// <summary>
+        /// Verifica si se ha obtenido una Generala.
+        /// </summary>
+        /// <param name="mapeoDados">Un arreglo que representa el mapeo de los resultados obtenidos en los dados.</param>
+        /// <returns>
+        ///   <c>true</c> si se ha obtenido una Generala; de lo contrario, <c>false</c>.
+        /// </returns>
         public static bool Generala(int[] mapeoDados)
         {
             bool esGenerala = false;
@@ -33,6 +51,13 @@
 
             return esGenerala;
         }
+        /// <summary>
+        /// Verifica si se ha obtenido una Escalera.
+        /// </summary>
+        /// <param name="dados">Una lista de los valores obtenidos en los dados.</param>
+        /// <returns>
+        ///   <c>true</c> si se ha obtenido una Escalera; de lo contrario, <c>false</c>.
+        /// </returns>
         public static bool Escalera(List<int> dados)
         {
             bool esEscalera = false;
@@ -58,6 +83,13 @@
             }
             return esEscalera;
         }
+        /// <summary>
+        /// Verifica si se ha obtenido un Poker.
+        /// </summary>
+        /// <param name="mapeoDados">Un arreglo que representa el mapeo de los resultados obtenidos en los dados.</param>
+        /// <returns>
+        ///   <c>true</c> si se ha obtenido un Poker; de lo contrario, <c>false</c>.
+        /// </returns>
         public static bool Poker(int[] mapeoDados)
         {
             bool esPoker = false;
@@ -73,7 +105,13 @@
 
             return esPoker;
         }
-
+        /// <summary>
+        /// Verifica si se ha obtenido un Full.
+        /// </summary>
+        /// <param name="mapeoDados">Un arreglo que representa el mapeo de los resultados obtenidos en los dados.</param>
+        /// <returns>
+        ///   <c>true</c> si se ha obtenido un Full; de lo contrario, <c>false</c>.
+        /// </returns>
         public static bool Full(int[] mapeoDados)
         {
             bool esFull = false;
@@ -94,12 +132,10 @@
                     }
                 }
             }
-
             if (flag1 == true && flag2 == true)
             {
                 esFull = true;
             }
-
             return esFull;
         }
     }

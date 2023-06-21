@@ -8,10 +8,19 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
+    /// <summary>
+    /// Clase que implementa la interfaz IArchivos para la serialización y deserialización de objetos en formato JSON.
+    /// </summary>
+    /// <typeparam name="T">Tipo de objeto a serializar y deserializar.</typeparam>
     public class ArchivosJson<T> : IArchivos<T> where T : class, new()
     {
         public string path="PartidasJugadas.Json";
 
+        /// <summary>
+        /// Serializa un objeto en un archivo JSON.
+        /// </summary>
+        /// <param name="obj">Objeto a serializar.</param>
+        /// <returns><c>true</c> si la serialización se realizó con éxito; de lo contrario, <c>false</c>.</returns>
         public bool Serializar(T obj)
         {
             string json = JsonConvert.SerializeObject(obj, Formatting.Indented);
@@ -29,6 +38,10 @@ namespace Entidades
             
             return retorno;
         }
+        /// <summary>
+        /// Deserializa un objeto desde un archivo JSON.
+        /// </summary>
+        /// <returns>El objeto deserializado.</returns>
         public T Deserializar()
         {
             T aux = new T();
